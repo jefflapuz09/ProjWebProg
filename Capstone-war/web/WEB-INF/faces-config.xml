@@ -109,6 +109,10 @@
             <from-outcome>case3</from-outcome>
             <to-view-id>/pages/PurchaseOrder.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>case4</from-outcome>
+            <to-view-id>/pages/SupplierMaintenanceUpdate.jsp</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/SupplierMaintenanceCreate.jsp</from-view-id>
@@ -121,4 +125,26 @@
             <to-view-id>/pages/SupplierMaintenance.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>pages$SupplierMaintenanceUpdate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.SupplierMaintenanceUpdate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/pages/SupplierMaintenanceUpdate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/SupplierMaintenance.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>pages$navigator</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.navigator</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pages$ProductUnitMaintenance</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductUnitMaintenance</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>

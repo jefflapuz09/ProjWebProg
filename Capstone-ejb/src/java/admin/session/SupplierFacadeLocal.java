@@ -26,4 +26,13 @@ public interface SupplierFacadeLocal {
 
     List<Supplier> findAll();
 
+    public boolean findThisRecord();
+
+    public boolean findThisRecord(String search);
+
+    public List<Supplier> findthisRecord(String search);
+
+
+
+
 }

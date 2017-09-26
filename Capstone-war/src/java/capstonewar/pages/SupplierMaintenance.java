@@ -10,14 +10,20 @@ import admin.session.SupplierContactFacadeLocal;
 import admin.session.SupplierFacadeLocal;
 import capstonewar.RequestBean1;
 import capstonewar.SessionBean1;
+import com.sun.data.provider.RowKey;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Button;
+import com.sun.webui.jsf.component.Checkbox;
 import com.sun.webui.jsf.component.Table;
+import com.sun.webui.jsf.component.TableColumn;
+import com.sun.webui.jsf.component.TableRowGroup;
+import com.sun.webui.jsf.component.TextField;
 import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.SessionBean;
 import javax.faces.FacesException;
+import javax.faces.event.ValueChangeEvent;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -53,6 +59,78 @@ public class SupplierMaintenance extends AbstractPageBean {
 
     public void setBtnNew(Button b) {
         this.btnNew = b;
+    }
+    private TableRowGroup tableRowGroup1 = new TableRowGroup();
+
+    public TableRowGroup getTableRowGroup1() {
+        return tableRowGroup1;
+    }
+
+    public void setTableRowGroup1(TableRowGroup trg) {
+        this.tableRowGroup1 = trg;
+    }
+    private Button btnSearch = new Button();
+
+    public Button getBtnSearch() {
+        return btnSearch;
+    }
+
+    public void setBtnSearch(Button b) {
+        this.btnSearch = b;
+    }
+    private TextField txtSearch = new TextField();
+
+    public TextField getTxtSearch() {
+        return txtSearch;
+    }
+
+    public void setTxtSearch(TextField tf) {
+        this.txtSearch = tf;
+    }
+    private Checkbox all = new Checkbox();
+
+    public Checkbox getAll() {
+        return all;
+    }
+
+    public void setAll(Checkbox c) {
+        this.all = c;
+    }
+    private Button btnUpdate = new Button();
+
+    public Button getBtnUpdate() {
+        return btnUpdate;
+    }
+
+    public void setBtnUpdate(Button b) {
+        this.btnUpdate = b;
+    }
+    private Button btnDelete = new Button();
+
+    public Button getBtnDelete() {
+        return btnDelete;
+    }
+
+    public void setBtnDelete(Button b) {
+        this.btnDelete = b;
+    }
+    private Table table1 = new Table();
+
+    public Table getTable1() {
+        return table1;
+    }
+
+    public void setTable1(Table t) {
+        this.table1 = t;
+    }
+    private TableColumn tableColumn6 = new TableColumn();
+
+    public TableColumn getTableColumn6() {
+        return tableColumn6;
+    }
+
+    public void setTableColumn6(TableColumn tc) {
+        this.tableColumn6 = tc;
     }
 
     // </editor-fold>
@@ -119,28 +197,35 @@ public class SupplierMaintenance extends AbstractPageBean {
      */
     @Override
     public void prerender() {
+          SessionBean1 sb1 = this.getSessionBean1();
+        Supplier[] suppArray = sb1.getSupplierData();
+        if(suppArray==null){
+            sb1.setSupplierData(new Supplier[0]);
+        }
 
-        SessionBean1 sb1 = this.getSessionBean1();
-        List<Supplier> suppList = supplierFacade.findAll();
-        Supplier[] suppArray = suppList.toArray(new Supplier[0]);
-        List<SupplierContact> supplierContactList = supplierContactFacade.findAll();
-        SupplierContact[] supplierContactArray = supplierContactList.toArray(new SupplierContact[0]);
+//        SessionBean1 sb1 = this.getSessionBean1();
+//        List<Supplier> suppList = supplierFacade.findAll();
+//        Supplier[] suppArray = suppList.toArray(new Supplier[0]);
+//
+//        List<SupplierContact> supplierContactList = supplierContactFacade.findAll();
+//        SupplierContact[] supplierContactArray = supplierContactList.toArray(new SupplierContact[0]);
         
 //        System.out.println(supplierContactArray[suppArray[0].getId()]);
-        for(int i = 0; i < suppArray.length; i++)
-        {
+//        for(int i = 0; i < suppArray.length; i++)
+//        {
 //            System.out.println(supplierContactArray[suppArray[i].getId()]);
-            for(int j = 0; j < supplierContactArray.length; j++)
-            {
-                suppArray[i].setSuppContact(supplierContactArray[j].getScNo());
-                if(suppArray[i].getId() == supplierContactArray[j].getScId())
-                {
-                    supplierContactList.add(supplierContactArray[i]);
-                }
-            }
+
+//            for(int j = 0; j < supplierContactArray.length; j++)
+//            {
+////                suppArray[i].setSuppContact(supplierContactArray[j].getScNo());
+//                if(suppArray[i].getId() == supplierContactArray[j].getScId())
+//                {
+//                    supplierContactList.add(supplierContactArray[i]);
+//                }
+//            }
 //            suppArray[i].setSuppContact(supplierContactArray[0].getScNo());
-        }
-        sb1.setSupplierData(suppArray);
+//        }
+//        sb1.setSupplierData(suppArray);
 
 
     }
@@ -195,6 +280,57 @@ public class SupplierMaintenance extends AbstractPageBean {
      */
     protected RequestBean1 getRequestBean1() {
         return (RequestBean1) getBean("RequestBean1");
+    }
+
+    public void all_processValueChange(ValueChangeEvent event) {
+        SessionBean1 sb1 = this.getSessionBean1();
+
+        if(all.isChecked()){
+            List<Supplier> caseList = supplierFacade.findAll();
+            Supplier[] suppArr = caseList.toArray(new Supplier[0]);
+            sb1.setSupplierData(suppArr);
+            }
+            else{
+                sb1.setSupplierData(null);
+                return;
+            }
+    }
+
+    public String btnSearch_action() {
+        String search = (String) this.txtSearch.getText();
+        SessionBean1 sb1 = this.getSessionBean1();
+
+        boolean checkIfExists = supplierFacade.findThisRecord(search);
+        if(checkIfExists){
+        List<Supplier> listOfUsers = supplierFacade.findthisRecord(search);
+        Supplier[] arrayOfUsers = listOfUsers.toArray(new Supplier[0]);
+        sb1.setSupplierData(arrayOfUsers);
+        }
+        else{
+            this.info("Sorry!, no record found.");
+            sb1.setSupplierData(null);
+        }
+        return null;
+    }
+
+    public String btnUpdate_action() {
+        RowKey rowKey = this.tableRowGroup1.getRowKey();
+        String rowId = "";
+        rowId = rowKey.getRowId();
+
+        SessionBean1 sb1 = this.getSessionBean1();
+        Supplier[] suppEntryArray = sb1.getSupplierData();
+        Supplier listOfEntry = suppEntryArray[Integer.parseInt(rowId)];
+        sb1.setSuppEntryforEdit(listOfEntry);
+
+
+        return "case4";
+    }
+
+    public String btnDelete_action() {
+        // TODO: Process the action. Return value is a navigation
+        // case name where null will return to the same page.
+        return null;
     }
 }
 

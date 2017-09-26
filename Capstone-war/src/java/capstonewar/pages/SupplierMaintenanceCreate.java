@@ -7,8 +7,12 @@ package capstonewar.pages;
 
 import admin.entity.Supplier;
 
+import admin.entity.SupplierContact;
+import admin.entity.SupplierPerson;
+import admin.session.SupplierContactFacadeLocal;
 import admin.session.SupplierFacadeLocal;
 
+import admin.session.SupplierPersonFacadeLocal;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Button;
 import com.sun.webui.jsf.component.MessageGroup;
@@ -32,6 +36,10 @@ import capstonewar.RequestBean1;
  */
 
 public class SupplierMaintenanceCreate extends AbstractPageBean {
+    @EJB
+    private SupplierPersonFacadeLocal supplierPersonFacade;
+    @EJB
+    private SupplierContactFacadeLocal supplierContactFacade;
   
 
     @EJB
@@ -47,14 +55,14 @@ public class SupplierMaintenanceCreate extends AbstractPageBean {
      */
     private void _init() throws Exception {
     }
-    private TextField txtContactNum = new TextField();
+    private TextField txtPContactNum = new TextField();
 
-    public TextField getTxtContactNum() {
-        return txtContactNum;
+    public TextField getTxtPContactNum() {
+        return txtPContactNum;
     }
 
-    public void setTxtContactNum(TextField tf) {
-        this.txtContactNum = tf;
+    public void setTxtPContactNum(TextField tf) {
+        this.txtPContactNum = tf;
     }
     private TextField txtContactP = new TextField();
 
@@ -127,6 +135,15 @@ public class SupplierMaintenanceCreate extends AbstractPageBean {
 
     public void setBtnBack(Button b) {
         this.btnBack = b;
+    }
+    private TextField txtContact = new TextField();
+
+    public TextField getTxtContact() {
+        return txtContact;
+    }
+
+    public void setTxtContact(TextField tf) {
+        this.txtContact = tf;
     }
 
     // </editor-fold>
@@ -247,8 +264,10 @@ public class SupplierMaintenanceCreate extends AbstractPageBean {
         String brgy = "";
         String city = "";
         String suppContact = "";
-        String suppContactName = "";
-        String suppContactNo ;
+        String suppPContactName = "";
+        String suppPContactNo ;
+        int sid,spid;
+        String ssup;
 
         SessionBean1 sb1 = this.getSessionBean1();
        
@@ -260,19 +279,36 @@ public class SupplierMaintenanceCreate extends AbstractPageBean {
             st = (String) txtSt.getText();
             brgy = (String) txtBrgy.getText();
             city = (String) txtCity.getText();
-            suppContactName = (String) txtContactP.getText();
-            suppContactNo = (String) txtContactNum.getText();
 
             Supplier supp = sb1.getSupplier();
-
             supp.setName(supplierName);
             supp.setStreet(st);
             supp.setBrgy(brgy);
             supp.setCity(city);
+            supp.setIsActive(true);
+            supplierFacade.create(supp);
+            
+            Supplier suppEntry = sb1.getSupplier();
+            sid = (suppEntry.getId());
+            suppContact = (String) txtContact.getText();
+            SupplierContact supContact = sb1.getSupplierContact();
+            supContact.setScId(sid);
+            supContact.setScNo(suppContact);
+            supplierContactFacade.create(supContact);
+
+            spid = (suppEntry.getId());
+            suppPContactName = (String) txtContactP.getText();
+            suppPContactNo = (String) txtPContactNum.getText();
+            SupplierPerson supPerson = sb1.getSupplierPerson();
+            supPerson.setSpId(spid);
+            supPerson.setSpName(suppPContactName);
+            supPerson.setSpContact(suppPContactNo);
+            supPerson.setIsMain(true);
+            supplierPersonFacade.create(supPerson);
 //            supp.setContactNo(suppContactNo);
 //            supp.setContactPerson(suppContactName);
 
-            supplierFacade.create(supp);
+            
 
             this.info("Successfully Saved!");
             
@@ -280,8 +316,6 @@ public class SupplierMaintenanceCreate extends AbstractPageBean {
        }
        catch(NullPointerException e)
        {
-           System.out.print(supplierName+st+brgy+city+suppContactName+suppContact);
-           
            this.info("Missing required fields!");
        }
         return null;

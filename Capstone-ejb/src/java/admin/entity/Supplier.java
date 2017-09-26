@@ -14,6 +14,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
@@ -27,6 +29,13 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "supplier")
 @NamedQueries({@NamedQuery(name = "Supplier.findAll", query = "SELECT s FROM Supplier s"), @NamedQuery(name = "Supplier.findById", query = "SELECT s FROM Supplier s WHERE s.id = :id"), @NamedQuery(name = "Supplier.findByName", query = "SELECT s FROM Supplier s WHERE s.name = :name"), @NamedQuery(name = "Supplier.findByIsActive", query = "SELECT s FROM Supplier s WHERE s.isActive = :isActive")})
+
+@NamedNativeQueries({
+    @NamedNativeQuery(name="Supplier.findByName",query="Select * from supplier where name=?",resultClass=Supplier.class)
+ 
+
+})
+
 public class Supplier implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

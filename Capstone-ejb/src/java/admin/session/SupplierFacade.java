@@ -40,4 +40,35 @@ public class SupplierFacade implements SupplierFacadeLocal {
         return em.createQuery("select object(o) from Supplier as o").getResultList();
     }
 
+    public boolean findThisRecord(String search) {
+        List<Supplier> caseList = em.createNamedQuery("Supplier.findByName")
+               .setParameter(1,search )
+               .getResultList();
+        if(caseList.size()>0){
+             return true;
+        }
+        return false;
+    }
+
+    public List<Supplier> findthisRecord(String search) {
+        List<Supplier> caseList = em.createNamedQuery("Supplier.findByName")
+               .setParameter(1, search)
+               .getResultList();
+       if(caseList.size()>0){
+        return caseList;
+       }
+       return null;
+    }
+
+    public boolean findThisRecord() {
+        List<Supplier> caseList = em.createNamedQuery("Supplier.findByName")
+               .getResultList();
+        if(caseList.size()>0){
+             return true;
+        }
+        return false;
+    }
+
+  
+
 }

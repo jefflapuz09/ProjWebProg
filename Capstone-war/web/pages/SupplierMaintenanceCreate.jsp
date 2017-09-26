@@ -27,22 +27,25 @@
                             binding="#{pages$SupplierMaintenanceCreate.btnSave}" id="btnSave" style="left: 287px; top: 480px; position: absolute" text="Save"/>
                         <webuijsf:label id="label1" style="font-size: 36px; left: 288px; top: 120px; position: absolute" text="Supplier Information"/>
                         <webuijsf:label id="label2" style="left: 288px; top: 192px; position: absolute" text="Supplier *"/>
-                        <webuijsf:textField binding="#{pages$SupplierMaintenanceCreate.txtSupplier}" columns="60" id="txtSupplier" style="left: 288px; top: 216px; position: absolute"/>
+                        <webuijsf:textField binding="#{pages$SupplierMaintenanceCreate.txtSupplier}" columns="40" id="txtSupplier" style="font-size: 18px; left: 288px; top: 216px; position: absolute"/>
                         <webuijsf:label id="label3" style="left: 288px; top: 264px; position: absolute" text="Address"/>
                         <webuijsf:label id="label4" style="position: absolute; left: 288px; top: 288px" text="No. &amp; St./Bldg."/>
-                        <webuijsf:textField binding="#{pages$SupplierMaintenanceCreate.txtSt}" id="txtSt" style="position: absolute; left: 288px; top: 312px"/>
+                        <webuijsf:textField binding="#{pages$SupplierMaintenanceCreate.txtSt}" columns="15" id="txtSt" style="font-size: 18px; left: 288px; top: 312px; position: absolute"/>
                         <webuijsf:label id="label5" style="position: absolute; left: 432px; top: 288px" text="Brgy./Subd."/>
-                        <webuijsf:textField binding="#{pages$SupplierMaintenanceCreate.txtBrgy}" id="txtBrgy" style="position: absolute; left: 432px; top: 312px"/>
+                        <webuijsf:textField binding="#{pages$SupplierMaintenanceCreate.txtBrgy}" columns="15" id="txtBrgy" style="font-size: 18px; left: 456px; top: 312px; position: absolute"/>
                         <webuijsf:label id="label6" style="left: 576px; top: 288px; position: absolute" text="City/Municipality*"/>
-                        <webuijsf:textField binding="#{pages$SupplierMaintenanceCreate.txtCity}" id="txtCity" style="left: 576px; top: 312px; position: absolute"/>
-                        <webuijsf:label id="label9" style="left: 792px; top: 192px; position: absolute; width: 144px" text="Contact Person(s)"/>
-                        <webuijsf:label id="label10" style="left: 792px; top: 216px; position: absolute; width: 120px" text="Main Contact Person"/>
-                        <webuijsf:textField binding="#{pages$SupplierMaintenanceCreate.txtContactP}" columns="30" id="txtContactP" style="left: 792px; top: 240px; position: absolute"/>
+                        <webuijsf:textField binding="#{pages$SupplierMaintenanceCreate.txtCity}" columns="15" id="txtCity" style="font-size: 18px; left: 624px; top: 312px; position: absolute"/>
+                        <webuijsf:label id="label9" style="left: 816px; top: 192px; position: absolute; width: 144px" text="Contact Person(s)"/>
+                        <webuijsf:label id="label10" style="left: 816px; top: 216px; position: absolute; width: 120px" text="Main Contact Person"/>
+                        <webuijsf:textField binding="#{pages$SupplierMaintenanceCreate.txtContactP}" id="txtContactP" style="font-size: 18px; left: 816px; top: 240px; position: absolute"/>
                         <webuijsf:label id="label11" style="left: 1032px; top: 216px; position: absolute; width: 168px" text="Contact Number"/>
-                        <webuijsf:textField binding="#{pages$SupplierMaintenanceCreate.txtContactNum}" columns="30" id="txtContactNum" style="position: absolute; left: 1032px; top: 240px"/>
+                        <webuijsf:textField binding="#{pages$SupplierMaintenanceCreate.txtPContactNum}" id="txtPContactNum" style="font-size: 18px; left: 1032px; top: 240px; position: absolute"/>
                         <webuijsf:messageGroup binding="#{pages$SupplierMaintenanceCreate.messageGroup1}" id="messageGroup1" style="left: 1032px; top: 96px; position: absolute; width: 310px"/>
                         <webuijsf:button actionExpression="#{pages$SupplierMaintenanceCreate.btnBack_action}"
                             binding="#{pages$SupplierMaintenanceCreate.btnBack}" id="btnBack" style="left: 287px; top: 456px; position: absolute" text="Back"/>
+                        <webuijsf:label id="label7" style="left: 288px; top: 360px; position: absolute" text="Contact"/>
+                        <webuijsf:label id="label8" style="position: absolute; left: 288px; top: 384px" text="Contact Number"/>
+                        <webuijsf:textField binding="#{pages$SupplierMaintenanceCreate.txtContact}" columns="40" id="txtContact" style="font-size: 18px; left: 288px; top: 408px; position: absolute"/>
                     </webuijsf:form>
                 </webuijsf:body>
             </webuijsf:html>

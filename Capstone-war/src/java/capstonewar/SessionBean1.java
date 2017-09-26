@@ -5,7 +5,10 @@
 
 package capstonewar;
 
+import admin.entity.ProductUnit;
 import admin.entity.Supplier;
+import admin.entity.SupplierContact;
+import admin.entity.SupplierPerson;
 import com.sun.rave.web.ui.appbase.AbstractSessionBean;
 import javax.faces.FacesException;
 
@@ -37,9 +40,138 @@ public class SessionBean1 extends AbstractSessionBean {
     // </editor-fold>
     private Supplier supplier;
     private Supplier[] supplierData;
+    private Supplier suppEntryforEdit;
+    private Supplier[] suppEntryforEditArray;
+    private SupplierContact supplierContact;
+    private SupplierContact[] supplierContactData;
+    private SupplierContact suppContactEntryforEdit;
+    private SupplierContact[] suppContactEntryforEditArray;
+    private SupplierPerson supplierPerson;
+    private SupplierPerson[] supplierPersonData;
+    private SupplierPerson suppPersonEntryforEdit;
+    private SupplierPerson[] suppPersonEntryforEditArray;
+    private ProductUnit productUnit;
+    private ProductUnit[] productUnitData;
+    private ProductUnit productUnitEdit;
+    private ProductUnit[] productUnitEditArray;
+
+    
+
+    public ProductUnit getProductUnit() {
+        return productUnit;
+    }
+
+    public void setProductUnit(ProductUnit productUnit) {
+        this.productUnit = productUnit;
+    }
+
+    public ProductUnit[] getProductUnitData() {
+        return productUnitData;
+    }
+
+    public void setProductUnitData(ProductUnit[] productUnitData) {
+        this.productUnitData = productUnitData;
+    }
+
+    public ProductUnit getProductUnitEdit() {
+        return productUnitEdit;
+    }
+
+    public void setProductUnitEdit(ProductUnit productUnitEdit) {
+        this.productUnitEdit = productUnitEdit;
+    }
+
+    public ProductUnit[] getProductUnitEditArray() {
+        return productUnitEditArray;
+    }
+
+    public void setProductUnitEditArray(ProductUnit[] productUnitEditArray) {
+        this.productUnitEditArray = productUnitEditArray;
+    }
+
+    public SupplierContact getSuppContactEntryforEdit() {
+        return suppContactEntryforEdit;
+    }
+
+    public void setSuppContactEntryforEdit(SupplierContact suppContactEntryforEdit) {
+        this.suppContactEntryforEdit = suppContactEntryforEdit;
+    }
+
+    public SupplierContact[] getSuppContactEntryforEditArray() {
+        return suppContactEntryforEditArray;
+    }
+
+    public void setSuppContactEntryforEditArray(SupplierContact[] suppContactEntryforEditArray) {
+        this.suppContactEntryforEditArray = suppContactEntryforEditArray;
+    }
+
+    public Supplier getSuppEntryforEdit() {
+        return suppEntryforEdit;
+    }
+
+    public void setSuppEntryforEdit(Supplier suppEntryforEdit) {
+        this.suppEntryforEdit = suppEntryforEdit;
+    }
+
+    public Supplier[] getSuppEntryforEditArray() {
+        return suppEntryforEditArray;
+    }
+
+    public void setSuppEntryforEditArray(Supplier[] suppEntryforEditArray) {
+        this.suppEntryforEditArray = suppEntryforEditArray;
+    }
+
+    public SupplierPerson getSuppPersonEntryforEdit() {
+        return suppPersonEntryforEdit;
+    }
+
+    public void setSuppPersonEntryforEdit(SupplierPerson suppPersonEntryforEdit) {
+        this.suppPersonEntryforEdit = suppPersonEntryforEdit;
+    }
+
+    public SupplierPerson[] getSuppPersonEntryforEditArray() {
+        return suppPersonEntryforEditArray;
+    }
+
+    public void setSuppPersonEntryforEditArray(SupplierPerson[] suppPersonEntryforEditArray) {
+        this.suppPersonEntryforEditArray = suppPersonEntryforEditArray;
+    }
+
 
     public Supplier getSupplier() {
         return supplier;
+    }
+
+    public SupplierPerson getSupplierPerson() {
+        return supplierPerson;
+    }
+
+    public void setSupplierPerson(SupplierPerson supplierPerson) {
+        this.supplierPerson = supplierPerson;
+    }
+
+    public SupplierPerson[] getSupplierPersonData() {
+        return supplierPersonData;
+    }
+
+    public void setSupplierPersonData(SupplierPerson[] supplierPersonData) {
+        this.supplierPersonData = supplierPersonData;
+    }
+
+    public SupplierContact getSupplierContact() {
+        return supplierContact;
+    }
+
+    public void setSupplierContact(SupplierContact supplierContact) {
+        this.supplierContact = supplierContact;
+    }
+
+    public SupplierContact[] getSupplierContactData() {
+        return supplierContactData;
+    }
+
+    public void setSupplierContactData(SupplierContact[] supplierContactData) {
+        this.supplierContactData = supplierContactData;
     }
 
     public void setSupplier(Supplier supplier) {
