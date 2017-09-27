@@ -113,6 +113,10 @@
             <from-outcome>case4</from-outcome>
             <to-view-id>/pages/SupplierMaintenanceUpdate.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>case5</from-outcome>
+            <to-view-id>/pages/ProductUnitMaintenance.jsp</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/SupplierMaintenanceCreate.jsp</from-view-id>
@@ -147,4 +151,59 @@
         <managed-bean-class>capstonewar.pages.ProductUnitMaintenance</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <navigation-rule>
+        <from-view-id>/pages/ProductUnitMaintenance.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/SupplierMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/ProductUnitCreate.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case3</from-outcome>
+            <to-view-id>/pages/ProductUnitUpdate.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>pages$ProductUnitCreate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductUnitCreate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/pages/ProductUnitCreate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/ProductUnitMaintenance.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>pages$ProductUnitUpdate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductUnitUpdate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/pages/ProductUnitUpdate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/ProductUnitMaintenance.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>pages$ProductVarianceMaintenance</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductVarianceMaintenance</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/pages/ProductVarianceMaintenance.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/SupplierMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/ProductUnitMaintenance.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

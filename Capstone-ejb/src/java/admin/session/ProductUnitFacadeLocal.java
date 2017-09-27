@@ -26,4 +26,11 @@ public interface ProductUnitFacadeLocal {
 
     List<ProductUnit> findAll();
 
+    public boolean findThisRecord();
+
+    public boolean findThisRecord(String search);
+
+    public List<ProductUnit> findthisRecord(String search);
+
+
 }

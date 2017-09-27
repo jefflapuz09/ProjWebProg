@@ -5,14 +5,22 @@
 
 package capstonewar.pages;
 
+import admin.entity.ProductUnit;
+import admin.entity.Supplier;
+import admin.session.ProductUnitFacadeLocal;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Button;
 import com.sun.webui.jsf.component.Checkbox;
 import com.sun.webui.jsf.component.TextField;
+import javax.ejb.EJB;
 import javax.faces.FacesException;
 import capstonewar.SessionBean1;
 import capstonewar.RequestBean1;
 import capstonewar.ApplicationBean1;
+import com.sun.data.provider.RowKey;
+import com.sun.webui.jsf.component.TableRowGroup;
+import java.util.List;
+import javax.faces.event.ValueChangeEvent;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -27,6 +35,8 @@ import capstonewar.ApplicationBean1;
  */
 
 public class ProductUnitMaintenance extends AbstractPageBean {
+    @EJB
+    private ProductUnitFacadeLocal productUnitFacade;
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
 
     /**
@@ -40,6 +50,16 @@ public class ProductUnitMaintenance extends AbstractPageBean {
 
     public TextField getTxtSearch() {
         return txtSearch;
+    }
+
+    private TableRowGroup tableRowGroup1 = new TableRowGroup();
+
+    public TableRowGroup getTableRowGroup1() {
+        return tableRowGroup1;
+    }
+
+    public void setTableRowGroup1(TableRowGroup trg) {
+        this.tableRowGroup1 = trg;
     }
 
     public void setTxtSearch(TextField tf) {
@@ -62,24 +82,6 @@ public class ProductUnitMaintenance extends AbstractPageBean {
 
     public void setBtnNew(Button b) {
         this.btnNew = b;
-    }
-    private Button btnUpdate = new Button();
-
-    public Button getBtnUpdate() {
-        return btnUpdate;
-    }
-
-    public void setBtnUpdate(Button b) {
-        this.btnUpdate = b;
-    }
-    private Button btnDelete = new Button();
-
-    public Button getBtnDelete() {
-        return btnDelete;
-    }
-
-    public void setBtnDelete(Button b) {
-        this.btnDelete = b;
     }
     private Checkbox all = new Checkbox();
 
@@ -156,6 +158,11 @@ public class ProductUnitMaintenance extends AbstractPageBean {
      */
     @Override
     public void prerender() {
+        SessionBean1 sb1 = this.getSessionBean1();
+        ProductUnit[] pUnitArray = sb1.getProductUnitData();
+        if(pUnitArray==null){
+            sb1.setProductUnitData(new ProductUnit[0]);
+        }
     }
 
     /**
@@ -195,6 +202,82 @@ public class ProductUnitMaintenance extends AbstractPageBean {
      */
     protected ApplicationBean1 getApplicationBean1() {
         return (ApplicationBean1) getBean("ApplicationBean1");
+    }
+
+    public void all_processValueChange(ValueChangeEvent vce) {
+        SessionBean1 sb1 = this.getSessionBean1();
+
+        if(all.isChecked()){
+            List<ProductUnit> caseList = productUnitFacade.findAll();
+            ProductUnit[] pUnitArr = caseList.toArray(new ProductUnit[0]);
+            sb1.setProductUnitData(pUnitArr);
+            }
+            else{
+                sb1.setProductUnitData(null);
+                return;
+            }
+    }
+
+    public String purchaseOrder_action() {
+        // TODO: Replace with your code
+        return null;
+    }
+
+    public String receiveDelivery_action() {
+        // TODO: Replace with your code
+        return null;
+    }
+
+    public String hyperlink1_action() {
+        // TODO: Replace with your code
+        return "case1";
+    }
+
+    public String hyperlink2_action() {
+        // TODO: Replace with your code
+        return null;
+    }
+
+    public String btnNew_action() {
+        // TODO: Replace with your code
+        return "case2";
+    }
+
+    public String button1_action() {
+        RowKey rowKey = this.tableRowGroup1.getRowKey();
+        String rowId = "";
+        rowId = rowKey.getRowId();
+
+        SessionBean1 sb1 = this.getSessionBean1();
+        ProductUnit[] suppEntryArray = sb1.getProductUnitData();
+        ProductUnit listOfEntry = suppEntryArray[Integer.parseInt(rowId)];
+        sb1.setProductUnitEdit(listOfEntry);
+
+
+        return "case3";
+    }
+
+    public String btnDelete_action() {
+        // TODO: Process the action. Return value is a navigation
+        // case name where null will return to the same page.
+        return null;
+    }
+
+    public String btnSearch_action() {
+        String search = (String) this.txtSearch.getText();
+        SessionBean1 sb1 = this.getSessionBean1();
+
+        boolean checkIfExists = productUnitFacade.findThisRecord(search);
+        if(checkIfExists){
+        List<ProductUnit> listOfUnit = productUnitFacade.findthisRecord(search);
+        ProductUnit[] arrayOfUnit = listOfUnit.toArray(new ProductUnit[0]);
+        sb1.setProductUnitData(arrayOfUnit);
+        }
+        else{
+            this.info("Sorry!, no record found.");
+            sb1.setProductUnitData(null);
+        }
+        return null;
     }
     
 }

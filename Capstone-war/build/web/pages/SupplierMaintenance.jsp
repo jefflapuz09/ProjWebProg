@@ -30,7 +30,8 @@
                         <webuijsf:label id="label1" style="font-size: 36px; left: 336px; top: 120px; position: absolute; width: 432px" text="Supplier Maintenance"/>
                         <webuijsf:table augmentTitle="false" binding="#{pages$SupplierMaintenance.table1}" id="table1"
                             style="height: 197px; left: 312px; top: 240px; position: absolute; width: 888px" title="Table" width="888">
-                            <webuijsf:tableRowGroup id="tableRowGroup1" rows="10" sourceData="#{SessionBean1.supplierData}" sourceVar="currentRow">
+                            <webuijsf:tableRowGroup binding="#{pages$SupplierMaintenance.tableRowGroup1}" id="tableRowGroup1" rows="10"
+                                sourceData="#{SessionBean1.supplierData}" sourceVar="currentRow">
                                 <webuijsf:tableColumn headerText="Supplier Name" id="tableColumn4" sort="name">
                                     <webuijsf:staticText id="staticText4" text="#{currentRow.value['name']}"/>
                                 </webuijsf:tableColumn>

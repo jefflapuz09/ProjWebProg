@@ -5,7 +5,12 @@
 
 package capstonewar.pages;
 
+import admin.entity.ProductUnit;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
+import com.sun.webui.jsf.component.DropDown;
+import com.sun.webui.jsf.component.TextArea;
+import com.sun.webui.jsf.component.TextField;
+import com.sun.webui.jsf.model.SingleSelectOptionsList;
 import javax.faces.FacesException;
 import capstonewar.ApplicationBean1;
 import capstonewar.SessionBean1;
@@ -32,6 +37,43 @@ public class ReceiveDeliveryCreate extends AbstractPageBean {
      * here is subject to being replaced.</p>
      */
     private void _init() throws Exception {
+        categoryDefaultOptions.setOptions(new com.sun.webui.jsf.model.Option[]{new com.sun.webui.jsf.model.Option("1", "Length"), new com.sun.webui.jsf.model.Option("2", "Mass"), new com.sun.webui.jsf.model.Option("3", "Volume")});
+    }
+    private SingleSelectOptionsList categoryDefaultOptions = new SingleSelectOptionsList();
+
+    public SingleSelectOptionsList getCategoryDefaultOptions() {
+        return categoryDefaultOptions;
+    }
+
+    public void setCategoryDefaultOptions(SingleSelectOptionsList ssol) {
+        this.categoryDefaultOptions = ssol;
+    }
+    private DropDown category = new DropDown();
+
+    public DropDown getCategory() {
+        return category;
+    }
+
+    public void setCategory(DropDown dd) {
+        this.category = dd;
+    }
+    private TextArea txtDesc = new TextArea();
+
+    public TextArea getTxtDesc() {
+        return txtDesc;
+    }
+
+    public void setTxtDesc(TextArea ta) {
+        this.txtDesc = ta;
+    }
+    private TextField txtName = new TextField();
+
+    public TextField getTxtName() {
+        return txtName;
+    }
+
+    public void setTxtName(TextField tf) {
+        this.txtName = tf;
     }
 
     // </editor-fold>
@@ -152,6 +194,11 @@ public class ReceiveDeliveryCreate extends AbstractPageBean {
 
     public String save_action() {
         // TODO: Replace with your code
+        return null;
+    }
+
+    public String btnSave_action() {
+        
         return null;
     }
     

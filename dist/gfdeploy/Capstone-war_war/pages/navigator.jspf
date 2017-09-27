@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : navigator
+    Created on : Sep 26, 2017, 10:56:20 PM
+    Author     : Jefferson Van
+-->
+
+<div style="-rave-layout: grid; width: 400px; height: 200px" xmlns:f="http://java.sun.com/jsf/core" >
+  <f:subview id="navigator">
+  </f:subview>
+</div>

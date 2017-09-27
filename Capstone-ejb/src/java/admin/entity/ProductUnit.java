@@ -13,6 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -24,6 +26,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "product_unit")
 @NamedQueries({@NamedQuery(name = "ProductUnit.findAll", query = "SELECT p FROM ProductUnit p"), @NamedQuery(name = "ProductUnit.findById", query = "SELECT p FROM ProductUnit p WHERE p.id = :id"), @NamedQuery(name = "ProductUnit.findByName", query = "SELECT p FROM ProductUnit p WHERE p.name = :name"), @NamedQuery(name = "ProductUnit.findByCategory", query = "SELECT p FROM ProductUnit p WHERE p.category = :category"), @NamedQuery(name = "ProductUnit.findByIsActive", query = "SELECT p FROM ProductUnit p WHERE p.isActive = :isActive")})
+
+@NamedNativeQueries({
+    @NamedNativeQuery(name="ProductUnit.findByUnit",query="Select * from product_unit where name=?",resultClass=ProductUnit.class)
+ 
+
+})
+
 public class ProductUnit implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

@@ -8,8 +8,12 @@ package capstonewar.pages;
 import admin.entity.Supplier;
 import admin.entity.SupplierContact;
 import admin.entity.SupplierPerson;
+import admin.session.SupplierContactFacadeLocal;
+import admin.session.SupplierFacadeLocal;
+import admin.session.SupplierPersonFacadeLocal;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.TextField;
+import javax.ejb.EJB;
 import javax.faces.FacesException;
 import capstonewar.SessionBean1;
 import capstonewar.RequestBean1;
@@ -29,6 +33,12 @@ import javax.faces.event.ValueChangeEvent;
  */
 
 public class SupplierMaintenanceUpdate extends AbstractPageBean {
+    @EJB
+    private SupplierPersonFacadeLocal supplierPersonFacade;
+    @EJB
+    private SupplierContactFacadeLocal supplierContactFacade;
+    @EJB
+    private SupplierFacadeLocal supplierFacade;
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
 
     /**
@@ -242,7 +252,65 @@ public class SupplierMaintenanceUpdate extends AbstractPageBean {
     }
 
     public String btnSave_action() {
-        // TODO: Replace with your code
+        String supplierName = "";
+        String st = "";
+        String brgy = "";
+        String city = "";
+        String suppContact = "";
+        String suppPContactName = "";
+        String suppPContactNo ;
+        int sid,spid;
+        String ssup;
+
+        SessionBean1 sb1 = this.getSessionBean1();
+
+       try
+       {
+
+
+            supplierName = (String) txtSupplier.getText();
+            st = (String) txtSt.getText();
+            brgy = (String) txtBrgy.getText();
+            city = (String) txtCity.getText();
+
+            Supplier supp = sb1.getSupplier();
+            supp.setName(supplierName);
+            supp.setStreet(st);
+            supp.setBrgy(brgy);
+            supp.setCity(city);
+            supp.setIsActive(true);
+            supplierFacade.edit(supp);
+
+            Supplier suppEntry = sb1.getSupplier();
+            sid = (suppEntry.getId());
+            suppContact = (String) txtContact.getText();
+            SupplierContact supContact = sb1.getSupplierContact();
+            supContact.setScId(sid);
+            supContact.setScNo(suppContact);
+            supplierContactFacade.edit(supContact);
+
+            spid = (suppEntry.getId());
+            suppPContactName = (String) txtContactP.getText();
+            suppPContactNo = (String) txtPContactNum.getText();
+            SupplierPerson supPerson = sb1.getSupplierPerson();
+            supPerson.setSpId(spid);
+            supPerson.setSpName(suppPContactName);
+            supPerson.setSpContact(suppPContactNo);
+            supPerson.setIsMain(true);
+            supplierPersonFacade.edit(supPerson);
+//            supp.setContactNo(suppContactNo);
+//            supp.setContactPerson(suppContactName);
+
+
+
+            this.info("Successfully Saved!");
+
+
+       }
+       catch(NullPointerException e)
+       {
+           this.info("Missing required fields!");
+       }
         return null;
     }
 

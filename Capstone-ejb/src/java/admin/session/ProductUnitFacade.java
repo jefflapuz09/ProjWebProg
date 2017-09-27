@@ -40,4 +40,33 @@ public class ProductUnitFacade implements ProductUnitFacadeLocal {
         return em.createQuery("select object(o) from ProductUnit as o").getResultList();
     }
 
+        public boolean findThisRecord(String search) {
+        List<ProductUnit> caseList = em.createNamedQuery("ProductUnit.findByUnit")
+               .setParameter(1,search )
+               .getResultList();
+        if(caseList.size()>0){
+             return true;
+        }
+        return false;
+    }
+
+    public List<ProductUnit> findthisRecord(String search) {
+        List<ProductUnit> caseList = em.createNamedQuery("ProductUnit.findByUnit")
+               .setParameter(1, search)
+               .getResultList();
+       if(caseList.size()>0){
+        return caseList;
+       }
+       return null;
+    }
+
+    public boolean findThisRecord() {
+        List<ProductUnit> caseList = em.createNamedQuery("ProductUnit.findByUnit")
+               .getResultList();
+        if(caseList.size()>0){
+             return true;
+        }
+        return false;
+    }
+
 }

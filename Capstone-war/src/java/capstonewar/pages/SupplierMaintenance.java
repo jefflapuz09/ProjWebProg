@@ -6,8 +6,10 @@ package capstonewar.pages;
 
 import admin.entity.Supplier;
 import admin.entity.SupplierContact;
+import admin.entity.SupplierPerson;
 import admin.session.SupplierContactFacadeLocal;
 import admin.session.SupplierFacadeLocal;
+import admin.session.SupplierPersonFacadeLocal;
 import capstonewar.RequestBean1;
 import capstonewar.SessionBean1;
 import com.sun.data.provider.RowKey;
@@ -37,6 +39,8 @@ import javax.faces.event.ValueChangeEvent;
  * @author Jefferson Van
  */
 public class SupplierMaintenance extends AbstractPageBean {
+    @EJB
+    private SupplierPersonFacadeLocal supplierPersonFacade;
     @EJB
     private SupplierContactFacadeLocal supplierContactFacade;
 
@@ -203,30 +207,43 @@ public class SupplierMaintenance extends AbstractPageBean {
             sb1.setSupplierData(new Supplier[0]);
         }
 
-//        SessionBean1 sb1 = this.getSessionBean1();
-//        List<Supplier> suppList = supplierFacade.findAll();
-//        Supplier[] suppArray = suppList.toArray(new Supplier[0]);
-//
-//        List<SupplierContact> supplierContactList = supplierContactFacade.findAll();
-//        SupplierContact[] supplierContactArray = supplierContactList.toArray(new SupplierContact[0]);
+        List<SupplierPerson> listOfSupplierPerson = this.supplierPersonFacade.findAll();
+        List<SupplierContact> listOfSupplierContact = this.supplierContactFacade.findAll();
+        List<Supplier> listofSupplier = supplierFacade.findAll();
+        Supplier[] arrayOfSupplier = listofSupplier.toArray(new Supplier[0]);
+
+        sb1.setSupplierData(arrayOfSupplier);
+
+        for(int i = 0; i < arrayOfSupplier.length; i++)
+        {
+            for(SupplierContact supplierContact : listOfSupplierContact)
+            {
+                System.out.println(arrayOfSupplier[i].getId().equals(supplierContact.getScId()));
+                
+                if(arrayOfSupplier[i].getId().equals(supplierContact.getScId()))
+                {
+                    arrayOfSupplier[i].setSuppContact(supplierContact.getScNo());
+                }
+            }
+        }
         
-//        System.out.println(supplierContactArray[suppArray[0].getId()]);
-//        for(int i = 0; i < suppArray.length; i++)
-//        {
-//            System.out.println(supplierContactArray[suppArray[i].getId()]);
-
-//            for(int j = 0; j < supplierContactArray.length; j++)
-//            {
-////                suppArray[i].setSuppContact(supplierContactArray[j].getScNo());
-//                if(suppArray[i].getId() == supplierContactArray[j].getScId())
-//                {
-//                    supplierContactList.add(supplierContactArray[i]);
-//                }
-//            }
-//            suppArray[i].setSuppContact(supplierContactArray[0].getScNo());
-//        }
-//        sb1.setSupplierData(suppArray);
-
+        
+//        List<Supplier> listofSupplier2 = supplierFacade.findAll();
+//        Supplier[] arrayOfSupplier2 = listofSupplier2.toArray(new Supplier[0]);
+//        sb1.setSupplierData(arrayOfSupplier2);
+        
+         for(int i = 0; i < arrayOfSupplier.length; i++)
+        {
+            for(SupplierPerson supplierPerson : listOfSupplierPerson)
+            {
+//                System.out.println(arrayOfSupplier2[i].getId().equals(supplierPerson.getSpId()));
+               // System.out.println(arrayOfSupplier2[i].getId().equals(supplierPerson.getSpId()));
+                if(arrayOfSupplier[i].getId().equals(supplierPerson.getSpId()))
+                {
+                    arrayOfSupplier[i].setSuppPerson(supplierPerson.getSpName());
+                }
+            }
+        }
 
     }
 
@@ -255,7 +272,7 @@ public class SupplierMaintenance extends AbstractPageBean {
     public String hyperlink1_action() {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
-        return null;
+        return "case5";
     }
 
     public String save_action() {

@@ -25,7 +25,7 @@
                         <webuijsf:panelLayout id="layoutPanel2" panelLayout="flow" style="background-color: #f39c12; height: 50px; left: 0px; top: 0px; position: absolute; width: 1363px"/>
                         <webuijsf:button actionExpression="#{pages$SupplierMaintenanceUpdate.btnSave_action}"
                             binding="#{pages$SupplierMaintenanceCreate.btnSave}" id="btnSave" style="left: 287px; top: 480px; position: absolute" text="Save"/>
-                        <webuijsf:label id="label1" style="font-size: 36px; left: 288px; top: 120px; position: absolute" text="Supplier Information"/>
+                        <webuijsf:label id="label1" style="font-size: 36px; left: 288px; top: 96px; position: absolute; width: 406px" text="Supplier Information"/>
                         <webuijsf:label id="label2" style="left: 288px; top: 192px; position: absolute" text="Supplier *"/>
                         <webuijsf:textField binding="#{pages$SupplierMaintenanceUpdate.txtSupplier}" columns="40" id="txtSupplier"
                             style="font-size: 18px; left: 288px; top: 216px; position: absolute" valueChangeListenerExpression="#{pages$SupplierMaintenanceUpdate.txtSupplier_processValueChange}"/>
