@@ -2,18 +2,20 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="pages/ReceiveDeliveryCreate.jsp" x="68" y="40" zoom="false"/>
-        <Node id="pages/PurchaseOrderCreate.jsp" x="462" y="73" zoom="false"/>
-        <Node id="pages/SupplierMaintenance.jsp" x="83" y="463" zoom="false"/>
+        <Node id="pages/PurchaseOrder/PurchaseOrder.jsp" x="-345" y="226" zoom="false"/>
+        <Node id="pages/ProductUnit/ProductUnitMaintenance.jsp" x="1065" y="251" zoom="false"/>
         <Node id="index.jsp" x="150" y="300" zoom="true"/>
-        <Node id="pages/SupplierMaintenanceCreate.jsp" x="408" y="218" zoom="false"/>
-        <Node id="pages/ProductUnitUpdate.jsp" x="667" y="400" zoom="false"/>
-        <Node id="pages/SupplierMaintenanceUpdate.jsp" x="-70" y="182" zoom="false"/>
-        <Node id="pages/ProductUnitMaintenance.jsp" x="703" y="148" zoom="false"/>
-        <Node id="pages/ProductVarianceMaintenance.jsp" x="-317" y="606" zoom="false"/>
-        <Node id="pages/ProductUnitCreate.jsp" x="329" y="373" zoom="false"/>
-        <Node id="pages/PurchaseOrder.jsp" x="-323" y="111" zoom="false"/>
-        <Node id="pages/ReceiveDelivery.jsp" x="-239" y="365" zoom="false"/>
+        <Node id="pages/ProductVariance/ProductVarianceCreate.jsp" x="438" y="10" zoom="false"/>
+        <Node id="pages/Supplier/SupplierMaintenanceUpdate.jsp" x="-391" y="755" zoom="false"/>
+        <Node id="pages/ProductUnit/ProductUnitUpdate.jsp" x="874" y="721" zoom="false"/>
+        <Node id="pages/Supplier/SupplierMaintenance.jsp" x="135" y="656" zoom="false"/>
+        <Node id="pages/ReceiveDelivery/ReceiveDelivery.jsp" x="-105" y="376" zoom="false"/>
+        <Node id="pages/ProductUnit/ProductUnitCreate.jsp" x="1195" y="550" zoom="false"/>
+        <Node id="pages/ProductVariance/ProductVarianceMaintenance.jsp" x="341" y="237" zoom="false"/>
+        <Node id="pages/Supplier/SupplierMaintenanceCreate.jsp" x="-321" y="574" zoom="false"/>
+        <Node id="pages/Menu.jsp" x="515" y="478" zoom="false"/>
+        <Node id="pages/PurchaseOrder/PurchaseOrderCreate.jsp" x="-58" y="73" zoom="false"/>
+        <Node id="pages/ReceiveDelivery/ReceiveDeliveryCreate.jsp" x="-103" y="451" zoom="false"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

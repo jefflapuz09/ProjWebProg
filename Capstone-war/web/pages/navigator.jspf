@@ -4,8 +4,27 @@
     Created on : Sep 26, 2017, 10:56:20 PM
     Author     : Jefferson Van
 -->
-
-<div style="-rave-layout: grid; width: 400px; height: 200px" xmlns:f="http://java.sun.com/jsf/core" >
-  <f:subview id="navigator">
-  </f:subview>
+<div style="height: 662px; width: 238px; -rave-layout: grid" xmlns:f="http://java.sun.com/jsf/core" xmlns:webuijsf="http://www.sun.com/webui/webuijsf">
+    <webuijsf:panelLayout id="layoutPanel1" panelLayout="flow" style="background-color: rgb(34, 45, 50); height: 662px; left: 0px; top: 0px; position: absolute; width: 238px">
+        <webuijsf:hyperlink actionExpression="#{pages$navigator.btnMaintenance_action}" binding="#{pages$MainMenu.btnMaintenance}" id="btnMaintenance"
+            style="background-color: rgb(34, 45, 50); color: rgb(204, 204, 204); font-size: 24px; font-style: normal; left: 50px; top: 100px; position: absolute" text="Maintenance"/>
+        <webuijsf:hyperlink binding="#{pages$MainMenu.btnSupplier}" id="btnSupplier"
+            style="background-color: rgb(34, 45, 50); color: #ffffff; font-size: 18px; font-style: normal; left: 85px; top: 135px; position: absolute"
+            text="Supplier" visible="false"/>
+        <webuijsf:hyperlink binding="#{pages$MainMenu.btnUnit}" id="btnUnit"
+            style="background-color: rgb(34, 45, 50); color: rgb(255, 255, 255); font-size: 18px; font-style: normal; left: 70px; top: 160px; position: absolute"
+            text="Product Unit" visible="false"/>
+        <webuijsf:hyperlink binding="#{pages$MainMenu.btnVariance}" id="btnVariance"
+            style="background-color: rgb(34, 45, 50); color: rgb(255, 255, 255); font-size: 18px; font-style: normal; left: 50px; top: 185px; position: absolute"
+            text="Product Variance" visible="false"/>
+        <webuijsf:hyperlink binding="#{pages$MainMenu.btnTransaction}" id="btnTransaction"
+            style="background-color: rgb(34, 45, 50); color: rgb(204, 204, 204); font-size: 24px; font-style: normal; left: 58px; top: 220px; position: absolute" text="Transaction"/>
+        <webuijsf:hyperlink binding="#{pages$MainMenu.btnPurchase}" id="btnPurchase"
+            style="background-color: rgb(34, 45, 50); color: rgb(255, 255, 255); font-size: 18px; font-style: normal; left: 57px; top: 255px; position: absolute"
+            text="Purchase Order" visible="false"/>
+        <webuijsf:hyperlink binding="#{pages$MainMenu.btnReceive}" id="btnReceive"
+            style="background-color: rgb(34, 45, 50); color: rgb(255, 255, 255); font-size: 18px; font-style: normal; left: 52px; top: 280px; position: absolute"
+            text="Receive Delivery" visible="false"/>
+    </webuijsf:panelLayout>
+    <f:subview id="navigator"/>
 </div>

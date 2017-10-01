@@ -22,188 +22,228 @@
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <managed-bean>
-        <managed-bean-name>pages$PurchaseOrder</managed-bean-name>
-        <managed-bean-class>capstonewar.pages.PurchaseOrder</managed-bean-class>
+        <managed-bean-name>pages$PurchaseOrder$PurchaseOrder</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.PurchaseOrder.PurchaseOrder</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <managed-bean>
-        <managed-bean-name>pages$PurchaseOrderCreate</managed-bean-name>
-        <managed-bean-class>capstonewar.pages.PurchaseOrderCreate</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-    <navigation-rule>
-        <from-view-id>/pages/PurchaseOrder.jsp</from-view-id>
-        <navigation-case>
-            <from-outcome>case1</from-outcome>
-            <to-view-id>/pages/PurchaseOrderCreate.jsp</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>case2</from-outcome>
-            <to-view-id>/pages/ReceiveDelivery.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/pages/PurchaseOrderCreate.jsp</from-view-id>
-        <navigation-case>
-            <from-outcome>case1</from-outcome>
-            <to-view-id>/pages/PurchaseOrder.jsp</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>case2</from-outcome>
-            <to-view-id>/pages/ReceiveDelivery.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <managed-bean>
-        <managed-bean-name>pages$ReceiveDelivery</managed-bean-name>
-        <managed-bean-class>capstonewar.pages.ReceiveDelivery</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-    <navigation-rule>
-        <from-view-id>/pages/ReceiveDelivery.jsp</from-view-id>
-        <navigation-case>
-            <from-outcome>case1</from-outcome>
-            <to-view-id>/pages/PurchaseOrder.jsp</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>case2</from-outcome>
-            <to-view-id>/pages/ReceiveDeliveryCreate.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <managed-bean>
-        <managed-bean-name>pages$ReceiveDeliveryCreate</managed-bean-name>
-        <managed-bean-class>capstonewar.pages.ReceiveDeliveryCreate</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-    <navigation-rule>
-        <from-view-id>/pages/ReceiveDeliveryCreate.jsp</from-view-id>
-        <navigation-case>
-            <from-outcome>case1</from-outcome>
-            <to-view-id>/pages/ReceiveDelivery.jsp</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>case2</from-outcome>
-            <to-view-id>/pages/PurchaseOrder.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <managed-bean>
-        <managed-bean-name>pages$SupplierMaintenance</managed-bean-name>
-        <managed-bean-class>capstonewar.pages.SupplierMaintenance</managed-bean-class>
+        <managed-bean-name>pages$PurchaseOrder$PurchaseOrderCreate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.PurchaseOrder.PurchaseOrderCreate</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <managed-bean>
-        <managed-bean-name>pages$SupplierMaintenanceCreate</managed-bean-name>
-        <managed-bean-class>capstonewar.pages.SupplierMaintenanceCreate</managed-bean-class>
+        <managed-bean-name>pages$ReceiveDelivery$ReceiveDelivery</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ReceiveDelivery.ReceiveDelivery</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
-    <navigation-rule>
-        <from-view-id>/pages/SupplierMaintenance.jsp</from-view-id>
-        <navigation-case>
-            <from-outcome>case1</from-outcome>
-            <to-view-id>/pages/SupplierMaintenanceCreate.jsp</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>case2</from-outcome>
-            <to-view-id>/pages/ReceiveDelivery.jsp</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>case3</from-outcome>
-            <to-view-id>/pages/PurchaseOrder.jsp</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>case4</from-outcome>
-            <to-view-id>/pages/SupplierMaintenanceUpdate.jsp</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>case5</from-outcome>
-            <to-view-id>/pages/ProductUnitMaintenance.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/pages/SupplierMaintenanceCreate.jsp</from-view-id>
-        <navigation-case>
-            <from-outcome>case1</from-outcome>
-            <to-view-id>/pages/SupplierMaintenance.jsp</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>case2</from-outcome>
-            <to-view-id>/pages/SupplierMaintenance.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
     <managed-bean>
-        <managed-bean-name>pages$SupplierMaintenanceUpdate</managed-bean-name>
-        <managed-bean-class>capstonewar.pages.SupplierMaintenanceUpdate</managed-bean-class>
+        <managed-bean-name>pages$ReceiveDelivery$ReceiveDeliveryCreate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ReceiveDelivery.ReceiveDeliveryCreate</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
-    <navigation-rule>
-        <from-view-id>/pages/SupplierMaintenanceUpdate.jsp</from-view-id>
-        <navigation-case>
-            <from-outcome>case1</from-outcome>
-            <to-view-id>/pages/SupplierMaintenance.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>pages$Supplier$SupplierMaintenance</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.Supplier.SupplierMaintenance</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pages$Supplier$SupplierMaintenanceCreate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.Supplier.SupplierMaintenanceCreate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
     <managed-bean>
         <managed-bean-name>pages$navigator</managed-bean-name>
         <managed-bean-class>capstonewar.pages.navigator</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <managed-bean>
-        <managed-bean-name>pages$ProductUnitMaintenance</managed-bean-name>
-        <managed-bean-class>capstonewar.pages.ProductUnitMaintenance</managed-bean-class>
+        <managed-bean-name>pages$ProductUnit$ProductUnitMaintenance</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductUnit.ProductUnitMaintenance</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pages$ProductUnit$ProductUnitCreate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductUnit.ProductUnitCreate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pages$ProductUnit$ProductUnitUpdate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductUnit.ProductUnitUpdate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pages$ProductVariance$ProductVarianceMaintenance</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductVariance.ProductVarianceMaintenance</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pages$ProductVariance$ProductVarianceCreate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductVariance.ProductVarianceCreate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pages$Menu</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.Menu</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <navigation-rule>
-        <from-view-id>/pages/ProductUnitMaintenance.jsp</from-view-id>
+        <from-view-id>/pages/Menu.jsp</from-view-id>
         <navigation-case>
             <from-outcome>case1</from-outcome>
-            <to-view-id>/pages/SupplierMaintenance.jsp</to-view-id>
+            <to-view-id>/pages/Supplier/SupplierMaintenance.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>case2</from-outcome>
-            <to-view-id>/pages/ProductUnitCreate.jsp</to-view-id>
+            <to-view-id>/pages/ProductUnit/ProductUnitMaintenance.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>case3</from-outcome>
-            <to-view-id>/pages/ProductUnitUpdate.jsp</to-view-id>
+            <to-view-id>/pages/ProductVariance/ProductVarianceMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case4</from-outcome>
+            <to-view-id>/pages/PurchaseOrder/PurchaseOrder.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case5</from-outcome>
+            <to-view-id>/pages/ReceiveDelivery/ReceiveDelivery.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
-    <managed-bean>
-        <managed-bean-name>pages$ProductUnitCreate</managed-bean-name>
-        <managed-bean-class>capstonewar.pages.ProductUnitCreate</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
     <navigation-rule>
-        <from-view-id>/pages/ProductUnitCreate.jsp</from-view-id>
+        <from-view-id>/pages/Supplier/SupplierMaintenance.jsp</from-view-id>
         <navigation-case>
             <from-outcome>case1</from-outcome>
-            <to-view-id>/pages/ProductUnitMaintenance.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <managed-bean>
-        <managed-bean-name>pages$ProductUnitUpdate</managed-bean-name>
-        <managed-bean-class>capstonewar.pages.ProductUnitUpdate</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-    <navigation-rule>
-        <from-view-id>/pages/ProductUnitUpdate.jsp</from-view-id>
-        <navigation-case>
-            <from-outcome>case1</from-outcome>
-            <to-view-id>/pages/ProductUnitMaintenance.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <managed-bean>
-        <managed-bean-name>pages$ProductVarianceMaintenance</managed-bean-name>
-        <managed-bean-class>capstonewar.pages.ProductVarianceMaintenance</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-    <navigation-rule>
-        <from-view-id>/pages/ProductVarianceMaintenance.jsp</from-view-id>
-        <navigation-case>
-            <from-outcome>case1</from-outcome>
-            <to-view-id>/pages/SupplierMaintenance.jsp</to-view-id>
+            <to-view-id>/pages/Supplier/SupplierMaintenanceCreate.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>case2</from-outcome>
-            <to-view-id>/pages/ProductUnitMaintenance.jsp</to-view-id>
+            <to-view-id>/pages/Supplier/SupplierMaintenanceUpdate.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case3</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/Supplier/SupplierMaintenanceCreate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/Supplier/SupplierMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>pages$Supplier$SupplierMaintenanceUpdate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.Supplier.SupplierMaintenanceUpdate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/pages/Supplier/SupplierMaintenanceUpdate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/Supplier/SupplierMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/ProductUnit/ProductUnitMaintenance.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/ProductUnit/ProductUnitCreate.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case3</from-outcome>
+            <to-view-id>/pages/ProductUnit/ProductUnitUpdate.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/ProductUnit/ProductUnitCreate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/ProductUnit/ProductUnitMaintenance.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/ProductUnit/ProductUnitUpdate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/ProductUnit/ProductUnitMaintenance.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/ProductVariance/ProductVarianceMaintenance.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/ProductVariance/ProductVarianceCreate.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/ProductVariance/ProductVarianceCreate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/ProductVariance/ProductVarianceMaintenance.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/PurchaseOrder/PurchaseOrder.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/PurchaseOrder/PurchaseOrderCreate.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/PurchaseOrder/PurchaseOrderCreate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/ReceiveDelivery/ReceiveDelivery.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/ReceiveDelivery/ReceiveDeliveryCreate.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/ReceiveDelivery/ReceiveDeliveryCreate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

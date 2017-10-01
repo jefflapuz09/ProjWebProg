@@ -26,4 +26,6 @@ public interface SupplierContactFacadeLocal {
 
     List<SupplierContact> findAll();
 
+    
+
 }

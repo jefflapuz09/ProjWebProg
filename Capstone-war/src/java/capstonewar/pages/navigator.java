@@ -110,4 +110,10 @@ public class navigator extends AbstractFragmentBean {
         return (ApplicationBean1) getBean("ApplicationBean1");
     }
 
+    public String btnMaintenance_action() {
+        // TODO: Process the action. Return value is a navigation
+        // case name where null will return to the same page.
+        return null;
+    }
+
 }
