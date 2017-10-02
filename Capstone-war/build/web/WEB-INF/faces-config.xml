@@ -108,6 +108,26 @@
             <from-outcome>case5</from-outcome>
             <to-view-id>/pages/ReceiveDelivery/ReceiveDelivery.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>case6</from-outcome>
+            <to-view-id>/pages/Supplier/SupplierMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case7</from-outcome>
+            <to-view-id>/pages/ProductVariance/ProductVarianceMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case8</from-outcome>
+            <to-view-id>/pages/ProductUnit/ProductUnitMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case9</from-outcome>
+            <to-view-id>/pages/PurchaseOrder/PurchaseOrder.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case10</from-outcome>
+            <to-view-id>/pages/ReceiveDelivery/ReceiveDelivery.jsp</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/Supplier/SupplierMaintenance.jsp</from-view-id>

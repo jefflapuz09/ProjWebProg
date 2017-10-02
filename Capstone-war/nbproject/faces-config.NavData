@@ -9,13 +9,13 @@
         <Node id="pages/Supplier/SupplierMaintenanceUpdate.jsp" x="-391" y="755" zoom="false"/>
         <Node id="pages/ProductUnit/ProductUnitUpdate.jsp" x="874" y="721" zoom="false"/>
         <Node id="pages/Supplier/SupplierMaintenance.jsp" x="135" y="656" zoom="false"/>
-        <Node id="pages/ReceiveDelivery/ReceiveDelivery.jsp" x="-105" y="376" zoom="false"/>
+        <Node id="pages/ReceiveDelivery/ReceiveDelivery.jsp" x="-353" y="377" zoom="false"/>
         <Node id="pages/ProductUnit/ProductUnitCreate.jsp" x="1195" y="550" zoom="false"/>
         <Node id="pages/ProductVariance/ProductVarianceMaintenance.jsp" x="341" y="237" zoom="false"/>
+        <Node id="pages/Menu.jsp" x="534" y="473" zoom="false"/>
         <Node id="pages/Supplier/SupplierMaintenanceCreate.jsp" x="-321" y="574" zoom="false"/>
-        <Node id="pages/Menu.jsp" x="515" y="478" zoom="false"/>
         <Node id="pages/PurchaseOrder/PurchaseOrderCreate.jsp" x="-58" y="73" zoom="false"/>
-        <Node id="pages/ReceiveDelivery/ReceiveDeliveryCreate.jsp" x="-103" y="451" zoom="false"/>
+        <Node id="pages/ReceiveDelivery/ReceiveDeliveryCreate.jsp" x="-231" y="454" zoom="false"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

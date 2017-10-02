@@ -97,6 +97,15 @@ public class Menu extends AbstractPageBean {
     public void setBtnMaintenance(Hyperlink h) {
         this.btnMaintenance = h;
     }
+    private Hyperlink btnType = new Hyperlink();
+
+    public Hyperlink getBtnType() {
+        return btnType;
+    }
+
+    public void setBtnType(Hyperlink h) {
+        this.btnType = h;
+    }
 
     // </editor-fold>
 
@@ -214,6 +223,15 @@ public class Menu extends AbstractPageBean {
             btnSupplier.setVisible(true);
         }
 
+        if(btnType.isVisible())
+        {
+            btnType.setVisible(false);
+        }
+        else
+        {
+            btnType.setVisible(true);
+        }
+
         if(btnUnit.isVisible())
         {
             btnUnit.setVisible(false);
@@ -235,7 +253,7 @@ public class Menu extends AbstractPageBean {
     }
 
     public String btnTransaction_action() {
-        if(btnPurchase.isVisible())
+       if(btnPurchase.isVisible())
         {
             btnPurchase.setVisible(false);
         }
@@ -243,8 +261,8 @@ public class Menu extends AbstractPageBean {
         {
             btnPurchase.setVisible(true);
         }
-
-        if(btnReceive.isVisible())
+       
+       if(btnReceive.isVisible())
         {
             btnReceive.setVisible(false);
         }
@@ -252,37 +270,44 @@ public class Menu extends AbstractPageBean {
         {
             btnReceive.setVisible(true);
         }
+
         return null;
     }
 
     public String btnSupplier_action() {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
-        return "case1";
+        return "case6";
     }
 
     public String btnUnit_action() {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
-        return "case2";
+        return "case8";
     }
 
     public String btnVariance_action() {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
-        return "case3";
+        return "case7";
     }
 
     public String btnPurchase_action() {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
-        return "case4";
+        return "case9";
     }
 
     public String btnReceive_action() {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
-        return "case5";
+        return "case10";
+    }
+
+    public String btnType_action() {
+        // TODO: Process the action. Return value is a navigation
+        // case name where null will return to the same page.
+        return null;
     }
     
 }
