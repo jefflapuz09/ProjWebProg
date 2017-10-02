@@ -21,22 +21,23 @@
                         </webuijsf:panelLayout>
                         <webuijsf:panelLayout id="layoutPanel2" panelLayout="flow" style="background-color: #3c8dbc; height: 50px; left: 0px; top: 0px; position: absolute; width: 1363px"/>
                         <webuijsf:button actionExpression="#{pages$ProductVariance$ProductVarianceCreate.btnSave_action}"
-                            binding="#{pages$ProductVariance$ProductVarianceCreate.btnSave}" id="btnSave" style="left: 287px; top: 480px; position: absolute" text="Save"/>
+                            binding="#{pages$ProductVariance$ProductVarianceCreate.btnSave}" id="btnSave" style="left: 287px; top: 456px; position: absolute" text="Save"/>
                         <webuijsf:label id="label1" style="font-size: 36px; left: 288px; top: 120px; position: absolute; width: 480px" text="Product Unit Information"/>
                         <webuijsf:label id="label2" style="left: 288px; top: 192px; position: absolute" text="Variance *"/>
                         <webuijsf:textField binding="#{pages$ProductVariance$ProductVarianceCreate.txtName}" columns="40" id="txtName" style="font-size: 18px; left: 288px; top: 216px; position: absolute"/>
                         <webuijsf:messageGroup binding="#{pages$ProductVariance$ProductVarianceCreate.messageGroup1}" id="messageGroup1" style="left: 1032px; top: 96px; position: absolute; width: 310px"/>
                         <webuijsf:button actionExpression="#{pages$ProductVariance$ProductVarianceCreate.btnBack_action}"
-                            binding="#{pages$ProductVariance$ProductVarianceCreate.btnBack}" id="btnBack" style="left: 287px; top: 456px; position: absolute" text="Back"/>
-                        <webuijsf:label id="label3" style="left: 816px; top: 192px; position: absolute; width: 120px" text="Unit of Category*"/>
-                        <webuijsf:dropDown binding="#{pages$ProductVariance$ProductVarianceCreate.category}" id="category"
-                            items="#{pages$ReceiveDelivery$ReceiveDeliveryCreate.categoryDefaultOptions.options}"
-                            style="left: 816px; top: 216px; position: absolute; width: 30px" width="200"/>
-                        <webuijsf:label for="txtDesc" id="label4" style="position: absolute; left: 288px; top: 264px" text="Unit Category*"/>
-                        <webuijsf:textArea binding="#{pages$ProductVariance$ProductVarianceCreate.txtDesc}" columns="118" id="txtDesc" rows="5" style="left: 288px; top: 288px; position: absolute"/>
-                        <webuijsf:label id="label5" style="left: 288px; top: 384px; position: absolute" text="Product Type*"/>
+                            binding="#{pages$ProductVariance$ProductVarianceCreate.btnBack}" id="btnBack" style="left: 287px; top: 432px; position: absolute" text="Back"/>
+                        <webuijsf:label id="label4" style="position: absolute; left: 288px; top: 264px" text="Unit Category*"/>
+                        <webuijsf:label id="label5" style="left: 288px; top: 336px; position: absolute" text="Product Type*"/>
                         <webuijsf:dropDown binding="#{pages$ProductVariance$ProductVarianceCreate.ptype}" id="ptype"
-                            items="#{pages$ProductVariance$ProductVarianceCreate.ptypeDefaultOptions.options}" style="left: 288px; top: 408px; position: absolute"/>
+                            items="#{pages$ProductVariance$ProductVarianceCreate.ptypeDefaultOptions.options}" style="font-size: 18px; left: 288px; top: 360px; position: absolute"/>
+                        <webuijsf:label id="label3" style="left: 840px; top: 192px; position: absolute" text="Dimension"/>
+                        <webuijsf:textField binding="#{pages$ProductVariance$ProductVarianceCreate.txtDimension}" id="txtDimension" style="font-size: 18px; left: 840px; top: 216px; position: absolute"/>
+                        <webuijsf:dropDown binding="#{pages$ProductVariance$ProductVarianceCreate.dimUnit}" id="dimUnit"
+                            items="#{pages$ProductVariance$ProductVarianceCreate.dimUnitDefaultOptions.options}" style="font-size: 18px; left: 1056px; top: 216px; position: absolute"/>
+                        <webuijsf:dropDown binding="#{pages$ProductVariance$ProductVarianceCreate.category}" id="category"
+                            items="#{pages$ProductVariance$ProductVarianceCreate.categoryDefaultOptions.options}" style="font-size: 18px; left: 288px; top: 288px; position: absolute"/>
                     </webuijsf:form>
                 </webuijsf:body>
             </webuijsf:html>

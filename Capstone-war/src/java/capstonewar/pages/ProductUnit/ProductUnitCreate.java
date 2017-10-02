@@ -217,6 +217,7 @@ public class ProductUnitCreate extends AbstractPageBean {
     public String btnSave_action() {
         String unitName,unitDesc;
         short unitCategory;
+        
 
         SessionBean1 sb1 = this.getSessionBean1();
         try

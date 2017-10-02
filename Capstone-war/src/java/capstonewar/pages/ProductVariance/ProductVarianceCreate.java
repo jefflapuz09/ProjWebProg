@@ -6,7 +6,11 @@
 package capstonewar.pages.ProductVariance;
 
 import admin.entity.ProductType;
+import admin.entity.ProductUnit;
+import admin.entity.ProductVariance;
 import admin.session.ProductTypeFacadeLocal;
+import admin.session.ProductUnitFacadeLocal;
+import admin.session.ProductVarianceFacadeLocal;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Button;
 import com.sun.webui.jsf.component.DropDown;
@@ -38,6 +42,10 @@ import java.util.List;
 
 public class ProductVarianceCreate extends AbstractPageBean {
     @EJB
+    private ProductVarianceFacadeLocal productVarianceFacade;
+    @EJB
+    private ProductUnitFacadeLocal productUnitFacade;
+    @EJB
     private ProductTypeFacadeLocal productTypeFacade;
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
 
@@ -47,6 +55,7 @@ public class ProductVarianceCreate extends AbstractPageBean {
      * here is subject to being replaced.</p>
      */
     private void _init() throws Exception {
+        categoryDefaultOptions.setOptions(new com.sun.webui.jsf.model.Option[]{new com.sun.webui.jsf.model.Option("1", "Length"), new com.sun.webui.jsf.model.Option("2", "Mass"), new com.sun.webui.jsf.model.Option("3", "Volume")});
     }
     private SingleSelectOptionsList ptypeDefaultOptions = new SingleSelectOptionsList();
 
@@ -75,15 +84,6 @@ public class ProductVarianceCreate extends AbstractPageBean {
     public void setTxtName(TextField tf) {
         this.txtName = tf;
     }
-    private TextArea txtDesc = new TextArea();
-
-    public TextArea getTxtDesc() {
-        return txtDesc;
-    }
-
-    public void setTxtDesc(TextArea ta) {
-        this.txtDesc = ta;
-    }
     private DropDown ptype = new DropDown();
 
     public DropDown getPtype() {
@@ -111,15 +111,6 @@ public class ProductVarianceCreate extends AbstractPageBean {
     public void setBtnSave(Button b) {
         this.btnSave = b;
     }
-    private DropDown category = new DropDown();
-
-    public DropDown getCategory() {
-        return category;
-    }
-
-    public void setCategory(DropDown dd) {
-        this.category = dd;
-    }
     private MessageGroup messageGroup1 = new MessageGroup();
 
     public MessageGroup getMessageGroup1() {
@@ -128,6 +119,51 @@ public class ProductVarianceCreate extends AbstractPageBean {
 
     public void setMessageGroup1(MessageGroup mg) {
         this.messageGroup1 = mg;
+    }
+    private TextField txtDimension = new TextField();
+
+    public TextField getTxtDimension() {
+        return txtDimension;
+    }
+
+    public void setTxtDimension(TextField tf) {
+        this.txtDimension = tf;
+    }
+    private SingleSelectOptionsList dimUnitDefaultOptions = new SingleSelectOptionsList();
+
+    public SingleSelectOptionsList getDimUnitDefaultOptions() {
+        return dimUnitDefaultOptions;
+    }
+
+    public void setDimUnitDefaultOptions(SingleSelectOptionsList ssol) {
+        this.dimUnitDefaultOptions = ssol;
+    }
+    private DropDown dimUnit = new DropDown();
+
+    public DropDown getDimUnit() {
+        return dimUnit;
+    }
+
+    public void setDimUnit(DropDown dd) {
+        this.dimUnit = dd;
+    }
+    private SingleSelectOptionsList categoryDefaultOptions = new SingleSelectOptionsList();
+
+    public SingleSelectOptionsList getCategoryDefaultOptions() {
+        return categoryDefaultOptions;
+    }
+
+    public void setCategoryDefaultOptions(SingleSelectOptionsList ssol) {
+        this.categoryDefaultOptions = ssol;
+    }
+    private DropDown category = new DropDown();
+
+    public DropDown getCategory() {
+        return category;
+    }
+
+    public void setCategory(DropDown dd) {
+        this.category = dd;
     }
 
     // </editor-fold>
@@ -206,6 +242,18 @@ public class ProductVarianceCreate extends AbstractPageBean {
 
         Option[] brandOptionArr = brandOptions.toArray(new Option[0]);
         ptypeDefaultOptions.setOptions(brandOptionArr);
+
+        List<Option> unitOptions = new ArrayList<Option>();
+        List<ProductUnit>unitList = this.productUnitFacade.findAll();
+        for(ProductUnit unit : unitList){
+        Option opt = new Option();
+        opt.setLabel(unit.getName());
+        opt.setValue(unit.getId());
+        unitOptions.add(opt);
+        }
+
+        Option[] unitOptionArr = unitOptions.toArray(new Option[0]);
+        dimUnitDefaultOptions.setOptions(unitOptionArr);
     }
 
     /**
@@ -254,7 +302,31 @@ public class ProductVarianceCreate extends AbstractPageBean {
     }
 
     public String btnSave_action() {
-        // TODO: Replace with your code
+        String name,cat,type,unit,dim;
+
+        SessionBean1 sb1 = this.getSessionBean1();
+        try
+        {
+            name = (String) txtName.getText();
+            cat = (String) category.getValue();
+            type = (String) ptype.getValue();
+            unit = (String) dimUnit.getValue();
+            dim = (String) txtDimension.getText();
+
+            ProductVariance pVariance = sb1.getProductVariance();
+            pVariance.setIsActive(true);
+            pVariance.setName(name);
+            pVariance.setSize(dim);
+            pVariance.setUnits(unit);
+            pVariance.setProdType(type);
+            productVarianceFacade.create(pVariance);
+            this.info("Sucessfully Saved!");
+
+        }
+        catch(NullPointerException e)
+        {
+            this.info("Missing required fields!");
+        }
         return null;
     }
 

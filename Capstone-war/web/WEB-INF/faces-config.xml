@@ -218,6 +218,10 @@
             <from-outcome>case2</from-outcome>
             <to-view-id>/pages/ProductVariance/ProductVarianceCreate.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>case3</from-outcome>
+            <to-view-id>/pages/ProductVariance/ProductVarianceUpdate.jsp</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/ProductVariance/ProductVarianceCreate.jsp</from-view-id>
@@ -266,4 +270,9 @@
             <to-view-id>/pages/Menu.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>pages$ProductVariance$ProductVarianceUpdate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductVariance.ProductVarianceUpdate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>

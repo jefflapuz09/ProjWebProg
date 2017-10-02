@@ -18,6 +18,7 @@ import javax.faces.FacesException;
 import capstonewar.RequestBean1;
 import capstonewar.ApplicationBean1;
 import capstonewar.SessionBean1;
+import com.sun.data.provider.RowKey;
 import java.util.List;
 import javax.faces.event.ValueChangeEvent;
 
@@ -54,6 +55,7 @@ public class ProductVarianceMaintenance extends AbstractPageBean {
     public void setBtnUpdate(Button b) {
         this.btnUpdate = b;
     }
+    
     private Button btnDeactivate = new Button();
 
     public Button getBtnDeactivate() {
@@ -287,9 +289,16 @@ public class ProductVarianceMaintenance extends AbstractPageBean {
     }
 
     public String btnUpdate_action() {
-        // TODO: Process the action. Return value is a navigation
-        // case name where null will return to the same page.
-        return null;
+
+        RowKey rowKey = this.tableRowGroup1.getRowKey();
+        String rowId = "";
+        rowId = rowKey.getRowId();
+
+        SessionBean1 sb1 = this.getSessionBean1();
+        ProductVariance[] varianceEntryArray = sb1.getProductVarianceData();
+        ProductVariance listOfVar = varianceEntryArray[Integer.parseInt(rowId)];
+        sb1.setProductVarianceEdit(listOfVar);
+        return "case3";
     }
 
     public String btnDeactivate_action() {
