@@ -309,7 +309,7 @@ public class ProductVarianceCreate extends AbstractPageBean {
         {
             name = (String) txtName.getText();
             cat = (String) category.getValue();
-            type = (String) ptype.getValue();
+            type = (String) ptype.getSelected();
             unit = (String) dimUnit.getValue();
             dim = (String) txtDimension.getText();
 

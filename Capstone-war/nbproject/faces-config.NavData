@@ -2,21 +2,24 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="pages/PurchaseOrder/PurchaseOrder.jsp" x="-345" y="226" zoom="false"/>
-        <Node id="pages/ProductUnit/ProductUnitMaintenance.jsp" x="1065" y="251" zoom="false"/>
-        <Node id="index.jsp" x="150" y="300" zoom="true"/>
-        <Node id="pages/ProductVariance/ProductVarianceCreate.jsp" x="438" y="10" zoom="false"/>
-        <Node id="pages/Supplier/SupplierMaintenanceUpdate.jsp" x="-391" y="755" zoom="false"/>
-        <Node id="pages/ProductUnit/ProductUnitUpdate.jsp" x="874" y="721" zoom="false"/>
-        <Node id="pages/Supplier/SupplierMaintenance.jsp" x="135" y="656" zoom="false"/>
-        <Node id="pages/ReceiveDelivery/ReceiveDelivery.jsp" x="-353" y="377" zoom="false"/>
-        <Node id="pages/ProductUnit/ProductUnitCreate.jsp" x="1195" y="550" zoom="false"/>
-        <Node id="pages/ProductVariance/ProductVarianceUpdate.jsp" x="150" y="150" zoom="true"/>
-        <Node id="pages/ProductVariance/ProductVarianceMaintenance.jsp" x="341" y="237" zoom="false"/>
+        <Node id="pages/PurchaseOrder/PurchaseOrder.jsp" x="-374" y="52" zoom="false"/>
+        <Node id="pages/ProductUnit/ProductUnitMaintenance.jsp" x="1262" y="23" zoom="false"/>
+        <Node id="pages/ProductBrand/ProductBrandMaintenance.jsp" x="837" y="22" zoom="false"/>
+        <Node id="index.jsp" x="68" y="2256" zoom="true"/>
+        <Node id="pages/ProductVariance/ProductVarianceCreate.jsp" x="1642" y="204" zoom="false"/>
+        <Node id="pages/Supplier/SupplierMaintenanceUpdate.jsp" x="454" y="283" zoom="false"/>
+        <Node id="pages/ProductUnit/ProductUnitUpdate.jsp" x="1257" y="303" zoom="false"/>
+        <Node id="pages/Supplier/SupplierMaintenance.jsp" x="460" y="18" zoom="false"/>
+        <Node id="pages/ProductBrand/ProductBrandCreate.jsp" x="842" y="193" zoom="false"/>
+        <Node id="pages/ReceiveDelivery/ReceiveDelivery.jsp" x="24" y="43" zoom="false"/>
+        <Node id="pages/ProductUnit/ProductUnitCreate.jsp" x="1256" y="201" zoom="false"/>
+        <Node id="pages/ProductVariance/ProductVarianceUpdate.jsp" x="1640" y="309" zoom="false"/>
+        <Node id="pages/ProductVariance/ProductVarianceMaintenance.jsp" x="1660" y="25" zoom="false"/>
+        <Node id="pages/Supplier/SupplierMaintenanceCreate.jsp" x="452" y="177" zoom="false"/>
         <Node id="pages/Menu.jsp" x="534" y="473" zoom="false"/>
-        <Node id="pages/Supplier/SupplierMaintenanceCreate.jsp" x="-321" y="574" zoom="false"/>
-        <Node id="pages/PurchaseOrder/PurchaseOrderCreate.jsp" x="-58" y="73" zoom="false"/>
-        <Node id="pages/ReceiveDelivery/ReceiveDeliveryCreate.jsp" x="-231" y="454" zoom="false"/>
+        <Node id="pages/PurchaseOrder/PurchaseOrderCreate.jsp" x="-385" y="174" zoom="false"/>
+        <Node id="pages/ProductBrand/ProductBrandUpdate.jsp" x="857" y="309" zoom="false"/>
+        <Node id="pages/ReceiveDelivery/ReceiveDeliveryCreate.jsp" x="19" y="174" zoom="false"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

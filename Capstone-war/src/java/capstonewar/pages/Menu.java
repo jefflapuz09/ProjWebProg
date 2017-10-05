@@ -106,6 +106,15 @@ public class Menu extends AbstractPageBean {
     public void setBtnType(Hyperlink h) {
         this.btnType = h;
     }
+    private Hyperlink btnBrand = new Hyperlink();
+
+    public Hyperlink getBtnBrand() {
+        return btnBrand;
+    }
+
+    public void setBtnBrand(Hyperlink h) {
+        this.btnBrand = h;
+    }
 
     // </editor-fold>
 
@@ -249,6 +258,15 @@ public class Menu extends AbstractPageBean {
         {
             btnVariance.setVisible(true);
         }
+
+         if(btnBrand.isVisible())
+        {
+            btnBrand.setVisible(false);
+        }
+        else
+        {
+            btnBrand.setVisible(true);
+        }
         return null;
     }
 
@@ -308,6 +326,12 @@ public class Menu extends AbstractPageBean {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
         return null;
+    }
+
+    public String btnBrand_action() {
+        // TODO: Process the action. Return value is a navigation
+        // case name where null will return to the same page.
+        return "case11";
     }
     
 }

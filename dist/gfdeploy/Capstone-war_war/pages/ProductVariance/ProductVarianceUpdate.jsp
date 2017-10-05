@@ -20,7 +20,7 @@
                                 style="background-color: rgb(34, 45, 50); color: rgb(204, 204, 204); font-size: 24px; font-style: normal; left: 58px; top: 220px; position: absolute" text="Main Menu"/>
                         </webuijsf:panelLayout>
                         <webuijsf:panelLayout id="layoutPanel2" panelLayout="flow" style="background-color: #3c8dbc; height: 50px; left: 0px; top: 0px; position: absolute; width: 1363px"/>
-                        <webuijsf:button actionExpression="#{pages$ProductVariance$ProductVarianceCreate.btnSave_action}"
+                        <webuijsf:button actionExpression="#{pages$ProductVariance$ProductVarianceUpdate.btnSave_action}"
                             binding="#{pages$ProductVariance$ProductVarianceUpdate.btnSave}" id="btnSave" style="left: 287px; top: 456px; position: absolute" text="Save"/>
                         <webuijsf:label id="label1" style="font-size: 36px; left: 288px; top: 120px; position: absolute; width: 480px" text="Product Unit Information"/>
                         <webuijsf:label id="label2" style="left: 288px; top: 192px; position: absolute" text="Variance *"/>

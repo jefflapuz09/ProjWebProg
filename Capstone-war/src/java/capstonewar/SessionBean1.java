@@ -5,6 +5,7 @@
 
 package capstonewar;
 
+import admin.entity.ProductBrand;
 import admin.entity.ProductUnit;
 import admin.entity.ProductVariance;
 import admin.entity.Supplier;
@@ -59,6 +60,43 @@ public class SessionBean1 extends AbstractSessionBean {
     private ProductVariance[] productVarianceData;
     private ProductVariance productVarianceEdit;
     private ProductVariance[] productVarianceEditArray;
+    private ProductBrand productBrand;
+    private ProductBrand[] productBrandData;
+    private ProductBrand productBrandEdit;
+    private ProductBrand[] productBrandEditArray;
+
+    public ProductBrand getProductBrand() {
+        return productBrand;
+    }
+
+    public void setProductBrand(ProductBrand productBrand) {
+        this.productBrand = productBrand;
+    }
+
+    public ProductBrand[] getProductBrandData() {
+        return productBrandData;
+    }
+
+    public void setProductBrandData(ProductBrand[] productBrandData) {
+        this.productBrandData = productBrandData;
+    }
+
+    public ProductBrand getProductBrandEdit() {
+        return productBrandEdit;
+    }
+
+    public void setProductBrandEdit(ProductBrand productBrandEdit) {
+        this.productBrandEdit = productBrandEdit;
+    }
+
+    public ProductBrand[] getProductBrandEditArray() {
+        return productBrandEditArray;
+    }
+
+    public void setProductBrandEditArray(ProductBrand[] productBrandEditArray) {
+        this.productBrandEditArray = productBrandEditArray;
+    }
+    
 
     public ProductVariance getProductVariance() {
         return productVariance;

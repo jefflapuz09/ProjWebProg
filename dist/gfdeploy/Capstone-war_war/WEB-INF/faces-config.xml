@@ -128,6 +128,10 @@
             <from-outcome>case10</from-outcome>
             <to-view-id>/pages/ReceiveDelivery/ReceiveDelivery.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>case11</from-outcome>
+            <to-view-id>/pages/ProductBrand/ProductBrandMaintenance.jsp</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/Supplier/SupplierMaintenance.jsp</from-view-id>
@@ -275,4 +279,56 @@
         <managed-bean-class>capstonewar.pages.ProductVariance.ProductVarianceUpdate</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pages$ProductBrand$ProductBrandMaintenance</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductBrand.ProductBrandMaintenance</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pages$ProductBrand$ProductBrandCreate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductBrand.ProductBrandCreate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/pages/ProductBrand/ProductBrandMaintenance.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/ProductBrand/ProductBrandCreate.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case3</from-outcome>
+            <to-view-id>/pages/ProductBrand/ProductBrandUpdate.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/ProductBrand/ProductBrandCreate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/ProductBrand/ProductBrandMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>pages$ProductBrand$ProductBrandUpdate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductBrand.ProductBrandUpdate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/pages/ProductBrand/ProductBrandUpdate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/ProductBrand/ProductBrandMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
