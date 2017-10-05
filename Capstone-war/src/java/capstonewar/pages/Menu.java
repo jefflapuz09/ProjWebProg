@@ -325,13 +325,13 @@ public class Menu extends AbstractPageBean {
     public String btnType_action() {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
-        return null;
+        return "case13";
     }
 
     public String btnBrand_action() {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
-        return "case11";
+        return "case12";
     }
     
 }

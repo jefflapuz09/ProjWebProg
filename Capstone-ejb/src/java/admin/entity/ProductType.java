@@ -16,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -27,6 +29,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "product_type")
 @NamedQueries({@NamedQuery(name = "ProductType.findAll", query = "SELECT p FROM ProductType p"), @NamedQuery(name = "ProductType.findById", query = "SELECT p FROM ProductType p WHERE p.id = :id"), @NamedQuery(name = "ProductType.findByName", query = "SELECT p FROM ProductType p WHERE p.name = :name"), @NamedQuery(name = "ProductType.findByCategory", query = "SELECT p FROM ProductType p WHERE p.category = :category"), @NamedQuery(name = "ProductType.findByIsActive", query = "SELECT p FROM ProductType p WHERE p.isActive = :isActive")})
+
+@NamedNativeQueries({
+    @NamedNativeQuery(name="ProductType.findByName",query="Select * from product_type where name=?",resultClass=ProductType.class)
+ 
+
+})
+
 public class ProductType implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

@@ -26,4 +26,10 @@ public interface ProductTypeFacadeLocal {
 
     List<ProductType> findAll();
 
+    public boolean findThisRecord();
+
+    public boolean findThisRecord(String search);
+
+    public List<ProductType> findthisRecord(String search);
+
 }

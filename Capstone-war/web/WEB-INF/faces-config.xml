@@ -132,6 +132,14 @@
             <from-outcome>case11</from-outcome>
             <to-view-id>/pages/ProductBrand/ProductBrandMaintenance.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>case12</from-outcome>
+            <to-view-id>/pages/ProductBrand/ProductBrandMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case13</from-outcome>
+            <to-view-id>/pages/ProductType/ProductTypeMaintenance.jsp</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/Supplier/SupplierMaintenance.jsp</from-view-id>
@@ -325,6 +333,58 @@
         <navigation-case>
             <from-outcome>case1</from-outcome>
             <to-view-id>/pages/ProductBrand/ProductBrandMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>pages$ProductType$ProductTypeMaintenance</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductType.ProductTypeMaintenance</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pages$ProductType$ProductTypeCreate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductType.ProductTypeCreate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pages$ProductType$ProductTypeUpdate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.ProductType.ProductTypeUpdate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/pages/ProductType/ProductTypeMaintenance.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/ProductType/ProductTypeCreate.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case3</from-outcome>
+            <to-view-id>/pages/ProductType/ProductTypeUpdate.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/ProductType/ProductTypeCreate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/ProductType/ProductTypeMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/ProductType/ProductTypeUpdate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/ProductType/ProductTypeMaintenance.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>case2</from-outcome>

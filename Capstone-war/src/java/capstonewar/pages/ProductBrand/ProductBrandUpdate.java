@@ -237,7 +237,7 @@ public class ProductBrandUpdate extends AbstractPageBean {
             ProductBrand pBrand = sb1.getProductBrand();
             pBrand.setName(name);
             pBrand.setIsActive(true);
-            productBrandFacade.create(pBrand);
+            productBrandFacade.edit(pBrand);
             this.info("Successfully updated record!");
 
         }
