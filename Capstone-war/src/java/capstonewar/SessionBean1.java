@@ -5,6 +5,7 @@
 
 package capstonewar;
 
+import admin.entity.Product;
 import admin.entity.ProductBrand;
 import admin.entity.ProductType;
 import admin.entity.ProductUnit;
@@ -69,6 +70,46 @@ public class SessionBean1 extends AbstractSessionBean {
     private ProductType[] productTypeData;
     private ProductType productTypeEdit;
     private ProductType[] productTypeEditArray;
+    private Product product;
+    private Product[] productData;
+    private Product productEdit;
+    private Product[] productEditArray;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Product[] getProductData() {
+        return productData;
+    }
+
+    public void setProductData(Product[] productData) {
+        this.productData = productData;
+    }
+
+    public Product getProductEdit() {
+        return productEdit;
+    }
+
+    public void setProductEdit(Product productEdit) {
+        this.productEdit = productEdit;
+    }
+
+    public Product[] getProductEditArray() {
+        return productEditArray;
+    }
+
+    public void setProductEditArray(Product[] productEditArray) {
+        this.productEditArray = productEditArray;
+    }
+
+    
+
+    
 
     public ProductType getProductType() {
         return productType;
@@ -133,7 +174,7 @@ public class SessionBean1 extends AbstractSessionBean {
     public void setProductBrandEditArray(ProductBrand[] productBrandEditArray) {
         this.productBrandEditArray = productBrandEditArray;
     }
-    
+
 
     public ProductVariance getProductVariance() {
         return productVariance;
@@ -167,8 +208,8 @@ public class SessionBean1 extends AbstractSessionBean {
         this.productVarianceEditArray = productVarianceEditArray;
     }
 
-    
-    
+
+
 
     public ProductUnit getProductUnit() {
         return productUnit;
@@ -299,7 +340,7 @@ public class SessionBean1 extends AbstractSessionBean {
         this.supplierData = supplierData;
     }
 
-   
+
 
     /**
      * <p>Construct a new session data bean instance.</p>
@@ -314,7 +355,7 @@ public class SessionBean1 extends AbstractSessionBean {
      * a value binding or method binding expression, which utilizes the
      * managed bean facility to instantiate this bean and store it into
      * session scope.</p>
-     * 
+     *
      * <p>You may customize this method to initialize and cache data values
      * or resources that are required for the lifetime of a particular
      * user session.</p>
@@ -326,7 +367,7 @@ public class SessionBean1 extends AbstractSessionBean {
         // Perform application initialization that must complete
         // *before* managed components are initialized
         // TODO - add your own initialiation code here
-        
+
         // <editor-fold defaultstate="collapsed" desc="Managed Component Initialization">
         // Initialize automatically managed components
         // *Note* - this logic should NOT be modified
@@ -336,7 +377,7 @@ public class SessionBean1 extends AbstractSessionBean {
             log("SessionBean1 Initialization Failure", e);
             throw e instanceof FacesException ? (FacesException) e: new FacesException(e);
         }
-        
+
         // </editor-fold>
         // Perform application initialization that must complete
         // *after* managed components are initialized
@@ -349,7 +390,7 @@ public class SessionBean1 extends AbstractSessionBean {
      * when the session is about to be transferred to a different
      * container instance, after which the <code>activate()</code> method
      * will be called to indicate that the transfer is complete.</p>
-     * 
+     *
      * <p>You may customize this method to release references to session data
      * or resources that can not be serialized with the session itself.</p>
      */
@@ -360,7 +401,7 @@ public class SessionBean1 extends AbstractSessionBean {
     /**
      * <p>This method is called when the session containing it was
      * reactivated.</p>
-     * 
+     *
      * <p>You may customize this method to reacquire references to session
      * data or resources that could not be serialized with the
      * session itself.</p>
@@ -373,7 +414,7 @@ public class SessionBean1 extends AbstractSessionBean {
      * <p>This method is called when this bean is removed from
      * session scope.  Typically, this occurs as a result of
      * the session timing out or being terminated by the application.</p>
-     * 
+     *
      * <p>You may customize this method to clean up resources allocated
      * during the execution of the <code>init()</code> method, or
      * at any later time during the lifetime of the application.</p>
@@ -381,7 +422,7 @@ public class SessionBean1 extends AbstractSessionBean {
     @Override
     public void destroy() {
     }
-    
+
     /**
      * <p>Return a reference to the scoped data bean.</p>
      *

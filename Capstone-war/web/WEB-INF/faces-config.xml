@@ -140,6 +140,10 @@
             <from-outcome>case13</from-outcome>
             <to-view-id>/pages/ProductType/ProductTypeMaintenance.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>case14</from-outcome>
+            <to-view-id>/pages/Product/ProductMaintenance.jsp</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/Supplier/SupplierMaintenance.jsp</from-view-id>
@@ -385,6 +389,58 @@
         <navigation-case>
             <from-outcome>case1</from-outcome>
             <to-view-id>/pages/ProductType/ProductTypeMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>pages$Product$ProductMaintenance</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.Product.ProductMaintenance</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pages$Product$ProductCreate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.Product.ProductCreate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pages$Product$ProductUpdate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.Product.ProductUpdate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/pages/Product/ProductMaintenance.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/Product/ProductUpdate.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Product/ProductCreate.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case3</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/Product/ProductUpdate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/Product/ProductMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/Product/ProductCreate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/Product/ProductMaintenance.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>case2</from-outcome>
