@@ -144,6 +144,18 @@
             <from-outcome>case14</from-outcome>
             <to-view-id>/pages/Product/ProductMaintenance.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>case15</from-outcome>
+            <to-view-id>/pages/Package/PackageMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case16</from-outcome>
+            <to-view-id>/pages/Promo/PromoMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case17</from-outcome>
+            <to-view-id>/pages/Discount/DiscountMaintenance.jsp</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/Supplier/SupplierMaintenance.jsp</from-view-id>
@@ -447,4 +459,49 @@
             <to-view-id>/pages/Menu.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>pages$Package$PackageMaintenance</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.Package.PackageMaintenance</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pages$Promo$PromoMaintenance</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.Promo.PromoMaintenance</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/pages/Package/PackageMaintenance.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/Promo/PromoMaintenance.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>pages$Discount$DiscountMaintenance</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.Discount.DiscountMaintenance</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/pages/Discount/DiscountMaintenance.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Discount/DiscountCreate.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>pages$Discount$DiscountCreate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.Discount.DiscountCreate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>

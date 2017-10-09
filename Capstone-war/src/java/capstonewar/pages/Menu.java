@@ -142,6 +142,15 @@ public class Menu extends AbstractPageBean {
     public void setBtnPromo(Hyperlink h) {
         this.btnPromo = h;
     }
+    private Hyperlink btnDiscount = new Hyperlink();
+
+    public Hyperlink getBtnDiscount() {
+        return btnDiscount;
+    }
+
+    public void setBtnDiscount(Hyperlink h) {
+        this.btnDiscount = h;
+    }
 
     // </editor-fold>
 
@@ -370,13 +379,19 @@ public class Menu extends AbstractPageBean {
     public String btnPackage_action() {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
-        return null;
+        return "case15";
     }
 
     public String btnPromo_action() {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
-        return null;
+        return "case16";
+    }
+
+    public String btnDiscount_action() {
+        // TODO: Process the action. Return value is a navigation
+        // case name where null will return to the same page.
+        return "case17";
     }
     
 }

@@ -37,11 +37,13 @@
                             <webuijsf:label id="label2" style="color: rgb(255, 255, 255); font-size: 14px; left: 73px; top: 65px; position: absolute" text="Administrator"/>
                             <webuijsf:hyperlink actionExpression="#{pages$Menu.btnTransaction_action}" binding="#{pages$Menu.btnTransaction}"
                                 id="btnTransaction"
-                                style="background-color: rgb(34, 45, 50); color: rgb(204, 204, 204); font-size: 24px; font-style: normal; left: 58px; top: 350px; position: absolute" text="Transaction"/>
+                                style="background-color: rgb(34, 45, 50); color: rgb(204, 204, 204); font-size: 24px; font-style: normal; left: 58px; top: 370px; position: absolute" text="Transaction"/>
                             <webuijsf:hyperlink actionExpression="#{pages$Menu.btnPurchase_action}" binding="#{pages$Menu.btnPurchase}" id="btnPurchase"
-                                style="background-color: rgb(34, 45, 50); color: rgb(255, 255, 255); font-size: 18px; font-style: normal; left: 57px; top: 380px; position: absolute" text="Purchase Order"/>
+                                style="background-color: rgb(34, 45, 50); color: rgb(255, 255, 255); font-size: 18px; font-style: normal; left: 57px; top: 400px; position: absolute" text="Purchase Order"/>
                             <webuijsf:hyperlink actionExpression="#{pages$Menu.btnReceive_action}" binding="#{pages$Menu.btnReceive}" id="btnReceive"
-                                style="background-color: rgb(34, 45, 50); color: rgb(255, 255, 255); font-size: 18px; font-style: normal; left: 52px; top: 405px; position: absolute" text="Receive Delivery"/>
+                                style="background-color: rgb(34, 45, 50); color: rgb(255, 255, 255); font-size: 18px; font-style: normal; left: 52px; top: 425px; position: absolute" text="Receive Delivery"/>
+                            <webuijsf:hyperlink actionExpression="#{pages$Menu.btnDiscount_action}" binding="#{pages$Menu.btnDiscount}" id="btnDiscount"
+                                style="background-color: rgb(34, 45, 50); color: rgb(255, 255, 255); font-size: 18px; font-style: normal; left: 82px; top: 336px; position: absolute" text="Discount"/>
                             <webuijsf:image height="40" id="image1" style="left: 20px; top: 53px; position: absolute" url="/resources/logo.png" width="40"/>
                         </webuijsf:panelLayout>
                         <webuijsf:panelLayout id="layoutPanel2" panelLayout="flow" style="background-color: #3c8dbc; height: 50px; left: 0px; top: 0px; position: absolute; width: 1363px">

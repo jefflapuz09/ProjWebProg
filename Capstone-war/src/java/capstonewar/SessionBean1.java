@@ -5,11 +5,14 @@
 
 package capstonewar;
 
+import admin.entity.Discount;
+import admin.entity.Package;
 import admin.entity.Product;
 import admin.entity.ProductBrand;
 import admin.entity.ProductType;
 import admin.entity.ProductUnit;
 import admin.entity.ProductVariance;
+import admin.entity.Promo;
 import admin.entity.Supplier;
 import admin.entity.SupplierContact;
 import admin.entity.SupplierPerson;
@@ -74,6 +77,118 @@ public class SessionBean1 extends AbstractSessionBean {
     private Product[] productData;
     private Product productEdit;
     private Product[] productEditArray;
+    private admin.entity.Package pack;
+    private admin.entity.Package[] packData;
+    private admin.entity.Package packEdit;
+    private admin.entity.Package[] packEditArray;
+    private Promo promo;
+    private Promo[] promoData;
+    private Promo promoEdit;
+    private Promo[] promoEditArray;
+    private Discount discount;
+    private Discount[] discountData;
+    private Discount discountEdit;
+    private Discount[] discountEditArray;
+
+    public Discount getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
+    }
+
+    public Discount[] getDiscountData() {
+        return discountData;
+    }
+
+    public void setDiscountData(Discount[] discountData) {
+        this.discountData = discountData;
+    }
+
+    public Discount getDiscountEdit() {
+        return discountEdit;
+    }
+
+    public void setDiscountEdit(Discount discountEdit) {
+        this.discountEdit = discountEdit;
+    }
+
+    public Discount[] getDiscountEditArray() {
+        return discountEditArray;
+    }
+
+    public void setDiscountEditArray(Discount[] discountEditArray) {
+        this.discountEditArray = discountEditArray;
+    }
+
+    
+
+    public Package getPack() {
+        return pack;
+    }
+
+    public Promo getPromo() {
+        return promo;
+    }
+
+    public void setPromo(Promo promo) {
+        this.promo = promo;
+    }
+
+    public Promo[] getPromoData() {
+        return promoData;
+    }
+
+    public void setPromoData(Promo[] promoData) {
+        this.promoData = promoData;
+    }
+
+    public Promo getPromoEdit() {
+        return promoEdit;
+    }
+
+    public void setPromoEdit(Promo promoEdit) {
+        this.promoEdit = promoEdit;
+    }
+
+    public Promo[] getPromoEditArray() {
+        return promoEditArray;
+    }
+
+    public void setPromoEditArray(Promo[] promoEditArray) {
+        this.promoEditArray = promoEditArray;
+    }
+
+    public void setPack(Package pack) {
+        this.pack = pack;
+    }
+
+    public Package[] getPackData() {
+        return packData;
+    }
+
+    public void setPackData(Package[] packData) {
+        this.packData = packData;
+    }
+
+    public Package getPackEdit() {
+        return packEdit;
+    }
+
+    public void setPackEdit(Package packEdit) {
+        this.packEdit = packEdit;
+    }
+
+    public Package[] getPackEditArray() {
+        return packEditArray;
+    }
+
+    public void setPackEditArray(Package[] packEditArray) {
+        this.packEditArray = packEditArray;
+    }
+
+  
 
     public Product getProduct() {
         return product;
