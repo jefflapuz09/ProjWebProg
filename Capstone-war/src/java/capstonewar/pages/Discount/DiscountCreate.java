@@ -5,14 +5,17 @@
 
 package capstonewar.pages.Discount;
 
+import admin.entity.Discount;
 import admin.entity.Product;
 import admin.session.DiscountFacadeLocal;
 import admin.session.ProductFacadeLocal;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Button;
+import com.sun.webui.jsf.component.Checkbox;
 import com.sun.webui.jsf.component.DropDown;
 import com.sun.webui.jsf.component.Hyperlink;
 import com.sun.webui.jsf.component.MessageGroup;
+import com.sun.webui.jsf.component.RadioButtonGroup;
 import com.sun.webui.jsf.component.TextField;
 import com.sun.webui.jsf.model.SingleSelectOptionsList;
 import javax.ejb.EJB;
@@ -23,6 +26,7 @@ import capstonewar.ApplicationBean1;
 import com.sun.webui.jsf.model.Option;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.event.ValueChangeEvent;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -49,7 +53,7 @@ public class DiscountCreate extends AbstractPageBean {
      * here is subject to being replaced.</p>
      */
     private void _init() throws Exception {
-        radioButtonGroup1DefaultOptions.setOptions(new com.sun.webui.jsf.model.Option[]{new com.sun.webui.jsf.model.Option("true", "Whole"), new com.sun.webui.jsf.model.Option("false", "Individual")});
+        rbTypeDefaultOptions.setOptions(new com.sun.webui.jsf.model.Option[]{new com.sun.webui.jsf.model.Option("0", "Whole"), new com.sun.webui.jsf.model.Option("1", "Individual")});
     }
     private Hyperlink btnMenu = new Hyperlink();
 
@@ -78,14 +82,14 @@ public class DiscountCreate extends AbstractPageBean {
     public void setBtnSave(Button b) {
         this.btnSave = b;
     }
-    private TextField txtName = new TextField();
+    private TextField txtDiscount = new TextField();
 
-    public TextField getTxtName() {
-        return txtName;
+    public TextField getTxtDiscount() {
+        return txtDiscount;
     }
 
-    public void setTxtName(TextField tf) {
-        this.txtName = tf;
+    public void setTxtDiscount(TextField tf) {
+        this.txtDiscount = tf;
     }
     private MessageGroup messageGroup1 = new MessageGroup();
 
@@ -96,14 +100,50 @@ public class DiscountCreate extends AbstractPageBean {
     public void setMessageGroup1(MessageGroup mg) {
         this.messageGroup1 = mg;
     }
-    private SingleSelectOptionsList radioButtonGroup1DefaultOptions = new SingleSelectOptionsList();
+    private SingleSelectOptionsList rbTypeDefaultOptions = new SingleSelectOptionsList();
 
-    public SingleSelectOptionsList getRadioButtonGroup1DefaultOptions() {
-        return radioButtonGroup1DefaultOptions;
+    public SingleSelectOptionsList getRbTypeDefaultOptions() {
+        return rbTypeDefaultOptions;
     }
 
-    public void setRadioButtonGroup1DefaultOptions(SingleSelectOptionsList ssol) {
-        this.radioButtonGroup1DefaultOptions = ssol;
+    public void setRbTypeDefaultOptions(SingleSelectOptionsList ssol) {
+        this.rbTypeDefaultOptions = ssol;
+    }
+    private RadioButtonGroup rbType = new RadioButtonGroup();
+
+    public RadioButtonGroup getRbType() {
+        return rbType;
+    }
+
+    public void setRbType(RadioButtonGroup rbg) {
+        this.rbType = rbg;
+    }
+    private TextField txtRate = new TextField();
+
+    public TextField getTxtRate() {
+        return txtRate;
+    }
+
+    public void setTxtRate(TextField tf) {
+        this.txtRate = tf;
+    }
+    private Checkbox cbVatExempt = new Checkbox();
+
+    public Checkbox getCbVatExempt() {
+        return cbVatExempt;
+    }
+
+    public void setCbVatExempt(Checkbox c) {
+        this.cbVatExempt = c;
+    }
+    private SingleSelectOptionsList prodDefaultOptions = new SingleSelectOptionsList();
+
+    public SingleSelectOptionsList getProdDefaultOptions() {
+        return prodDefaultOptions;
+    }
+
+    public void setProdDefaultOptions(SingleSelectOptionsList ssol) {
+        this.prodDefaultOptions = ssol;
     }
     private DropDown prod = new DropDown();
 
@@ -180,6 +220,12 @@ public class DiscountCreate extends AbstractPageBean {
      */
     @Override
     public void prerender() {
+        SessionBean1 sb1 = this.getSessionBean1();
+        Discount disc = sb1.getDiscount();
+        if(disc == null){
+               sb1.setDiscount(new Discount());
+        }
+
         List<Option> prodOptions = new ArrayList<Option>();
         List<Product>prodList = this.productFacade.findAll();
         for(Product type : prodList){
@@ -190,7 +236,7 @@ public class DiscountCreate extends AbstractPageBean {
         }
 
         Option[] prodOptionArr = prodOptions.toArray(new Option[0]);
-//        prodDefaultOptions.setOptions(prodOptionArr);
+        prodDefaultOptions.setOptions(prodOptionArr);
     }
 
     /**
@@ -230,6 +276,68 @@ public class DiscountCreate extends AbstractPageBean {
      */
     protected ApplicationBean1 getApplicationBean1() {
         return (ApplicationBean1) getBean("ApplicationBean1");
+    }
+
+    public String btnSave_action() {
+        String discount = "";
+        Double rate;
+        String type = "";
+
+        SessionBean1 sb1 = this.getSessionBean1();
+
+        try{
+            discount = (String) this.txtDiscount.getText();
+            rate =  Double.parseDouble(txtRate.getText().toString());
+
+
+            if(rbType.getValue().equals("1"))
+            {
+                Discount disc = sb1.getDiscount();
+                disc.setName(discount);
+                disc.setRate(rate);
+                disc.setIsWhole(false);
+                disc.setIsVatExempt(false);
+                disc.setIsActive(true);
+                discountFacade.create(disc);
+                this.info("SAVED!");
+            }
+            if(rbType.getValue().equals("0"))
+            {
+                Discount disc = sb1.getDiscount();
+                disc.setName(discount);
+                disc.setRate(rate);
+                disc.setIsWhole(true);
+                disc.setIsVatExempt(true);
+                disc.setIsActive(true);
+                discountFacade.create(disc);
+                this.info("SAVED!");
+            }
+            
+
+
+
+
+        }catch(NullPointerException ex)
+        {
+
+        }
+        return null;
+    }
+
+    public void rbType_processValueChange(ValueChangeEvent vce) {
+       if(rbType.getValue().equals("0"))
+        {
+           System.out.println("123");
+
+            cbVatExempt.setVisible(true);
+
+        }
+       else
+       {
+            cbVatExempt.setSelected(false);
+            cbVatExempt.setVisible(false);
+       }
+       
     }
     
 }
