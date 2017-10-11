@@ -34,7 +34,8 @@
                             style="font-size: 18px; left: 336px; top: 192px; position: absolute" valueChangeListenerExpression="#{pages$Discount$DiscountMaintenance.all_processValueChange}"/>
                         <webuijsf:table augmentTitle="false" id="table1" style="height: 149px; left: 336px; top: 240px; position: absolute; width: 816px"
                             title="Table" width="816">
-                            <webuijsf:tableRowGroup id="tableRowGroup1" rows="10" sourceData="#{SessionBean1.discountData}" sourceVar="currentRow">
+                            <webuijsf:tableRowGroup binding="#{pages$Discount$DiscountMaintenance.tableRowGroup1}" id="tableRowGroup1" rows="10"
+                                sourceData="#{SessionBean1.discountData}" sourceVar="currentRow">
                                 <webuijsf:tableColumn headerText="Discount" id="tableColumn1" sort="name">
                                     <webuijsf:staticText id="staticText1" text="#{currentRow.value['name']}"/>
                                 </webuijsf:tableColumn>

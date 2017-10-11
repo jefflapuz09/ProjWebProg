@@ -11,6 +11,7 @@ import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Button;
 import com.sun.webui.jsf.component.Checkbox;
 import com.sun.webui.jsf.component.Hyperlink;
+import com.sun.webui.jsf.component.TableRowGroup;
 import com.sun.webui.jsf.component.TextField;
 import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import javax.ejb.EJB;
@@ -18,6 +19,7 @@ import javax.faces.FacesException;
 import capstonewar.SessionBean1;
 import capstonewar.RequestBean1;
 import capstonewar.ApplicationBean1;
+import com.sun.data.provider.RowKey;
 import java.util.List;
 import javax.faces.event.ValueChangeEvent;
 
@@ -108,6 +110,15 @@ public class DiscountMaintenance extends AbstractPageBean {
 
     public void setBtnDelete(Button b) {
         this.btnDelete = b;
+    }
+    private TableRowGroup tableRowGroup1 = new TableRowGroup();
+
+    public TableRowGroup getTableRowGroup1() {
+        return tableRowGroup1;
+    }
+
+    public void setTableRowGroup1(TableRowGroup trg) {
+        this.tableRowGroup1 = trg;
     }
 
     // </editor-fold>
@@ -265,9 +276,17 @@ public class DiscountMaintenance extends AbstractPageBean {
     }
 
     public String btnUpdate_action() {
-        // TODO: Process the action. Return value is a navigation
-        // case name where null will return to the same page.
-        return null;
+        RowKey rowKey = this.tableRowGroup1.getRowKey();
+        String rowId = "";
+        rowId = rowKey.getRowId();
+
+        SessionBean1 sb1 = this.getSessionBean1();
+        Discount[] suppEntryArray = sb1.getDiscountData();
+        Discount listOfEntry = suppEntryArray[Integer.parseInt(rowId)];
+        sb1.setDiscountEdit(listOfEntry);
+
+
+        return "case3";
     }
 
     public String btnDelete_action() {

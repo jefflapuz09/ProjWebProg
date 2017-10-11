@@ -498,10 +498,19 @@
             <from-outcome>case2</from-outcome>
             <to-view-id>/pages/Discount/DiscountCreate.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>case3</from-outcome>
+            <to-view-id>/pages/Discount/DiscountUpdate.jsp</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <managed-bean>
         <managed-bean-name>pages$Discount$DiscountCreate</managed-bean-name>
         <managed-bean-class>capstonewar.pages.Discount.DiscountCreate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>pages$Discount$DiscountUpdate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.Discount.DiscountUpdate</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
 </faces-config>
