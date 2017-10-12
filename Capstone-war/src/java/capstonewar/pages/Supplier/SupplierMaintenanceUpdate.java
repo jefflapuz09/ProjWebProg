@@ -312,7 +312,7 @@ public class SupplierMaintenanceUpdate extends AbstractPageBean {
             brgy = (String) txtBrgy.getText();
             city = (String) txtCity.getText();
 
-            Supplier supp = sb1.getSupplier();
+            Supplier supp = sb1.getSuppEntryforEdit();
             supp.setName(supplierName);
             supp.setStreet(st);
             supp.setBrgy(brgy);
@@ -320,10 +320,10 @@ public class SupplierMaintenanceUpdate extends AbstractPageBean {
             supp.setIsActive(true);
             supplierFacade.edit(supp);
 
-            Supplier suppEntry = sb1.getSupplier();
+            Supplier suppEntry = sb1.getSuppEntryforEdit();
             sid = (suppEntry.getId());
             suppContact = (String) txtContact.getText();
-            SupplierContact supContact = sb1.getSupplierContact();
+            SupplierContact supContact = sb1.getSuppContactEntryforEdit();
             supContact.setScId(sid);
             supContact.setScNo(suppContact);
             supplierContactFacade.edit(supContact);
@@ -331,8 +331,7 @@ public class SupplierMaintenanceUpdate extends AbstractPageBean {
             spid = (suppEntry.getId());
             suppPContactName = (String) txtContactP.getText();
             suppPContactNo = (String) txtPContactNum.getText();
-            SupplierPerson supPerson = sb1.getSupplierPerson();
-            supPerson.setSpId(spid);
+            SupplierPerson supPerson = sb1.getSuppPersonEntryforEdit();
             supPerson.setSpName(suppPContactName);
             supPerson.setSpContact(suppPContactNo);
             supPerson.setIsMain(true);
@@ -348,7 +347,7 @@ public class SupplierMaintenanceUpdate extends AbstractPageBean {
        }
        catch(NullPointerException e)
        {
-           this.info("Missing required fields!");
+           this.info(e.getMessage());
        }
         return null;
     }

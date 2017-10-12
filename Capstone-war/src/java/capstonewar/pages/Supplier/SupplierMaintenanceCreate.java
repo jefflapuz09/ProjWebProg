@@ -280,54 +280,53 @@ public class SupplierMaintenanceCreate extends AbstractPageBean {
         String ssup;
 
         SessionBean1 sb1 = this.getSessionBean1();
-       
-       try
-       {
-            
+
+
+
 
             supplierName = (String) txtSupplier.getText();
             st = (String) txtSt.getText();
             brgy = (String) txtBrgy.getText();
             city = (String) txtCity.getText();
 
-            Supplier supp = sb1.getSupplier();
+            Supplier supp = new Supplier();
             supp.setName(supplierName);
             supp.setStreet(st);
             supp.setBrgy(brgy);
             supp.setCity(city);
             supp.setIsActive(true);
+            System.out.println("ID: ");
+            System.out.println(supp.getId());
+            //String suppId = supp.getId().toString();
             supplierFacade.create(supp);
-            
+            sb1.setSupplier(supp);
             Supplier suppEntry = sb1.getSupplier();
-            sid = (suppEntry.getId());
+
+            sid = (Integer.parseInt(suppEntry.getId().toString()));
+            System.out.println(sid);
             suppContact = (String) txtContact.getText();
-            SupplierContact supContact = sb1.getSupplierContact();
+            SupplierContact supContact = new SupplierContact();
             supContact.setScId(sid);
+            //supContact.setScId(Integer.parseInt(suppEntry.getId().toString()));
             supContact.setScNo(suppContact);
             supplierContactFacade.create(supContact);
 
             spid = (suppEntry.getId());
             suppPContactName = (String) txtContactP.getText();
             suppPContactNo = (String) txtPContactNum.getText();
-            SupplierPerson supPerson = sb1.getSupplierPerson();
-            supPerson.setSpId(spid);
+            SupplierPerson supPerson = new SupplierPerson();
+            supPerson.setSpId(suppEntry.getId());
             supPerson.setSpName(suppPContactName);
             supPerson.setSpContact(suppPContactNo);
             supPerson.setIsMain(true);
-            supplierPersonFacade.create(supPerson);
+           supplierPersonFacade.create(supPerson);
 //            supp.setContactNo(suppContactNo);
 //            supp.setContactPerson(suppContactName);
 
-            
+
 
             this.info("Successfully Saved!");
-            
-            
-       }
-       catch(NullPointerException e)
-       {
-           this.info("Missing required fields!");
-       }
+            //System.out.println("w"+suppId);
         return null;
     }
 

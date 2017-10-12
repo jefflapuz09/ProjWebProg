@@ -214,7 +214,7 @@ public class DiscountUpdate extends AbstractPageBean {
     public String btnMenu_action() {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
-        return null;
+        return "case2";
     }
 
     public String btnSave_action() {
@@ -267,7 +267,7 @@ public class DiscountUpdate extends AbstractPageBean {
     public String btnBack_action() {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
-        return null;
+        return "case1";
     }
 
     public void rbType_processValueChange(ValueChangeEvent vce) {

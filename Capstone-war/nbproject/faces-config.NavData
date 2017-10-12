@@ -19,17 +19,17 @@
         <Node id="pages/ProductUnit/ProductUnitMaintenance.jsp" x="1262" y="23" zoom="false"/>
         <Node id="pages/ProductVariance/ProductVarianceCreate.jsp" x="1642" y="204" zoom="false"/>
         <Node id="pages/Package/PackageMaintenance.jsp" x="386" y="839" zoom="false"/>
-        <Node id="pages/Product/ProductMaintenance.jsp" x="-361" y="689" zoom="false"/>
         <Node id="pages/ProductUnit/ProductUnitUpdate.jsp" x="1257" y="303" zoom="false"/>
+        <Node id="pages/Product/ProductMaintenance.jsp" x="-361" y="689" zoom="false"/>
         <Node id="pages/ProductType/ProductTypeUpdate.jsp" x="2137" y="343" zoom="false"/>
         <Node id="pages/Promo/PromoMaintenance.jsp" x="25" y="838" zoom="false"/>
         <Node id="pages/Supplier/SupplierMaintenance.jsp" x="460" y="18" zoom="false"/>
-        <Node id="pages/Product/ProductUpdate.jsp" x="-364" y="1029" zoom="false"/>
         <Node id="pages/ProductUnit/ProductUnitCreate.jsp" x="1266" y="210" zoom="false"/>
+        <Node id="pages/Product/ProductUpdate.jsp" x="-364" y="1029" zoom="false"/>
         <Node id="pages/ProductVariance/ProductVarianceMaintenance.jsp" x="1660" y="25" zoom="false"/>
         <Node id="pages/Menu.jsp" x="534" y="473" zoom="false"/>
+        <Node id="pages/Discount/DiscountUpdate.jsp" x="814" y="1111" zoom="false"/>
         <Node id="pages/Discount/DiscountMaintenance.jsp" x="804" y="835" zoom="false"/>
-        <Node id="pages/Discount/DiscountUpdate.jsp" x="814" y="1111" zoom="true"/>
         <Node id="pages/ProductType/ProductTypeMaintenance.jsp" x="2154" y="15" zoom="false"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>

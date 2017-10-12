@@ -15,7 +15,7 @@
                 <webuijsf:body id="body1" style="-rave-layout: grid; background-color: #e6ebf2">
                     <webuijsf:form id="form1">
                         <webuijsf:panelLayout id="layoutPanel1" panelLayout="flow" style="background-color: rgb(34, 45, 50); height: 662px; left: 0px; top: 0px; position: absolute; width: 238px">
-                            <webuijsf:hyperlink actionExpression="#{pages$ProductBrand$ProductBrandCreate.btnMenu_action}"
+                            <webuijsf:hyperlink actionExpression="#{pages$Discount$DiscountCreate.btnMenu_action}"
                                 binding="#{pages$Discount$DiscountCreate.btnMenu}" id="btnMenu"
                                 style="background-color: rgb(34, 45, 50); color: rgb(204, 204, 204); font-size: 24px; font-style: normal; left: 58px; top: 220px; position: absolute" text="Main Menu"/>
                         </webuijsf:panelLayout>
@@ -26,8 +26,8 @@
                         <webuijsf:label id="label2" style="left: 288px; top: 192px; position: absolute" text="Discount*"/>
                         <webuijsf:textField binding="#{pages$Discount$DiscountCreate.txtDiscount}" columns="40" id="txtDiscount" style="font-size: 18px; left: 288px; top: 216px; position: absolute"/>
                         <webuijsf:messageGroup binding="#{pages$Discount$DiscountCreate.messageGroup1}" id="messageGroup1" style="left: 1032px; top: 96px; position: absolute; width: 310px"/>
-                        <webuijsf:button actionExpression="#{pages$ProductBrand$ProductBrandCreate.btnBack_action}"
-                            binding="#{pages$Discount$DiscountCreate.btnBack}" id="btnBack" style="left: 287px; top: 480px; position: absolute" text="Back"/>
+                        <webuijsf:button actionExpression="#{pages$Discount$DiscountCreate.btnBack_action}" binding="#{pages$Discount$DiscountCreate.btnBack}"
+                            id="btnBack" style="left: 287px; top: 480px; position: absolute" text="Back"/>
                         <webuijsf:label id="label4" style="left: 744px; top: 192px; position: absolute; width: 120px" text="Product(s)*"/>
                         <webuijsf:label id="label3" style="left: 288px; top: 264px; position: absolute" text="Rate*"/>
                         <webuijsf:textField binding="#{pages$Discount$DiscountCreate.txtRate}" columns="40" id="txtRate" style="font-size: 18px; left: 288px; top: 288px; position: absolute"/>

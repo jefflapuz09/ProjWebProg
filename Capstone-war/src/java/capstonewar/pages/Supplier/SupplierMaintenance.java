@@ -219,8 +219,11 @@ public class SupplierMaintenance extends AbstractPageBean {
         List<SupplierContact> listOfSupplierContact = this.supplierContactFacade.findAll();
         List<Supplier> listofSupplier = supplierFacade.findAll();
         Supplier[] arrayOfSupplier = listofSupplier.toArray(new Supplier[0]);
-
+        SupplierPerson[] arrayOfSupplierPerson = listOfSupplierPerson.toArray(new SupplierPerson[0]);
+        SupplierContact[] arrayOfSupplierContact = listOfSupplierContact.toArray(new SupplierContact[0]);
         sb1.setSupplierData(arrayOfSupplier);
+        sb1.setSupplierPersonData(arrayOfSupplierPerson);
+        sb1.setSupplierContactData(arrayOfSupplierContact);
 
         for(int i = 0; i < arrayOfSupplier.length; i++)
         {
@@ -335,6 +338,15 @@ public class SupplierMaintenance extends AbstractPageBean {
     }
 
     public String btnUpdate_action() {
+//        RowKey rowKey = this.tableRowGroup1.getRowKey();
+//        String rowId = "";
+//        rowId = rowKey.getRowId();
+//
+//        SessionBean1 sb1 = this.getSessionBean1();
+//        Supplier[] suppEntryArray = sb1.getSupplierData();
+//        Supplier listOfEntry = suppEntryArray[Integer.parseInt(rowId)];
+//        sb1.setSuppEntryforEdit(listOfEntry);
+
         RowKey rowKey = this.tableRowGroup1.getRowKey();
         String rowId = "";
         rowId = rowKey.getRowId();
@@ -342,15 +354,43 @@ public class SupplierMaintenance extends AbstractPageBean {
         SessionBean1 sb1 = this.getSessionBean1();
         Supplier[] suppEntryArray = sb1.getSupplierData();
         Supplier listOfEntry = suppEntryArray[Integer.parseInt(rowId)];
+        SupplierContact[] suppCEntryArray = sb1.getSupplierContactData();
+        SupplierContact upOfEntry = suppCEntryArray[Integer.parseInt(rowId)];
+        SupplierPerson[] suppCPntryArray = sb1.getSupplierPersonData();
+        SupplierPerson up2OfEntry = suppCPntryArray[Integer.parseInt(rowId)];
         sb1.setSuppEntryforEdit(listOfEntry);
-
+        sb1.setSuppContactEntryforEdit(upOfEntry);
+        sb1.setSuppPersonEntryforEdit(up2OfEntry);
 
         return "case2";
     }
 
     public String btnDelete_action() {
-        // TODO: Process the action. Return value is a navigation
-        // case name where null will return to the same page.
+        RowKey rowKey = this.tableRowGroup1.getRowKey();
+
+        String rowId = "";
+
+        rowId = rowKey.getRowId();
+
+        SessionBean1 sb1 = this.getSessionBean1();
+        Supplier[] suppArray = sb1.getSupplierData();
+        Supplier suppForEdit = suppArray[Integer.parseInt(rowId)];
+        SupplierContact[] suppCEntryArray = sb1.getSupplierContactData();
+        SupplierContact upOfEntry = suppCEntryArray[Integer.parseInt(rowId)];
+        SupplierPerson[] suppCPntryArray = sb1.getSupplierPersonData();
+        SupplierPerson up2OfEntry = suppCPntryArray[Integer.parseInt(rowId)];
+        sb1.setSuppContactEntryforEdit(upOfEntry);
+        sb1.setSuppPersonEntryforEdit(up2OfEntry);
+        sb1.setSuppEntryforEdit(suppForEdit);
+        SupplierContact scon = sb1.getSuppContactEntryforEdit();
+        supplierContactFacade.remove(scon);
+        SupplierPerson sper = sb1.getSuppPersonEntryforEdit();
+        supplierPersonFacade.remove(sper);
+        Supplier supp = sb1.getSuppEntryforEdit();
+        supplierFacade.remove(supp);
+        sb1.setSuppEntryforEditArray(null);
+
+        this.info("Successfully Removed");
         return null;
     }
 

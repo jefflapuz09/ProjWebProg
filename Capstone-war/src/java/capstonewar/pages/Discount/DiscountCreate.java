@@ -292,7 +292,7 @@ public class DiscountCreate extends AbstractPageBean {
 
             if(rbType.getValue().equals("1"))
             {
-                Discount disc = sb1.getDiscount();
+                Discount disc = new Discount();
                 disc.setName(discount);
                 disc.setRate(rate);
                 disc.setIsWhole(false);
@@ -303,7 +303,7 @@ public class DiscountCreate extends AbstractPageBean {
             }
             if(rbType.getValue().equals("0"))
             {
-                Discount disc = sb1.getDiscount();
+                Discount disc = new Discount();
                 disc.setName(discount);
                 disc.setRate(rate);
                 disc.setIsWhole(true);
@@ -338,6 +338,16 @@ public class DiscountCreate extends AbstractPageBean {
             cbVatExempt.setVisible(false);
        }
        
+    }
+
+    public String btnMenu_action() {
+        // TODO: Replace with your code
+        return "case2";
+    }
+
+    public String btnBack_action() {
+        // TODO: Replace with your code
+        return "case1";
     }
     
 }
