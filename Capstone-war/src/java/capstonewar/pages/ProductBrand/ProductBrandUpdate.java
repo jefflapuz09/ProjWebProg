@@ -234,7 +234,7 @@ public class ProductBrandUpdate extends AbstractPageBean {
         {
             name = (String) txtName.getText();
 
-            ProductBrand pBrand = sb1.getProductBrand();
+            ProductBrand pBrand = sb1.getProductBrandEdit();
             pBrand.setName(name);
             pBrand.setIsActive(true);
             productBrandFacade.edit(pBrand);

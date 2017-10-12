@@ -295,8 +295,21 @@ public class ProductBrandMaintenance extends AbstractPageBean {
     }
 
     public String btnDelete_action() {
-        // TODO: Process the action. Return value is a navigation
-        // case name where null will return to the same page.
+        RowKey rowKey = this.tableRowGroup1.getRowKey();
+
+        String rowId = "";
+
+        rowId = rowKey.getRowId();
+
+        SessionBean1 sb1 = this.getSessionBean1();
+        ProductBrand[] brandArray = sb1.getProductBrandData();
+        ProductBrand brandForEdit = brandArray[Integer.parseInt(rowId)];
+        sb1.setProductBrandEdit(brandForEdit);
+        ProductBrand brand = sb1.getProductBrandEdit();
+        productBrandFacade.remove(brand);
+        sb1.setProductBrandEdit(null);
+
+        this.info("Successfully Removed");
         return null;
     }
     

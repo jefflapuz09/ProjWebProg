@@ -302,8 +302,21 @@ public class ProductVarianceMaintenance extends AbstractPageBean {
     }
 
     public String btnDeactivate_action() {
-        // TODO: Process the action. Return value is a navigation
-        // case name where null will return to the same page.
+        RowKey rowKey = this.tableRowGroup1.getRowKey();
+
+        String rowId = "";
+
+        rowId = rowKey.getRowId();
+
+        SessionBean1 sb1 = this.getSessionBean1();
+        ProductVariance[] varArray = sb1.getProductVarianceData();
+        ProductVariance varForEdit = varArray[Integer.parseInt(rowId)];
+        sb1.setProductVarianceEdit(varForEdit);
+        ProductVariance var = sb1.getProductVarianceEdit();
+        productVarianceFacade.remove(var);
+        sb1.setProductVarianceEditArray(null);
+
+        this.info("Successfully Removed");
         return null;
     }
 

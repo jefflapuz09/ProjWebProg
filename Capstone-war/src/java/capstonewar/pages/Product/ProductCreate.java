@@ -340,8 +340,8 @@ public class ProductCreate extends AbstractPageBean {
     }
 
     public String btnSave_action() {
-        String type, var, prod, desc, prodbrand;
-        int reorder;
+        String type, var, prod, desc ;
+        int reorder, prodbrand;
         double price;
 
         SessionBean1 sb1 = this.getSessionBean1();
@@ -353,15 +353,16 @@ public class ProductCreate extends AbstractPageBean {
             desc = (String) txtDescription.getText();
             reorder = Integer.parseInt(txtReorder.getText().toString());
             price = Double.parseDouble(txtPrice.getText().toString());
-            prodbrand = (String) brand.getValue();
+            prodbrand =  Integer.parseInt(brand.getValue().toString());
 
-            Product product = sb1.getProduct();
+            Product product = new Product();
             product.setIsActive(true);
             product.setName(prod);
             product.setDescription(desc);
             product.setPrice(price);
             product.setReorder(reorder);
-//            product.setBrandId(1);
+
+           // product.setBrandId(brandId)
 //            product.setTypeId(1);
 //            product.setVarianceId(1);
 //            product.setVarianceId(0);

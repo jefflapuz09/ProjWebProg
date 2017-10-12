@@ -242,7 +242,7 @@ public class ProductTypeCreate extends AbstractPageBean {
                 cat = "Category2";
             }
 
-            ProductType pType = sb1.getProductType();
+            ProductType pType = new ProductType();
             pType.setIsActive(true);
             pType.setName(name);
             pType.setCategory(cat);

@@ -535,4 +535,15 @@
             <to-view-id>/pages/Menu.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/ProductVariance/ProductVarianceUpdate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/ProductVariance/ProductVarianceMaintenance.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

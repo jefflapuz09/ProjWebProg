@@ -13,6 +13,7 @@ import com.sun.webui.jsf.component.Hyperlink;
 import com.sun.webui.jsf.component.MessageGroup;
 import com.sun.webui.jsf.component.RadioButtonGroup;
 import com.sun.webui.jsf.component.TextField;
+import com.sun.webui.jsf.model.SingleSelectOptionsList;
 import javax.ejb.EJB;
 import javax.faces.FacesException;
 import capstonewar.RequestBean1;
@@ -42,15 +43,7 @@ public class ProductTypeUpdate extends AbstractPageBean {
      * here is subject to being replaced.</p>
      */
     private void _init() throws Exception {
-    }
-    private RadioButtonGroup category = new RadioButtonGroup();
-
-    public RadioButtonGroup getCategory() {
-        return category;
-    }
-
-    public void setCategory(RadioButtonGroup rbg) {
-        this.category = rbg;
+        categoryDefaultOptions.setOptions(new com.sun.webui.jsf.model.Option[]{new com.sun.webui.jsf.model.Option("Category1", "Parts"), new com.sun.webui.jsf.model.Option("Category2", "Supplies")});
     }
     private TextField txtName = new TextField();
 
@@ -105,6 +98,24 @@ public class ProductTypeUpdate extends AbstractPageBean {
 
     public void setBtnSave(Button b) {
         this.btnSave = b;
+    }
+    private SingleSelectOptionsList categoryDefaultOptions = new SingleSelectOptionsList();
+
+    public SingleSelectOptionsList getCategoryDefaultOptions() {
+        return categoryDefaultOptions;
+    }
+
+    public void setCategoryDefaultOptions(SingleSelectOptionsList ssol) {
+        this.categoryDefaultOptions = ssol;
+    }
+    private RadioButtonGroup category = new RadioButtonGroup();
+
+    public RadioButtonGroup getCategory() {
+        return category;
+    }
+
+    public void setCategory(RadioButtonGroup rbg) {
+        this.category = rbg;
     }
 
     // </editor-fold>
@@ -175,6 +186,15 @@ public class ProductTypeUpdate extends AbstractPageBean {
         SessionBean1 sb1 = this.getSessionBean1();
         ProductType TypeEntry = sb1.getProductTypeEdit();
         txtName.setText(TypeEntry.getName());
+        String cat = (TypeEntry.getCategory());
+        if(cat.equals("Category1"))
+        {
+            category.setSelected("Parts");
+        }
+        else
+        {
+            category.setSelected("Supplies");
+        }
     }
 
     /**
@@ -238,7 +258,7 @@ public class ProductTypeUpdate extends AbstractPageBean {
                 cat = "Category2";
             }
 
-            ProductType pType = sb1.getProductType();
+            ProductType pType = sb1.getProductTypeEdit();
             pType.setIsActive(true);
             pType.setName(name);
             pType.setCategory(cat);

@@ -29,10 +29,10 @@
                         <webuijsf:button actionExpression="#{pages$ProductType$ProductTypeUpdate.btnBack_action}"
                             binding="#{pages$ProductType$ProductTypeUpdate.btnBack}" id="btnBack" style="left: 287px; top: 456px; position: absolute" text="Back"/>
                         <webuijsf:label id="label4" style="position: absolute; left: 288px; top: 264px" text="Category*"/>
-                        <webuijsf:radioButtonGroup binding="#{pages$ProductType$ProductTypeUpdate.category}" columns="2" id="category"
-                            items="#{pages$ProductType$ProductTypeCreate.categoryDefaultOptions.options}" style="font-size: 18px; left: 288px; top: 288px; position: absolute"/>
                         <webuijsf:label id="label3" style="position: absolute; left: 816px; top: 192px" text="Brand*"/>
                         <webuijsf:textField binding="#{pages$ProductType$ProductTypeUpdate.txtBrand}" columns="40" id="txtBrand" style="font-size: 18px; left: 792px; top: 216px; position: absolute"/>
+                        <webuijsf:radioButtonGroup binding="#{pages$ProductType$ProductTypeUpdate.category}" columns="2" id="category"
+                            items="#{pages$ProductType$ProductTypeUpdate.categoryDefaultOptions.options}" style="font-size: 18px; left: 288px; top: 288px; position: absolute"/>
                     </webuijsf:form>
                 </webuijsf:body>
             </webuijsf:html>

@@ -268,8 +268,21 @@ public class ProductUnitMaintenance extends AbstractPageBean {
     }
 
     public String btnDelete_action() {
-        // TODO: Process the action. Return value is a navigation
-        // case name where null will return to the same page.
+       RowKey rowKey = this.tableRowGroup1.getRowKey();
+
+        String rowId = "";
+
+        rowId = rowKey.getRowId();
+
+        SessionBean1 sb1 = this.getSessionBean1();
+        ProductUnit[] unitArray = sb1.getProductUnitData();
+        ProductUnit unitForEdit = unitArray[Integer.parseInt(rowId)];
+        sb1.setProductUnitEdit(unitForEdit);
+        ProductUnit user = sb1.getProductUnitEdit();
+        productUnitFacade.remove(user);
+        sb1.setProductUnitEditArray(null);
+
+        this.info("Successfully Removed");
         return null;
     }
 

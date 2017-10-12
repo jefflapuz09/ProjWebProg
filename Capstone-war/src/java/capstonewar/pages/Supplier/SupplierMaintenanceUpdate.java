@@ -223,12 +223,13 @@ public class SupplierMaintenanceUpdate extends AbstractPageBean {
         txtBrgy.setText(suppEntry.getBrgy());
         txtCity.setText(suppEntry.getCity());
 
-//        SupplierContact suppContactEntry = sb1.getSupplierContact();
-//        txtContact.setText(suppContactEntry.getScNo());
-//
-//        SupplierPerson suppPersonEntry = sb1.getSupplierPerson();
-//        txtContactP.setText(suppPersonEntry.getSpName());
-//        txtPContactNum.setText(suppPersonEntry.getSpContact());
+        SupplierContact suppConEntry = sb1.getSuppContactEntryforEdit();
+        txtContact.setText(suppConEntry.getScNo());
+
+        SupplierPerson suppPerEntry = sb1.getSuppPersonEntryforEdit();
+        txtContactP.setText(suppPerEntry.getSpName());
+        txtPContactNum.setText(suppPerEntry.getSpContact());
+
 
 
     }

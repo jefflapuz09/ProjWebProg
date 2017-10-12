@@ -300,8 +300,21 @@ public class ProductTypeMaintenance extends AbstractPageBean {
     }
 
     public String btnDelete_action() {
-        // TODO: Process the action. Return value is a navigation
-        // case name where null will return to the same page.
+        RowKey rowKey = this.tableRowGroup1.getRowKey();
+
+        String rowId = "";
+
+        rowId = rowKey.getRowId();
+
+        SessionBean1 sb1 = this.getSessionBean1();
+        ProductType[] typeArray = sb1.getProductTypeData();
+        ProductType typeForEdit = typeArray[Integer.parseInt(rowId)];
+        sb1.setProductTypeEdit(typeForEdit);
+        ProductType type = sb1.getProductTypeEdit();
+        productTypeFacade.remove(type);
+        sb1.setProductTypeEditArray(null);
+
+        this.info("Successfully Removed");
         return null;
     }
     

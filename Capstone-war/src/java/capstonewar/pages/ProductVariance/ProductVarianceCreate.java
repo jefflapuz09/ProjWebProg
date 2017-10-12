@@ -313,7 +313,7 @@ public class ProductVarianceCreate extends AbstractPageBean {
             unit = (String) dimUnit.getValue();
             dim = (String) txtDimension.getText();
 
-            ProductVariance pVariance = sb1.getProductVariance();
+            ProductVariance pVariance = new ProductVariance();
             pVariance.setIsActive(true);
             pVariance.setName(name);
             pVariance.setSize(dim);

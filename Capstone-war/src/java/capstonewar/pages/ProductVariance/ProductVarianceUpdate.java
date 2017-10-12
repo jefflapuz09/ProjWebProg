@@ -7,6 +7,7 @@ package capstonewar.pages.ProductVariance;
 
 import admin.entity.ProductType;
 import admin.entity.ProductUnit;
+import admin.entity.ProductVariance;
 import admin.session.ProductTypeFacadeLocal;
 import admin.session.ProductUnitFacadeLocal;
 import admin.session.ProductVarianceFacadeLocal;
@@ -14,6 +15,7 @@ import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Button;
 import com.sun.webui.jsf.component.DropDown;
 import com.sun.webui.jsf.component.TextField;
+import com.sun.webui.jsf.model.SingleSelectOptionsList;
 import javax.ejb.EJB;
 import javax.faces.FacesException;
 import capstonewar.RequestBean1;
@@ -35,6 +37,7 @@ import java.util.List;
  */
 
 public class ProductVarianceUpdate extends AbstractPageBean {
+  ;
     @EJB
     private ProductVarianceFacadeLocal productVarianceFacade;
     @EJB
@@ -49,15 +52,8 @@ public class ProductVarianceUpdate extends AbstractPageBean {
      * here is subject to being replaced.</p>
      */
     private void _init() throws Exception {
-    }
-    private DropDown category = new DropDown();
-
-    public DropDown getCategory() {
-        return category;
-    }
-
-    public void setCategory(DropDown dd) {
-        this.category = dd;
+        dunit1DefaultOptions.setOptions(new com.sun.webui.jsf.model.Option[]{new com.sun.webui.jsf.model.Option("1", "Length"), new com.sun.webui.jsf.model.Option("2", "Mass"), new com.sun.webui.jsf.model.Option("3", "Volume")});
+        categoryDefaultOptions.setOptions(new com.sun.webui.jsf.model.Option[]{new com.sun.webui.jsf.model.Option("1", "Length"), new com.sun.webui.jsf.model.Option("2", "Mass"), new com.sun.webui.jsf.model.Option("3", "Volume")});
     }
     private TextField txtName = new TextField();
 
@@ -95,14 +91,23 @@ public class ProductVarianceUpdate extends AbstractPageBean {
     public void setBtnSave(Button b) {
         this.btnSave = b;
     }
-    private DropDown dunit = new DropDown();
+    private SingleSelectOptionsList dunit1DefaultOptions = new SingleSelectOptionsList();
 
-    public DropDown getDunit() {
-        return dunit;
+    public SingleSelectOptionsList getDunit1DefaultOptions() {
+        return dunit1DefaultOptions;
     }
 
-    public void setDunit(DropDown dd) {
-        this.dunit = dd;
+    public void setDunit1DefaultOptions(SingleSelectOptionsList ssol) {
+        this.dunit1DefaultOptions = ssol;
+    }
+    private SingleSelectOptionsList typeDefaultOptions = new SingleSelectOptionsList();
+
+    public SingleSelectOptionsList getTypeDefaultOptions() {
+        return typeDefaultOptions;
+    }
+
+    public void setTypeDefaultOptions(SingleSelectOptionsList ssol) {
+        this.typeDefaultOptions = ssol;
     }
     private DropDown type = new DropDown();
 
@@ -112,6 +117,42 @@ public class ProductVarianceUpdate extends AbstractPageBean {
 
     public void setType(DropDown dd) {
         this.type = dd;
+    }
+    private SingleSelectOptionsList unitDefaultOptions = new SingleSelectOptionsList();
+
+    public SingleSelectOptionsList getUnitDefaultOptions() {
+        return unitDefaultOptions;
+    }
+
+    public void setUnitDefaultOptions(SingleSelectOptionsList ssol) {
+        this.unitDefaultOptions = ssol;
+    }
+    private DropDown unit = new DropDown();
+
+    public DropDown getUnit() {
+        return unit;
+    }
+
+    public void setUnit(DropDown dd) {
+        this.unit = dd;
+    }
+    private SingleSelectOptionsList categoryDefaultOptions = new SingleSelectOptionsList();
+
+    public SingleSelectOptionsList getCategoryDefaultOptions() {
+        return categoryDefaultOptions;
+    }
+
+    public void setCategoryDefaultOptions(SingleSelectOptionsList ssol) {
+        this.categoryDefaultOptions = ssol;
+    }
+    private DropDown category = new DropDown();
+
+    public DropDown getCategory() {
+        return category;
+    }
+
+    public void setCategory(DropDown dd) {
+        this.category = dd;
     }
 
     // </editor-fold>
@@ -179,6 +220,13 @@ public class ProductVarianceUpdate extends AbstractPageBean {
      */
     @Override
     public void prerender() {
+        SessionBean1 sb1 = this.getSessionBean1();
+        ProductVariance varEntry = sb1.getProductVarianceEdit();
+        txtName.setText(varEntry.getName());
+        type.setValue(varEntry.getProdType());
+        unit.setValue(varEntry.getUnits());
+        txtDimension.setText(varEntry.getSize());
+
         List<Option> brandOptions = new ArrayList<Option>();
         List<ProductType>typeList = this.productTypeFacade.findAll();
         for(ProductType brand : typeList){
@@ -189,7 +237,7 @@ public class ProductVarianceUpdate extends AbstractPageBean {
         }
 
         Option[] brandOptionArr = brandOptions.toArray(new Option[0]);
-//        typeDefaultOptions.setOptions(brandOptionArr);
+        typeDefaultOptions.setOptions(brandOptionArr);
 
         List<Option> unitOptions = new ArrayList<Option>();
         List<ProductUnit>unitList = this.productUnitFacade.findAll();
@@ -201,7 +249,7 @@ public class ProductVarianceUpdate extends AbstractPageBean {
         }
 
         Option[] unitOptionArr = unitOptions.toArray(new Option[0]);
-//        dUnitDefaultOptions.setOptions(unitOptionArr);
+        unitDefaultOptions.setOptions(unitOptionArr);
     }
 
     /**
@@ -244,8 +292,42 @@ public class ProductVarianceUpdate extends AbstractPageBean {
     }
 
     public String btnSave_action() {
-        // TODO: Replace with your code
+        String name,cat,ptype,units,dim;
+
+        SessionBean1 sb1 = this.getSessionBean1();
+        try
+        {
+            name = (String) txtName.getText();
+            cat = (String) category.getValue();
+            ptype = (String) type.getSelected();
+            units = (String) unit.getValue();
+            dim = (String) txtDimension.getText();
+
+            ProductVariance pVariance = new ProductVariance();
+            pVariance.setIsActive(true);
+            pVariance.setName(name);
+            pVariance.setSize(dim);
+            pVariance.setUnits(units);
+            pVariance.setProdType(ptype);
+            productVarianceFacade.edit(pVariance);
+            this.info("Sucessfully Saved!");
+
+        }
+        catch(NullPointerException e)
+        {
+            this.info("Missing required fields!");
+        }
         return null;
+    }
+
+    public String btnMenu_action() {
+        // TODO: Replace with your code
+        return "case2";
+    }
+
+    public String btnBack_action() {
+        // TODO: Replace with your code
+        return "case1";
     }
     
 }

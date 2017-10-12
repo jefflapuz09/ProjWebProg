@@ -15,7 +15,7 @@
                 <webuijsf:body id="body1" style="-rave-layout: grid; background-color: #e6ebf2">
                     <webuijsf:form id="form1">
                         <webuijsf:panelLayout id="layoutPanel1" panelLayout="flow" style="background-color: rgb(34, 45, 50); height: 662px; left: 0px; top: 0px; position: absolute; width: 238px">
-                            <webuijsf:hyperlink actionExpression="#{pages$ProductVariance$ProductVarianceCreate.btnMenu_action}"
+                            <webuijsf:hyperlink actionExpression="#{pages$ProductVariance$ProductVarianceUpdate.btnMenu_action}"
                                 binding="#{pages$ProductVariance$ProductVarianceCreate.btnMenu}" id="btnMenu"
                                 style="background-color: rgb(34, 45, 50); color: rgb(204, 204, 204); font-size: 24px; font-style: normal; left: 58px; top: 220px; position: absolute" text="Main Menu"/>
                         </webuijsf:panelLayout>
@@ -26,18 +26,18 @@
                         <webuijsf:label id="label2" style="left: 288px; top: 192px; position: absolute" text="Variance *"/>
                         <webuijsf:textField binding="#{pages$ProductVariance$ProductVarianceUpdate.txtName}" columns="40" id="txtName" style="font-size: 18px; left: 288px; top: 216px; position: absolute"/>
                         <webuijsf:messageGroup binding="#{pages$ProductVariance$ProductVarianceCreate.messageGroup1}" id="messageGroup1" style="left: 1032px; top: 96px; position: absolute; width: 310px"/>
-                        <webuijsf:button actionExpression="#{pages$ProductVariance$ProductVarianceCreate.btnBack_action}"
+                        <webuijsf:button actionExpression="#{pages$ProductVariance$ProductVarianceUpdate.btnBack_action}"
                             binding="#{pages$ProductVariance$ProductVarianceUpdate.btnBack}" id="btnBack" style="left: 287px; top: 432px; position: absolute" text="Back"/>
                         <webuijsf:label id="label4" style="position: absolute; left: 288px; top: 264px" text="Unit Category*"/>
                         <webuijsf:label id="label5" style="left: 288px; top: 336px; position: absolute" text="Product Type*"/>
-                        <webuijsf:dropDown binding="#{pages$ProductVariance$ProductVarianceUpdate.type}" id="type"
-                            items="#{pages$ProductVariance$ProductVarianceCreate.ptypeDefaultOptions.options}" style="font-size: 18px; left: 288px; top: 360px; position: absolute"/>
                         <webuijsf:label id="label3" style="left: 840px; top: 192px; position: absolute" text="Dimension"/>
                         <webuijsf:textField binding="#{pages$ProductVariance$ProductVarianceUpdate.txtDimension}" id="txtDimension" style="font-size: 18px; left: 840px; top: 216px; position: absolute"/>
-                        <webuijsf:dropDown binding="#{pages$ProductVariance$ProductVarianceUpdate.dunit}" id="dunit"
-                            items="#{pages$ProductVariance$ProductVarianceCreate.dimUnitDefaultOptions.options}" style="font-size: 18px; left: 1056px; top: 216px; position: absolute"/>
+                        <webuijsf:dropDown binding="#{pages$ProductVariance$ProductVarianceUpdate.type}" id="type"
+                            items="#{pages$ProductVariance$ProductVarianceUpdate.typeDefaultOptions.options}" style="font-size: 18px; left: 288px; top: 360px; position: absolute"/>
+                        <webuijsf:dropDown binding="#{pages$ProductVariance$ProductVarianceUpdate.unit}" id="unit"
+                            items="#{pages$ProductVariance$ProductVarianceUpdate.unitDefaultOptions.options}" style="font-size: 18px; left: 1056px; top: 216px; position: absolute"/>
                         <webuijsf:dropDown binding="#{pages$ProductVariance$ProductVarianceUpdate.category}" id="category"
-                            items="#{pages$ProductVariance$ProductVarianceCreate.categoryDefaultOptions.options}" style="font-size: 18px; left: 288px; top: 288px; position: absolute"/>
+                            items="#{pages$ProductVariance$ProductVarianceUpdate.categoryDefaultOptions.options}" style="font-size: 18px; left: 288px; top: 288px; position: absolute"/>
                     </webuijsf:form>
                 </webuijsf:body>
             </webuijsf:html>

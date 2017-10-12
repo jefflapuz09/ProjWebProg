@@ -40,7 +40,7 @@
                                     <webuijsf:button actionExpression="#{pages$ProductVariance$ProductVarianceMaintenance.btnUpdate_action}" id="btnUpdate"
                                         style="font-size: 18px" text="Update"/>
                                     <webuijsf:button actionExpression="#{pages$ProductVariance$ProductVarianceMaintenance.btnDeactivate_action}"
-                                        id="btnDeactivate" style="font-size: 18px" text="Deactivate"/>
+                                        binding="#{pages$ProductVariance$ProductVarianceMaintenance.btnDeactivate}" id="btnDeactivate" style="font-size: 18px" text="Deactivate"/>
                                 </webuijsf:tableColumn>
                             </webuijsf:tableRowGroup>
                         </webuijsf:table>

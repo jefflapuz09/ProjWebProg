@@ -236,7 +236,7 @@ public class ProductUnitUpdate extends AbstractPageBean {
             unitDesc = (String) txtDesc.getText();
 //            unitCategory =  Short.parseInt(category.getValue().toString());
             unitCategory = Short.parseShort(category.getValue().toString());
-            ProductUnit pUnit = sb1.getProductUnit();
+            ProductUnit pUnit = sb1.getProductUnitEdit();
             pUnit.setName(unitName);
             pUnit.setDescription(unitDesc);
             pUnit.setCategory(unitCategory);

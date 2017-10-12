@@ -180,6 +180,12 @@ public class ProductBrandCreate extends AbstractPageBean {
      */
     @Override
     public void prerender() {
+        SessionBean1 sb1 = this.getSessionBean1();
+        ProductBrand brand = sb1.getProductBrand();
+        if(brand == null){
+               sb1.setProductBrand(new ProductBrand());
+        }
+
         List<Option> brandOptions = new ArrayList<Option>();
         List<ProductType>typeList = this.productTypeFacade.findAll();
         for(ProductType type : typeList){
@@ -240,10 +246,15 @@ public class ProductBrandCreate extends AbstractPageBean {
         {
             name = (String) txtName.getText();
 
-            ProductBrand pBrand = sb1.getProductBrand();
+            ProductBrand pBrand = new ProductBrand();
             pBrand.setName(name);
             pBrand.setIsActive(true);
             productBrandFacade.create(pBrand);
+
+            //sb1.setProductBrand(pBrand);
+
+
+
             this.info("Successfully saved record!");
 
         }
