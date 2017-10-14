@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
-    Document   : PurchaseOrder
-    Created on : Aug 4, 2017, 9:21:53 PM
+<!--
+    Document   : ReceiveDeliveryCreate
+    Created on : Aug 4, 2017, 10:37:53 PM
     Author     : Jefferson Van
 -->
 <jsp:root version="2.1" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:webuijsf="http://www.sun.com/webui/webuijsf">
@@ -15,31 +15,37 @@
                 <webuijsf:body id="body1" style="-rave-layout: grid; background-color: #e6ebf2">
                     <webuijsf:form id="form1">
                         <webuijsf:panelLayout id="layoutPanel1" panelLayout="flow" style="background-color: rgb(34, 45, 50); height: 662px; left: 0px; top: 0px; position: absolute; width: 238px">
-                            <webuijsf:hyperlink actionExpression="#{pages$PurchaseOrder$PurchaseOrder.btnMenu_action}"
+                            <webuijsf:hyperlink actionExpression="#{pages$ProductType$ProductTypeMaintenance.hyperlink1_action}" id="hyperlink1"/>
+                            <webuijsf:hyperlink actionExpression="#{pages$ProductType$ProductTypeMaintenance.btnMenu_action}"
                                 binding="#{pages$PurchaseOrder$PurchaseOrder.btnMenu}" id="btnMenu"
                                 style="background-color: rgb(34, 45, 50); color: rgb(204, 204, 204); font-size: 24px; font-style: normal; left: 58px; top: 220px; position: absolute" text="Main Menu"/>
                         </webuijsf:panelLayout>
                         <webuijsf:panelLayout id="layoutPanel2" panelLayout="flow" style="background-color: #3c8dbc; height: 50px; left: 0px; top: 0px; position: absolute; width: 1363px"/>
-                        <webuijsf:label id="label2" style="font-size: 24px; left: 312px; top: 96px; position: absolute" text="Purchase Order"/>
-                        <webuijsf:table augmentTitle="false" id="table1" style="height: 485px; left: 288px; top: 144px; position: absolute" title="Table" width="1056">
-                            <webuijsf:tableRowGroup id="tableRowGroup1" rows="10" sourceData="#{pages$PurchaseOrder$PurchaseOrder.defaultTableDataProvider}" sourceVar="currentRow">
-                                <webuijsf:tableColumn headerText="Purchase Id" id="tableColumn1" sort="column1">
-                                    <webuijsf:staticText id="staticText1" text="#{currentRow.value['column1']}"/>
+                        <webuijsf:button actionExpression="#{pages$ProductType$ProductTypeMaintenance.btnNew_action}"
+                            binding="#{pages$PurchaseOrder$PurchaseOrder.btnNew}" id="btnNew"
+                            style="font-size: 18px; left: 1031px; top: 192px; position: absolute" text="New Record"/>
+                        <webuijsf:label id="label1" style="font-size: 36px; left: 336px; top: 120px; position: absolute; width: 502px" text="Purchase Order"/>
+                        <webuijsf:label id="label2" style="font-size: 18px; left: 456px; top: 192px; position: absolute" text="Search"/>
+                        <webuijsf:textField binding="#{pages$PurchaseOrder$PurchaseOrder.txtSearch}" columns="40" id="txtSearch" style="font-size: 18px; left: 528px; top: 192px; position: absolute"/>
+                        <webuijsf:button actionExpression="#{pages$PurchaseOrder$PurchaseOrder.btnSearch_action}"
+                            binding="#{pages$PurchaseOrder$PurchaseOrder.btnSearch}" id="btnSearch"
+                            style="font-size: 18px; left: 935px; top: 192px; position: absolute" text="Submit"/>
+                        <webuijsf:checkbox binding="#{pages$PurchaseOrder$PurchaseOrder.all}" id="all" label="View all"
+                            onClick="webui.suntheme4_2.common.timeoutSubmitForm(this.form, 'all');"
+                            style="font-size: 18px; left: 336px; top: 192px; position: absolute" valueChangeListenerExpression="#{pages$PurchaseOrder$PurchaseOrder.all_processValueChange}"/>
+                        <webuijsf:table augmentTitle="false" binding="#{pages$ProductType$ProductTypeMaintenance.table1}" id="table1"
+                            style="height: 197px; left: 336px; top: 240px; position: absolute" title="Table" width="816">
+                            <webuijsf:tableRowGroup binding="#{pages$ProductType$ProductTypeMaintenance.tableRowGroup1}" id="tableRowGroup1" rows="10"
+                                sourceData="#{SessionBean1.purchaseHeaderData}" sourceVar="currentRow">
+                                <webuijsf:tableColumn headerText="Purchase Id" id="tableColumn1" sort="id">
+                                    <webuijsf:staticText id="staticText1" text="#{currentRow.value['id']}"/>
                                 </webuijsf:tableColumn>
-                                <webuijsf:tableColumn headerText="Supplier" id="tableColumn2" sort="column2">
-                                    <webuijsf:staticText id="staticText2" text="#{currentRow.value['column2']}"/>
-                                </webuijsf:tableColumn>
-                                <webuijsf:tableColumn headerText="Status" id="tableColumn3" sort="column3">
-                                    <webuijsf:staticText id="staticText3" text="#{currentRow.value['column3']}"/>
-                                </webuijsf:tableColumn>
-                                <webuijsf:tableColumn headerText="Action" id="tableColumn4" width="200">
-                                    <webuijsf:staticText id="staticText4" text="Static Text"/>
+                                <webuijsf:tableColumn headerText="Status" id="tableColumn3" sort="isDelivered">
+                                    <webuijsf:staticText id="staticText3" text="#{currentRow.value['isDelivered']}"/>
                                 </webuijsf:tableColumn>
                             </webuijsf:tableRowGroup>
                         </webuijsf:table>
-                        <webuijsf:button actionExpression="#{pages$PurchaseOrder$PurchaseOrder.btnNewRecord_action}"
-                            binding="#{pages$PurchaseOrder$PurchaseOrder.btnNewRecord}" id="btnNewRecord"
-                            style="background-color: #006600; left: 1271px; top: 120px; position: absolute" text="New Record"/>
+                        <webuijsf:messageGroup binding="#{pages$PurchaseOrder$PurchaseOrder.messageGroup1}" id="messageGroup1" style="left: 1176px; top: 144px; position: absolute; width: 168px"/>
                     </webuijsf:form>
                 </webuijsf:body>
             </webuijsf:html>

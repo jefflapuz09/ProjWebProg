@@ -5,13 +5,21 @@
 
 package capstonewar.pages.ReceiveDelivery;
 
+import admin.entity.DeliveryHeader;
+import admin.session.DeliveryHeaderFacadeLocal;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Button;
+import com.sun.webui.jsf.component.Checkbox;
 import com.sun.webui.jsf.component.Hyperlink;
+import com.sun.webui.jsf.component.MessageGroup;
+import com.sun.webui.jsf.component.TextField;
+import javax.ejb.EJB;
 import javax.faces.FacesException;
 import capstonewar.ApplicationBean1;
 import capstonewar.SessionBean1;
 import capstonewar.RequestBean1;
+import java.util.List;
+import javax.faces.event.ValueChangeEvent;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -26,6 +34,8 @@ import capstonewar.RequestBean1;
  */
 
 public class ReceiveDelivery extends AbstractPageBean {
+    @EJB
+    private DeliveryHeaderFacadeLocal deliveryHeaderFacade;
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
 
     /**
@@ -52,6 +62,51 @@ public class ReceiveDelivery extends AbstractPageBean {
 
     public void setBtnMenu(Hyperlink h) {
         this.btnMenu = h;
+    }
+    private Checkbox all = new Checkbox();
+
+    public Checkbox getAll() {
+        return all;
+    }
+
+    public void setAll(Checkbox c) {
+        this.all = c;
+    }
+    private TextField txtSearch = new TextField();
+
+    public TextField getTxtSearch() {
+        return txtSearch;
+    }
+
+    public void setTxtSearch(TextField tf) {
+        this.txtSearch = tf;
+    }
+    private Button btnSearch = new Button();
+
+    public Button getBtnSearch() {
+        return btnSearch;
+    }
+
+    public void setBtnSearch(Button b) {
+        this.btnSearch = b;
+    }
+    private Button btnNew = new Button();
+
+    public Button getBtnNew() {
+        return btnNew;
+    }
+
+    public void setBtnNew(Button b) {
+        this.btnNew = b;
+    }
+    private MessageGroup messageGroup1 = new MessageGroup();
+
+    public MessageGroup getMessageGroup1() {
+        return messageGroup1;
+    }
+
+    public void setMessageGroup1(MessageGroup mg) {
+        this.messageGroup1 = mg;
     }
 
     // </editor-fold>
@@ -119,6 +174,11 @@ public class ReceiveDelivery extends AbstractPageBean {
      */
     @Override
     public void prerender() {
+        SessionBean1 sb1 = this.getSessionBean1();
+        DeliveryHeader[] delHeadArray = sb1.getDeliveryHeaderData();
+        if(delHeadArray==null){
+            sb1.setDeliveryHeaderData(new DeliveryHeader[0]);
+        }
     }
 
     /**
@@ -184,6 +244,38 @@ public class ReceiveDelivery extends AbstractPageBean {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
         return "case2";
+    }
+
+    public void all_processValueChange(ValueChangeEvent vce) {
+         SessionBean1 sb1 = this.getSessionBean1();
+
+        if(all.isChecked()){
+            List<DeliveryHeader> caseList = deliveryHeaderFacade.findAll();
+            DeliveryHeader[] delHeadArray = caseList.toArray(new DeliveryHeader[0]);
+            sb1.setDeliveryHeaderData(delHeadArray);
+            }
+            else{
+                sb1.setDeliveryHeaderData(null);
+                return;
+            }
+    }
+
+    public String btnSearch_action() {
+        String search = (String) this.txtSearch.getText();
+        SessionBean1 sb1 = this.getSessionBean1();
+
+        boolean checkIfExists = deliveryHeaderFacade.findThisRecord(search);
+        if(checkIfExists){
+        List<DeliveryHeader> listOfHeader = deliveryHeaderFacade.findthisRecord(search);
+        DeliveryHeader[] arrayOfHeader= listOfHeader.toArray(new DeliveryHeader[0]);
+        sb1.setDeliveryHeaderData(arrayOfHeader);
+        }
+        else{
+            this.info("Sorry!, no record found.");
+            sb1.setDeliveryHeaderData(null);
+        }
+
+        return null;
     }
     
 }

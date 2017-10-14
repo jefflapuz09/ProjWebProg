@@ -5,14 +5,26 @@
 
 package capstonewar.pages.PurchaseOrder;
 
+import admin.entity.PurchaseDetail;
+import admin.entity.PurchaseHeader;
+import admin.entity.Supplier;
+import admin.session.PurchaseDetailFacadeLocal;
+import admin.session.PurchaseHeaderFacadeLocal;
+import admin.session.SupplierFacadeLocal;
 import capstonewar.ApplicationBean1;
 import capstonewar.RequestBean1;
 import capstonewar.SessionBean1;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Button;
+import com.sun.webui.jsf.component.Checkbox;
 import com.sun.webui.jsf.component.Hyperlink;
+import com.sun.webui.jsf.component.MessageGroup;
+import com.sun.webui.jsf.component.TextField;
 import com.sun.webui.jsf.model.DefaultTableDataProvider;
+import java.util.List;
+import javax.ejb.EJB;
 import javax.faces.FacesException;
+import javax.faces.event.ValueChangeEvent;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -27,6 +39,12 @@ import javax.faces.FacesException;
  */
 
 public class PurchaseOrder extends AbstractPageBean {
+    @EJB
+    private SupplierFacadeLocal supplierFacade;
+    @EJB
+    private PurchaseDetailFacadeLocal purchaseDetailFacade;
+    @EJB
+    private PurchaseHeaderFacadeLocal purchaseHeaderFacade;
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
 
     /**
@@ -36,24 +54,6 @@ public class PurchaseOrder extends AbstractPageBean {
      */
     private void _init() throws Exception {
     }
-    private DefaultTableDataProvider defaultTableDataProvider = new DefaultTableDataProvider();
-
-    public DefaultTableDataProvider getDefaultTableDataProvider() {
-        return defaultTableDataProvider;
-    }
-
-    public void setDefaultTableDataProvider(DefaultTableDataProvider dtdp) {
-        this.defaultTableDataProvider = dtdp;
-    }
-    private Button btnNewRecord = new Button();
-
-    public Button getBtnNewRecord() {
-        return btnNewRecord;
-    }
-
-    public void setBtnNewRecord(Button b) {
-        this.btnNewRecord = b;
-    }
     private Hyperlink btnMenu = new Hyperlink();
 
     public Hyperlink getBtnMenu() {
@@ -62,6 +62,51 @@ public class PurchaseOrder extends AbstractPageBean {
 
     public void setBtnMenu(Hyperlink h) {
         this.btnMenu = h;
+    }
+    private Checkbox all = new Checkbox();
+
+    public Checkbox getAll() {
+        return all;
+    }
+
+    public void setAll(Checkbox c) {
+        this.all = c;
+    }
+    private TextField txtSearch = new TextField();
+
+    public TextField getTxtSearch() {
+        return txtSearch;
+    }
+
+    public void setTxtSearch(TextField tf) {
+        this.txtSearch = tf;
+    }
+    private Button btnSearch = new Button();
+
+    public Button getBtnSearch() {
+        return btnSearch;
+    }
+
+    public void setBtnSearch(Button b) {
+        this.btnSearch = b;
+    }
+    private Button btnNew = new Button();
+
+    public Button getBtnNew() {
+        return btnNew;
+    }
+
+    public void setBtnNew(Button b) {
+        this.btnNew = b;
+    }
+    private MessageGroup messageGroup1 = new MessageGroup();
+
+    public MessageGroup getMessageGroup1() {
+        return messageGroup1;
+    }
+
+    public void setMessageGroup1(MessageGroup mg) {
+        this.messageGroup1 = mg;
     }
 
     // </editor-fold>
@@ -129,6 +174,31 @@ public class PurchaseOrder extends AbstractPageBean {
      */
     @Override
     public void prerender() {
+        SessionBean1 sb1 = this.getSessionBean1();
+        PurchaseHeader[] purHeadArray = sb1.getPurchaseHeaderData();
+        if(purHeadArray==null){
+            sb1.setPurchaseHeaderData(new PurchaseHeader[0]);
+        }
+
+         List<PurchaseDetail> listOfPurchaseDetail = this.purchaseDetailFacade.findAll();
+         PurchaseDetail[] arrayOfPurchaseDetail = listOfPurchaseDetail.toArray(new PurchaseDetail[0]);
+         List<PurchaseHeader> listofPurchaseHeader = purchaseHeaderFacade.findAll();
+         PurchaseHeader[] arrayOfPurchaseHeader = listofPurchaseHeader.toArray(new PurchaseHeader[0]);
+         List<Supplier> listofSupplier = supplierFacade.findAll();
+         Supplier[] arrayOfSupplier = listofSupplier.toArray(new Supplier[0]);
+
+
+         for(int i = 0; i < arrayOfPurchaseHeader.length; i++)
+        {
+            for(Supplier supplier : listofSupplier)
+            {
+
+                if(arrayOfPurchaseHeader[i].getSupplierId().equals(supplier.getId()))
+                {
+                    arrayOfPurchaseHeader[i].setPurchaseDetail(supplier.getName());
+                }
+            }
+        }
     }
 
     /**
@@ -198,6 +268,37 @@ public class PurchaseOrder extends AbstractPageBean {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
         return "case2";
+    }
+
+    public void all_processValueChange(ValueChangeEvent vce) {
+          SessionBean1 sb1 = this.getSessionBean1();
+
+        if(all.isChecked()){
+            List<PurchaseHeader> caseList = purchaseHeaderFacade.findAll();
+            PurchaseHeader[] purHeadArray = caseList.toArray(new PurchaseHeader[0]);
+            sb1.setPurchaseHeaderData(purHeadArray);
+            }
+            else{
+                sb1.setPurchaseHeaderData(null);
+                return;
+            }
+    }
+
+    public String btnSearch_action() {
+         String search = (String) this.txtSearch.getText();
+        SessionBean1 sb1 = this.getSessionBean1();
+
+        boolean checkIfExists = purchaseHeaderFacade.findThisRecord(search);
+        if(checkIfExists){
+        List<PurchaseHeader> listOfHeader = purchaseHeaderFacade.findthisRecord(search);
+        PurchaseHeader[] arrayOfHeader= listOfHeader.toArray(new PurchaseHeader[0]);
+        sb1.setPurchaseHeaderData(arrayOfHeader);
+        }
+        else{
+            this.info("Sorry!, no record found.");
+            sb1.setPurchaseHeaderData(null);
+        }
+        return null;
     }
 
 }

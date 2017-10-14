@@ -5,6 +5,7 @@
 
 package capstonewar;
 
+import admin.entity.DeliveryHeader;
 import admin.entity.Discount;
 import admin.entity.Package;
 import admin.entity.Product;
@@ -13,6 +14,7 @@ import admin.entity.ProductType;
 import admin.entity.ProductUnit;
 import admin.entity.ProductVariance;
 import admin.entity.Promo;
+import admin.entity.PurchaseHeader;
 import admin.entity.Supplier;
 import admin.entity.SupplierContact;
 import admin.entity.SupplierPerson;
@@ -89,6 +91,80 @@ public class SessionBean1 extends AbstractSessionBean {
     private Discount[] discountData;
     private Discount discountEdit;
     private Discount[] discountEditArray;
+    private PurchaseHeader purchaseHeader;
+    private PurchaseHeader[] PurchaseHeaderData;
+    private PurchaseHeader PurchaseHeaderEdit;
+    private PurchaseHeader[] PurchaseHeaderEditArray;
+    private DeliveryHeader deliveryHeader;
+    private DeliveryHeader[] deliveryHeaderData;
+    private DeliveryHeader deliveryHeaderEdit;
+    private DeliveryHeader[] deliveryHeaderEditArray;
+
+    public DeliveryHeader getDeliveryHeader() {
+        return deliveryHeader;
+    }
+
+    public void setDeliveryHeader(DeliveryHeader deliveryHeader) {
+        this.deliveryHeader = deliveryHeader;
+    }
+
+    public DeliveryHeader[] getDeliveryHeaderData() {
+        return deliveryHeaderData;
+    }
+
+    public void setDeliveryHeaderData(DeliveryHeader[] deliveryHeaderData) {
+        this.deliveryHeaderData = deliveryHeaderData;
+    }
+
+    public DeliveryHeader getDeliveryHeaderEdit() {
+        return deliveryHeaderEdit;
+    }
+
+    public void setDeliveryHeaderEdit(DeliveryHeader deliveryHeaderEdit) {
+        this.deliveryHeaderEdit = deliveryHeaderEdit;
+    }
+
+    public DeliveryHeader[] getDeliveryHeaderEditArray() {
+        return deliveryHeaderEditArray;
+    }
+
+    public void setDeliveryHeaderEditArray(DeliveryHeader[] deliveryHeaderEditArray) {
+        this.deliveryHeaderEditArray = deliveryHeaderEditArray;
+    }
+
+    public PurchaseHeader[] getPurchaseHeaderData() {
+        return PurchaseHeaderData;
+    }
+
+    public void setPurchaseHeaderData(PurchaseHeader[] PurchaseHeaderData) {
+        this.PurchaseHeaderData = PurchaseHeaderData;
+    }
+
+    public PurchaseHeader getPurchaseHeaderEdit() {
+        return PurchaseHeaderEdit;
+    }
+
+    public void setPurchaseHeaderEdit(PurchaseHeader PurchaseHeaderEdit) {
+        this.PurchaseHeaderEdit = PurchaseHeaderEdit;
+    }
+
+    public PurchaseHeader[] getPurchaseHeaderEditArray() {
+        return PurchaseHeaderEditArray;
+    }
+
+    public void setPurchaseHeaderEditArray(PurchaseHeader[] PurchaseHeaderEditArray) {
+        this.PurchaseHeaderEditArray = PurchaseHeaderEditArray;
+    }
+
+    public PurchaseHeader getPurchaseHeader() {
+        return purchaseHeader;
+    }
+
+    public void setPurchaseHeader(PurchaseHeader purchaseHeader) {
+        this.purchaseHeader = purchaseHeader;
+    }
+
+    
 
     public Discount getDiscount() {
         return discount;
