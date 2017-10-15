@@ -15,6 +15,7 @@ import admin.entity.ProductUnit;
 import admin.entity.ProductVariance;
 import admin.entity.Promo;
 import admin.entity.PurchaseHeader;
+import admin.entity.SalesHeader;
 import admin.entity.Supplier;
 import admin.entity.SupplierContact;
 import admin.entity.SupplierPerson;
@@ -99,6 +100,43 @@ public class SessionBean1 extends AbstractSessionBean {
     private DeliveryHeader[] deliveryHeaderData;
     private DeliveryHeader deliveryHeaderEdit;
     private DeliveryHeader[] deliveryHeaderEditArray;
+    private SalesHeader salesHeader;
+    private SalesHeader[] salesHeaderData;
+    private SalesHeader salesHeaderEdit;
+    private SalesHeader[] salesHeadertArray;
+
+    public SalesHeader getSalesHeader() {
+        return salesHeader;
+    }
+
+    public void setSalesHeader(SalesHeader salesHeader) {
+        this.salesHeader = salesHeader;
+    }
+
+    public SalesHeader[] getSalesHeaderData() {
+        return salesHeaderData;
+    }
+
+    public void setSalesHeaderData(SalesHeader[] salesHeaderData) {
+        this.salesHeaderData = salesHeaderData;
+    }
+
+    public SalesHeader getSalesHeaderEdit() {
+        return salesHeaderEdit;
+    }
+
+    public void setSalesHeaderEdit(SalesHeader salesHeaderEdit) {
+        this.salesHeaderEdit = salesHeaderEdit;
+    }
+
+    public SalesHeader[] getSalesHeadertArray() {
+        return salesHeadertArray;
+    }
+
+    public void setSalesHeadertArray(SalesHeader[] salesHeadertArray) {
+        this.salesHeadertArray = salesHeadertArray;
+    }
+
 
     public DeliveryHeader getDeliveryHeader() {
         return deliveryHeader;

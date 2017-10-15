@@ -45,6 +45,8 @@
                             <webuijsf:hyperlink actionExpression="#{pages$Menu.btnDiscount_action}" binding="#{pages$Menu.btnDiscount}" id="btnDiscount"
                                 style="background-color: rgb(34, 45, 50); color: rgb(255, 255, 255); font-size: 18px; font-style: normal; left: 82px; top: 336px; position: absolute" text="Discount"/>
                             <webuijsf:image height="40" id="image1" style="left: 20px; top: 53px; position: absolute" url="/resources/logo.png" width="40"/>
+                            <webuijsf:hyperlink actionExpression="#{pages$Menu.btnSales_action}" binding="#{pages$Menu.btnSales}" id="btnSales"
+                                style="background-color: rgb(34, 45, 50); color: rgb(255, 255, 255); font-size: 18px; font-style: normal; left: 65px; top: 450px; position: absolute" text="Point of Sales"/>
                         </webuijsf:panelLayout>
                         <webuijsf:panelLayout id="layoutPanel2" panelLayout="flow" style="background-color: #3c8dbc; height: 50px; left: 0px; top: 0px; position: absolute; width: 1363px">
                             <webuijsf:label id="label1" style="color: rgb(255, 255, 255); font-size: 20px; left: 87px; top: 13px; position: absolute" text="iAyos"/>

@@ -151,6 +151,15 @@ public class Menu extends AbstractPageBean {
     public void setBtnDiscount(Hyperlink h) {
         this.btnDiscount = h;
     }
+    private Hyperlink btnSales = new Hyperlink();
+
+    public Hyperlink getBtnSales() {
+        return btnSales;
+    }
+
+    public void setBtnSales(Hyperlink h) {
+        this.btnSales = h;
+    }
 
     // </editor-fold>
 
@@ -392,6 +401,12 @@ public class Menu extends AbstractPageBean {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
         return "case17";
+    }
+
+    public String btnSales_action() {
+        // TODO: Process the action. Return value is a navigation
+        // case name where null will return to the same page.
+        return "case18";
     }
     
 }
