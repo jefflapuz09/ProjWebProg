@@ -32,7 +32,7 @@ public interface SupplierFacadeLocal {
 
     public List<Supplier> findthisRecord(String search);
 
-
+    public boolean checkSupplier(String supplierName);
 
 
 }

@@ -303,6 +303,9 @@ public class ProductVarianceUpdate extends AbstractPageBean {
             units = (String) unit.getValue();
             dim = (String) txtDimension.getText();
 
+            boolean checkProductVariance = productVarianceFacade.checkItemName(name);
+            if(checkProductVariance)
+            {
             ProductVariance pVariance = new ProductVariance();
             pVariance.setIsActive(true);
             pVariance.setName(name);
@@ -311,6 +314,11 @@ public class ProductVarianceUpdate extends AbstractPageBean {
             pVariance.setProdType(ptype);
             productVarianceFacade.edit(pVariance);
             this.info("Sucessfully Saved!");
+            }
+            if(checkProductVariance == false)
+            {
+                this.info("Product Variance Name Already Taken!");
+            }
 
         }
         catch(NullPointerException e)

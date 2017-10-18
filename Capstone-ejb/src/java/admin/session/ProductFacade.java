@@ -69,4 +69,16 @@ public class ProductFacade implements ProductFacadeLocal {
         return false;
     }
 
+    public boolean checkItemName(String prod) {
+        List<Product> i = em.createNamedQuery("Product.checkItemName")
+                .setParameter(1, prod)
+                .getResultList();
+        if(i.size() == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 }

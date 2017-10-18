@@ -225,7 +225,7 @@ public class PackageMaintenance extends AbstractPageBean {
 
     public String btnNew_action() {
         // TODO: Replace with your code
-        return null;
+        return "case2";
     }
 
     public String btnUpdate_action() {

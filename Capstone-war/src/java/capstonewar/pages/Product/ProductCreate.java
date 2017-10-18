@@ -355,6 +355,8 @@ public class ProductCreate extends AbstractPageBean {
             price = Double.parseDouble(txtPrice.getText().toString());
             prodbrand =  Integer.parseInt(brand.getValue().toString());
 
+            
+
             Product product = new Product();
             product.setIsActive(true);
             product.setName(prod);
@@ -369,8 +371,9 @@ public class ProductCreate extends AbstractPageBean {
             product.setIsActive(true);
             productFacade.create(product);
             this.info("Successfully Saved Record!");
-
-
+            
+           
+    
             
            
         }

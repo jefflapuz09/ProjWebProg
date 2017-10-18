@@ -31,7 +31,8 @@ import javax.persistence.Transient;
 @NamedQueries({@NamedQuery(name = "ProductVariance.findAll", query = "SELECT p FROM ProductVariance p"), @NamedQuery(name = "ProductVariance.findById", query = "SELECT p FROM ProductVariance p WHERE p.id = :id"), @NamedQuery(name = "ProductVariance.findByName", query = "SELECT p FROM ProductVariance p WHERE p.name = :name"), @NamedQuery(name = "ProductVariance.findByIsActive", query = "SELECT p FROM ProductVariance p WHERE p.isActive = :isActive")})
 
 @NamedNativeQueries({
-    @NamedNativeQuery(name="ProductVariance.findByName",query="Select * from product_variance where name=?",resultClass=ProductVariance.class)
+    @NamedNativeQuery(name="ProductVariance.findByName",query="Select * from product_variance where name=?",resultClass=ProductVariance.class),
+    @NamedNativeQuery(name="ProductVariance.checkItemName",query="Select * from product_variance where name=?",resultClass=ProductVariance.class)
 
 
 })

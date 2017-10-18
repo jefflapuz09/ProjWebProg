@@ -69,4 +69,16 @@ public class ProductBrandFacade implements ProductBrandFacadeLocal {
         return false;
     }
 
+    public boolean checkItemName(String name) {
+        List<ProductBrand> i = em.createNamedQuery("ProductBrand.checkItemName")
+                .setParameter(1, name)
+                .getResultList();
+        if(i.size() == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 }

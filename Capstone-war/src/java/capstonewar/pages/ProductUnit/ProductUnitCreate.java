@@ -226,6 +226,11 @@ public class ProductUnitCreate extends AbstractPageBean {
             unitDesc = (String) txtDesc.getText();
 //            unitCategory =  Short.parseInt(category.getValue().toString());
             unitCategory = Short.parseShort(category.getValue().toString());
+
+            boolean checkProductUnit = productUnitFacade.checkItemName(unitName);
+
+            if(checkProductUnit)
+            {
             ProductUnit pUnit = new ProductUnit();
             pUnit.setName(unitName);
             pUnit.setDescription(unitDesc);
@@ -233,6 +238,11 @@ public class ProductUnitCreate extends AbstractPageBean {
             pUnit.setIsActive(true);
             productUnitFacade.create(pUnit);
             this.info("Data inserted!");
+            }
+            if(checkProductUnit == false)
+            {
+                this.info("Product Unit Already Taken!");
+            }
           
 
         }

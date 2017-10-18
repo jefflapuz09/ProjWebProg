@@ -479,6 +479,10 @@
             <from-outcome>case1</from-outcome>
             <to-view-id>/pages/Menu.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Package/PackageCreate.jsp</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pages/Promo/PromoMaintenance.jsp</from-view-id>
@@ -560,6 +564,22 @@
         <navigation-case>
             <from-outcome>case1</from-outcome>
             <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>pages$Package$PackageCreate</managed-bean-name>
+        <managed-bean-class>capstonewar.pages.Package.PackageCreate</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/pages/Package/PackageCreate.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>case1</from-outcome>
+            <to-view-id>/pages/Menu.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/pages/Package/PackageMaintenance.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

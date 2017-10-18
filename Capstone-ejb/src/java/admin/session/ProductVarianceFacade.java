@@ -68,4 +68,16 @@ public class ProductVarianceFacade implements ProductVarianceFacadeLocal {
         }
         return false;
     }
+
+    public boolean checkItemName(String name) {
+        List<ProductVariance> i = em.createNamedQuery("ProductVariance.checkItemName")
+                .setParameter(1, name)
+                .getResultList();
+        if(i.size() == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

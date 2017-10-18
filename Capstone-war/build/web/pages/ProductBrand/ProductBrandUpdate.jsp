@@ -30,7 +30,7 @@
                             binding="#{pages$ProductBrand$ProductBrandUpdate.btnBack}" id="btnBack" style="left: 287px; top: 456px; position: absolute" text="Back"/>
                         <webuijsf:label id="label4" style="position: absolute; left: 288px; top: 264px" text="Product Type(s)*"/>
                         <webuijsf:dropDown binding="#{pages$ProductBrand$ProductBrandUpdate.ptype}" id="ptype"
-                            items="#{pages$ProductBrand$ProductBrandCreate.ptypeDefaultOptions.options}"
+                            items="#{pages$ProductBrand$ProductBrandUpdate.ptypeDefaultOptions.options}"
                             style="font-size: 18px; left: 288px; top: 288px; position: absolute" width="200"/>
                     </webuijsf:form>
                 </webuijsf:body>

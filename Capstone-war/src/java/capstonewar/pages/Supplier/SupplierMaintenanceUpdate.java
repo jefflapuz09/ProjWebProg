@@ -313,6 +313,9 @@ public class SupplierMaintenanceUpdate extends AbstractPageBean {
             brgy = (String) txtBrgy.getText();
             city = (String) txtCity.getText();
 
+            boolean checkSupplierName = supplierFacade.checkSupplier(supplierName);
+            if(checkSupplierName)
+            {
             Supplier supp = sb1.getSuppEntryforEdit();
             supp.setName(supplierName);
             supp.setStreet(st);
@@ -337,12 +340,18 @@ public class SupplierMaintenanceUpdate extends AbstractPageBean {
             supPerson.setSpContact(suppPContactNo);
             supPerson.setIsMain(true);
             supplierPersonFacade.edit(supPerson);
+
 //            supp.setContactNo(suppContactNo);
 //            supp.setContactPerson(suppContactName);
 
 
 
             this.info("Successfully Saved!");
+            }
+            if(checkSupplierName == false)
+            {
+                this.info("Supplier Name Already Taken!");
+            }
 
 
        }

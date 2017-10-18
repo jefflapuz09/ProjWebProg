@@ -242,12 +242,20 @@ public class ProductTypeCreate extends AbstractPageBean {
                 cat = "Category2";
             }
 
+            boolean checkProductType = productTypeFacade.checkItemName(name);
+            if(checkProductType)
+            {
             ProductType pType = new ProductType();
             pType.setIsActive(true);
             pType.setName(name);
             pType.setCategory(cat);
             productTypeFacade.create(pType);
             this.info("Successfully Saved Record!");
+            }
+            if(checkProductType == false)
+            {
+                this.info("Product Type Already Taken!");
+            }
 
         }
         catch(NullPointerException e)

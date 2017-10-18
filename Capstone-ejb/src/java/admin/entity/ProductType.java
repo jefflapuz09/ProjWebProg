@@ -31,7 +31,8 @@ import javax.persistence.Table;
 @NamedQueries({@NamedQuery(name = "ProductType.findAll", query = "SELECT p FROM ProductType p"), @NamedQuery(name = "ProductType.findById", query = "SELECT p FROM ProductType p WHERE p.id = :id"), @NamedQuery(name = "ProductType.findByName", query = "SELECT p FROM ProductType p WHERE p.name = :name"), @NamedQuery(name = "ProductType.findByCategory", query = "SELECT p FROM ProductType p WHERE p.category = :category"), @NamedQuery(name = "ProductType.findByIsActive", query = "SELECT p FROM ProductType p WHERE p.isActive = :isActive")})
 
 @NamedNativeQueries({
-    @NamedNativeQuery(name="ProductType.findByName",query="Select * from product_type where name=?",resultClass=ProductType.class)
+    @NamedNativeQuery(name="ProductType.findByName",query="Select * from product_type where name=?",resultClass=ProductType.class),
+    @NamedNativeQuery(name="ProductType.checkItemName",query="Select * from product_type where name=?",resultClass=ProductType.class)
  
 
 })

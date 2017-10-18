@@ -32,4 +32,6 @@ public interface ProductVarianceFacadeLocal {
 
     public List<ProductVariance> findthisRecord(String search);
 
+    public boolean checkItemName(String name);
+
 }

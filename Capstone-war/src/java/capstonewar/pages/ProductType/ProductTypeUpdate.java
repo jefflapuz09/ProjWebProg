@@ -257,13 +257,21 @@ public class ProductTypeUpdate extends AbstractPageBean {
             {
                 cat = "Category2";
             }
-
+            
+            boolean checkProductType = productTypeFacade.checkItemName(name);
+            if(checkProductType)
+            {
             ProductType pType = sb1.getProductTypeEdit();
             pType.setIsActive(true);
             pType.setName(name);
             pType.setCategory(cat);
             productTypeFacade.edit(pType);
             this.info("Successfully Updated Record!");
+            }
+            if(checkProductType == false)
+            {
+                this.info("Product Type Already Taken!");
+            }
 
         }
         catch(NullPointerException e)

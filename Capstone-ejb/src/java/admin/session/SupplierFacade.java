@@ -69,6 +69,17 @@ public class SupplierFacade implements SupplierFacadeLocal {
         return false;
     }
 
+    public boolean checkSupplier(String supplierName) {
+        List<Supplier> i = em.createNamedQuery("Supplier.checkSupplier")
+                .setParameter(1, supplierName)
+                .getResultList();
+        if(i.size() == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
   
 
 }

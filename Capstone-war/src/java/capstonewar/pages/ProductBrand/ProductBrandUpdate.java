@@ -15,6 +15,7 @@ import com.sun.webui.jsf.component.DropDown;
 import com.sun.webui.jsf.component.Hyperlink;
 import com.sun.webui.jsf.component.MessageGroup;
 import com.sun.webui.jsf.component.TextField;
+import com.sun.webui.jsf.model.SingleSelectOptionsList;
 import javax.ejb.EJB;
 import javax.faces.FacesException;
 import capstonewar.ApplicationBean1;
@@ -94,6 +95,15 @@ public class ProductBrandUpdate extends AbstractPageBean {
 
     public void setBtnMenu(Hyperlink h) {
         this.btnMenu = h;
+    }
+    private SingleSelectOptionsList ptypeDefaultOptions = new SingleSelectOptionsList();
+
+    public SingleSelectOptionsList getPtypeDefaultOptions() {
+        return ptypeDefaultOptions;
+    }
+
+    public void setPtypeDefaultOptions(SingleSelectOptionsList ssol) {
+        this.ptypeDefaultOptions = ssol;
     }
     private DropDown ptype = new DropDown();
 
@@ -180,7 +190,7 @@ public class ProductBrandUpdate extends AbstractPageBean {
         }
 
         Option[] brandOptionArr = brandOptions.toArray(new Option[0]);
-//        ptypeDefaultOptions.setOptions(brandOptionArr);
+        ptypeDefaultOptions.setOptions(brandOptionArr);
 
         SessionBean1 sb1 = this.getSessionBean1();
         ProductBrand brandEntry = sb1.getProductBrandEdit();
@@ -234,11 +244,19 @@ public class ProductBrandUpdate extends AbstractPageBean {
         {
             name = (String) txtName.getText();
 
+            boolean checkProductBrand = productBrandFacade.checkItemName(name);
+            if(checkProductBrand)
+            {
             ProductBrand pBrand = sb1.getProductBrandEdit();
             pBrand.setName(name);
             pBrand.setIsActive(true);
             productBrandFacade.edit(pBrand);
             this.info("Successfully updated record!");
+            }
+            if(checkProductBrand == false)
+            {
+                this.info("Product Type Already Taken!");
+            }
 
         }
         catch(NullPointerException e)

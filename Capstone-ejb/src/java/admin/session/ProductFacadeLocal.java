@@ -32,5 +32,7 @@ public interface ProductFacadeLocal {
 
     public List<Product> findthisRecord(String search);
 
+    public boolean checkItemName(String prod);
+
 
 }

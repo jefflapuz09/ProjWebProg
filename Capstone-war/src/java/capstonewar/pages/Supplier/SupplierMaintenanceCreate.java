@@ -289,6 +289,9 @@ public class SupplierMaintenanceCreate extends AbstractPageBean {
             brgy = (String) txtBrgy.getText();
             city = (String) txtCity.getText();
 
+            boolean checkSupplierName = supplierFacade.checkSupplier(supplierName);
+            if(checkSupplierName)
+            {
             Supplier supp = new Supplier();
             supp.setName(supplierName);
             supp.setStreet(st);
@@ -307,6 +310,7 @@ public class SupplierMaintenanceCreate extends AbstractPageBean {
             suppContact = (String) txtContact.getText();
             SupplierContact supContact = new SupplierContact();
             supContact.setScId(sid);
+            
             //supContact.setScId(Integer.parseInt(suppEntry.getId().toString()));
             supContact.setScNo(suppContact);
             supplierContactFacade.create(supContact);
@@ -326,6 +330,11 @@ public class SupplierMaintenanceCreate extends AbstractPageBean {
 
 
             this.info("Successfully Saved!");
+            }
+            if(checkSupplierName == false)
+            {
+                this.info("Supplier Name Already Taken!");
+            }
             //System.out.println("w"+suppId);
         return null;
     }

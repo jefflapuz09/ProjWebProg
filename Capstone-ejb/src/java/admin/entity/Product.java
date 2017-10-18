@@ -31,7 +31,8 @@ import javax.persistence.Table;
 
 
 @NamedNativeQueries({
-    @NamedNativeQuery(name="Product.findByName",query="Select * from product where name=?",resultClass=Product.class)
+    @NamedNativeQuery(name="Product.findByName",query="Select * from product where name=?",resultClass=Product.class),
+    @NamedNativeQuery(name="Product.checkItemName",query="Select * from product where name=?",resultClass=Product.class)
  
 
 })

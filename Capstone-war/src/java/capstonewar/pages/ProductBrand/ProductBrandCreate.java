@@ -246,11 +246,18 @@ public class ProductBrandCreate extends AbstractPageBean {
         {
             name = (String) txtName.getText();
 
+            boolean checkProductBrand = productBrandFacade.checkItemName(name);
+            if(checkProductBrand)
+            {
             ProductBrand pBrand = new ProductBrand();
             pBrand.setName(name);
             pBrand.setIsActive(true);
             productBrandFacade.create(pBrand);
-
+            }
+            if(checkProductBrand == false)
+            {
+                this.info("Product Type Already Taken!");
+            }
             //sb1.setProductBrand(pBrand);
 
 
