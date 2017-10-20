@@ -8,6 +8,7 @@ package capstonewar;
 import admin.entity.DeliveryHeader;
 import admin.entity.Discount;
 import admin.entity.Package;
+import admin.entity.PackageProduct;
 import admin.entity.Product;
 import admin.entity.ProductBrand;
 import admin.entity.ProductType;
@@ -104,6 +105,44 @@ public class SessionBean1 extends AbstractSessionBean {
     private SalesHeader[] salesHeaderData;
     private SalesHeader salesHeaderEdit;
     private SalesHeader[] salesHeadertArray;
+    private PackageProduct packageProduct;
+    private PackageProduct[] packageProductData;
+    private PackageProduct packageProductEdit;
+    private PackageProduct[] packageProductEditArray;
+
+    public PackageProduct getPackageProduct() {
+        return packageProduct;
+    }
+
+    public void setPackageProduct(PackageProduct packageProduct) {
+        this.packageProduct = packageProduct;
+    }
+
+    public PackageProduct[] getPackageProductData() {
+        return packageProductData;
+    }
+
+    public void setPackageProductData(PackageProduct[] packageProductData) {
+        this.packageProductData = packageProductData;
+    }
+
+    public PackageProduct getPackageProductEdit() {
+        return packageProductEdit;
+    }
+
+    public void setPackageProductEdit(PackageProduct packageProductEdit) {
+        this.packageProductEdit = packageProductEdit;
+    }
+
+    public PackageProduct[] getPackageProductEditArray() {
+        return packageProductEditArray;
+    }
+
+    public void setPackageProductEditArray(PackageProduct[] packageProductEditArray) {
+        this.packageProductEditArray = packageProductEditArray;
+    }
+
+    
 
     public SalesHeader getSalesHeader() {
         return salesHeader;

@@ -9,11 +9,13 @@ package capstonewar.pages.Package;
 import admin.session.PackageFacade;
 import admin.session.PackageFacadeLocal;
 import capstonewar.SessionBean1;
+import com.sun.data.provider.RowKey;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Button;
 import com.sun.webui.jsf.component.Checkbox;
 import com.sun.webui.jsf.component.Hyperlink;
 import com.sun.webui.jsf.component.Label;
+import com.sun.webui.jsf.component.TableRowGroup;
 import com.sun.webui.jsf.component.TextField;
 import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import java.util.List;
@@ -90,6 +92,33 @@ public class PackageMaintenance extends AbstractPageBean {
 
     public void setBtnNew(Button b) {
         this.btnNew = b;
+    }
+    private TableRowGroup tableRowGroup1 = new TableRowGroup();
+
+    public TableRowGroup getTableRowGroup1() {
+        return tableRowGroup1;
+    }
+
+    public void setTableRowGroup1(TableRowGroup trg) {
+        this.tableRowGroup1 = trg;
+    }
+    private Button btnUpdate = new Button();
+
+    public Button getBtnUpdate() {
+        return btnUpdate;
+    }
+
+    public void setBtnUpdate(Button b) {
+        this.btnUpdate = b;
+    }
+    private Button btnDelete = new Button();
+
+    public Button getBtnDelete() {
+        return btnDelete;
+    }
+
+    public void setBtnDelete(Button b) {
+        this.btnDelete = b;
     }
 
     // </editor-fold>
@@ -229,14 +258,34 @@ public class PackageMaintenance extends AbstractPageBean {
     }
 
     public String btnUpdate_action() {
-        // TODO: Process the action. Return value is a navigation
-        // case name where null will return to the same page.
-        return null;
+        RowKey rowKey = this.tableRowGroup1.getRowKey();
+        String rowId = "";
+        rowId = rowKey.getRowId();
+
+        SessionBean1 sb1 = this.getSessionBean1();
+        admin.entity.Package[] packEntryArray = sb1.getPackData();
+        admin.entity.Package listOfEntry = packEntryArray[Integer.parseInt(rowId)];
+        sb1.setPackEdit(listOfEntry);
+
+        return "case3";
     }
 
     public String btnDelete_action() {
-        // TODO: Process the action. Return value is a navigation
-        // case name where null will return to the same page.
+        RowKey rowKey = this.tableRowGroup1.getRowKey();
+
+        String rowId = "";
+
+        rowId = rowKey.getRowId();
+
+        SessionBean1 sb1 = this.getSessionBean1();
+        admin.entity.Package[] packArray = sb1.getPackData();
+        admin.entity.Package packForEdit = packArray[Integer.parseInt(rowId)];
+        sb1.setPackEdit(packForEdit);
+        admin.entity.Package pack = sb1.getPackEdit();
+        packageFacade.remove(pack);
+        sb1.setPackEditArray(null);
+
+        this.info("Successfully Removed");
         return null;
     }
     

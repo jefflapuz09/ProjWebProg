@@ -34,7 +34,8 @@
                             onClick="webui.suntheme4_2.common.timeoutSubmitForm(this.form, 'all');"
                             style="font-size: 18px; left: 336px; top: 192px; position: absolute" valueChangeListenerExpression="#{pages$Package$PackageMaintenance.all_processValueChange}"/>
                         <webuijsf:table augmentTitle="false" id="table1" style="height: 149px; left: 336px; top: 240px; position: absolute" title="Table" width="816">
-                            <webuijsf:tableRowGroup id="tableRowGroup1" rows="10" sourceData="#{SessionBean1.packData}" sourceVar="currentRow">
+                            <webuijsf:tableRowGroup binding="#{pages$Package$PackageMaintenance.tableRowGroup1}" id="tableRowGroup1" rows="10"
+                                sourceData="#{SessionBean1.packData}" sourceVar="currentRow">
                                 <webuijsf:tableColumn headerText="Package" id="tableColumn1" sort="name">
                                     <webuijsf:staticText id="staticText1" text="#{currentRow.value['name']}"/>
                                 </webuijsf:tableColumn>
@@ -42,10 +43,10 @@
                                     <webuijsf:staticText id="staticText2" text="#{currentRow.value['price']}"/>
                                 </webuijsf:tableColumn>
                                 <webuijsf:tableColumn align="center" headerText="Actions" id="tableColumn3" width="200">
-                                    <webuijsf:button actionExpression="#{pages$Package$PackageMaintenance.btnUpdate_action}" id="btnUpdate"
-                                        style="font-size: 18px" text="Update"/>
-                                    <webuijsf:button actionExpression="#{pages$Package$PackageMaintenance.btnDelete_action}" id="btnDelete"
-                                        style="font-size: 18px" text="Deactivate"/>
+                                    <webuijsf:button actionExpression="#{pages$Package$PackageMaintenance.btnUpdate_action}"
+                                        binding="#{pages$Package$PackageMaintenance.btnUpdate}" id="btnUpdate" style="font-size: 18px" text="Update"/>
+                                    <webuijsf:button actionExpression="#{pages$Package$PackageMaintenance.btnDelete_action}"
+                                        binding="#{pages$Package$PackageMaintenance.btnDelete}" id="btnDelete" style="font-size: 18px" text="Deactivate"/>
                                 </webuijsf:tableColumn>
                             </webuijsf:tableRowGroup>
                         </webuijsf:table>

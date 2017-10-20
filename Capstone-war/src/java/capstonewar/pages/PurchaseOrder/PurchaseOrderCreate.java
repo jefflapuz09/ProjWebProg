@@ -5,14 +5,26 @@
 
 package capstonewar.pages.PurchaseOrder;
 
+import admin.entity.Product;
+import admin.entity.Supplier;
+import admin.session.ProductFacadeLocal;
+import admin.session.SupplierFacadeLocal;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
+import com.sun.webui.jsf.component.Button;
+import com.sun.webui.jsf.component.Calendar;
+import com.sun.webui.jsf.component.DropDown;
 import com.sun.webui.jsf.component.Hyperlink;
+import com.sun.webui.jsf.component.TextArea;
 import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import com.sun.webui.jsf.model.SingleSelectOptionsList;
+import javax.ejb.EJB;
 import javax.faces.FacesException;
 import capstonewar.ApplicationBean1;
 import capstonewar.RequestBean1;
 import capstonewar.SessionBean1;
+import java.util.ArrayList;
+import java.util.List;
+import com.sun.webui.jsf.model.Option;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -27,6 +39,10 @@ import capstonewar.SessionBean1;
  */
 
 public class PurchaseOrderCreate extends AbstractPageBean {
+    @EJB
+    private ProductFacadeLocal productFacade;
+    @EJB
+    private SupplierFacadeLocal supplierFacade;
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
 
     /**
@@ -72,14 +88,86 @@ public class PurchaseOrderCreate extends AbstractPageBean {
     public void setDefaultTableDataProvider(DefaultTableDataProvider dtdp) {
         this.defaultTableDataProvider = dtdp;
     }
-    private Hyperlink btnMenu = new Hyperlink();
+    private Calendar purCalendar = new Calendar();
 
-    public Hyperlink getBtnMenu() {
-        return btnMenu;
+    public Calendar getPurCalendar() {
+        return purCalendar;
     }
 
-    public void setBtnMenu(Hyperlink h) {
-        this.btnMenu = h;
+    public void setPurCalendar(Calendar c) {
+        this.purCalendar = c;
+    }
+    private DropDown veh = new DropDown();
+
+    public DropDown getVeh() {
+        return veh;
+    }
+
+    public void setVeh(DropDown dd) {
+        this.veh = dd;
+    }
+    private Button save = new Button();
+
+    public Button getSave() {
+        return save;
+    }
+
+    public void setSave(Button b) {
+        this.save = b;
+    }
+    private TextArea textArea1 = new TextArea();
+
+    public TextArea getTextArea1() {
+        return textArea1;
+    }
+
+    public void setTextArea1(TextArea ta) {
+        this.textArea1 = ta;
+    }
+    private SingleSelectOptionsList suppDefaultOptions = new SingleSelectOptionsList();
+
+    public SingleSelectOptionsList getSuppDefaultOptions() {
+        return suppDefaultOptions;
+    }
+
+    public void setSuppDefaultOptions(SingleSelectOptionsList ssol) {
+        this.suppDefaultOptions = ssol;
+    }
+    private DropDown supp = new DropDown();
+
+    public DropDown getSupp() {
+        return supp;
+    }
+
+    public void setSupp(DropDown dd) {
+        this.supp = dd;
+    }
+    private SingleSelectOptionsList prodDefaultOptions = new SingleSelectOptionsList();
+
+    public SingleSelectOptionsList getProdDefaultOptions() {
+        return prodDefaultOptions;
+    }
+
+    public void setProdDefaultOptions(SingleSelectOptionsList ssol) {
+        this.prodDefaultOptions = ssol;
+    }
+    private DropDown prod = new DropDown();
+
+    public DropDown getProd() {
+        return prod;
+    }
+
+    public void setProd(DropDown dd) {
+        this.prod = dd;
+    }
+    private Hyperlink menu = new Hyperlink();
+
+    public Hyperlink getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Hyperlink h) {
+        this.menu = h;
     }
 
     // </editor-fold>
@@ -147,6 +235,35 @@ public class PurchaseOrderCreate extends AbstractPageBean {
      */
     @Override
     public void prerender() {
+        SessionBean1 sb1 = this.getSessionBean1();
+
+        List<Option> suppOption = new ArrayList<Option>();
+        List<Supplier> suppList = this.supplierFacade.findAll();
+        for(Supplier supp : suppList)
+        {
+            Option opt = new Option();
+            opt.setLabel(supp.getName());
+            opt.setValue(supp.getId());
+            suppOption.add(opt);
+
+
+        }
+        Option[] suppOptionArray = suppOption.toArray(new Option[0]);
+        suppDefaultOptions.setOptions(suppOptionArray);
+
+        List<Option> prodOption = new ArrayList<Option>();
+        List<Product> prodList = this.productFacade.findAll();
+        for(Product prod : prodList)
+        {
+            Option opt = new Option();
+            opt.setLabel(prod.getName());
+            opt.setValue(prod.getId());
+            prodOption.add(opt);
+
+
+        }
+        Option[] prodOptionArray = prodOption.toArray(new Option[0]);
+        prodDefaultOptions.setOptions(prodOptionArray);
     }
 
     /**
@@ -208,7 +325,19 @@ public class PurchaseOrderCreate extends AbstractPageBean {
     public String btnMenu_action() {
         // TODO: Process the action. Return value is a navigation
         // case name where null will return to the same page.
-        return "case1";
+        return null;
+    }
+
+    public String button1_action() {
+        // TODO: Process the action. Return value is a navigation
+        // case name where null will return to the same page.
+        return null;
+    }
+
+    public String menu_action() {
+        // TODO: Process the action. Return value is a navigation
+        // case name where null will return to the same page.
+        return "case3";
     }
     
 }

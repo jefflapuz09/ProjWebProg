@@ -15,16 +15,13 @@
                 <webuijsf:body id="body1" style="-rave-layout: grid; background-color: #e6ebf2">
                     <webuijsf:form id="form1">
                         <webuijsf:panelLayout id="layoutPanel1" panelLayout="flow" style="background-color: rgb(34, 45, 50); height: 662px; left: 0px; top: 0px; position: absolute; width: 238px">
-                            <webuijsf:hyperlink actionExpression="#{pages$PurchaseOrder$PurchaseOrderCreate.btnMenu_action}"
-                                binding="#{pages$PurchaseOrder$PurchaseOrderCreate.btnMenu}" id="btnMenu"
+                            <webuijsf:hyperlink actionExpression="#{pages$PurchaseOrder$PurchaseOrderCreate.menu_action}"
+                                binding="#{pages$PurchaseOrder$PurchaseOrderCreate.menu}" id="menu"
                                 style="background-color: rgb(34, 45, 50); color: rgb(204, 204, 204); font-size: 24px; font-style: normal; left: 58px; top: 220px; position: absolute" text="Main Menu"/>
                         </webuijsf:panelLayout>
                         <webuijsf:panelLayout id="layoutPanel2" panelLayout="flow" style="background-color: #3c8dbc; height: 50px; left: 0px; top: 0px; position: absolute; width: 1363px"/>
                         <webuijsf:label id="label2" style="font-size: 24px; left: 288px; top: 96px; position: absolute" text="Purchase Order"/>
                         <webuijsf:label id="label3" style="left: 312px; top: 144px; position: absolute" text="Purchase Order Details "/>
-                        <webuijsf:dropDown id="dropDown1" items="#{pages$PurchaseOrder$PurchaseOrderCreate.dropDown1DefaultOptions.options}" style="left: 360px; top: 240px; position: absolute"/>
-                        <webuijsf:dropDown id="dropDown2" items="#{pages$PurchaseOrder$PurchaseOrderCreate.dropDown2DefaultOptions.options}" style="left: 624px; top: 240px; position: absolute"/>
-                        <webuijsf:dropDown id="dropDown3" items="#{pages$PurchaseOrder$PurchaseOrderCreate.dropDown3DefaultOptions.options}" style="left: 888px; top: 240px; position: absolute"/>
                         <webuijsf:label id="label4" style="left: 360px; top: 192px; position: absolute" text="Date"/>
                         <webuijsf:label id="label5" style="left: 624px; top: 192px; position: absolute" text="Supplier *"/>
                         <webuijsf:label id="label6" style="left: 864px; top: 192px; position: absolute; width: 94px" text="Product Search"/>
@@ -33,29 +30,34 @@
                             <webuijsf:tableRowGroup id="tableRowGroup1" rows="10"
                                 sourceData="#{pages$PurchaseOrder$PurchaseOrderCreate.defaultTableDataProvider}" sourceVar="currentRow">
                                 <webuijsf:tableColumn headerText="Quantity" id="tableColumn1" sort="column1" width="89">
-                                    <webuijsf:staticText id="staticText1" text="#{currentRow.value['column1']}"/>
+                                    <webuijsf:textField id="textField1"/>
                                 </webuijsf:tableColumn>
                                 <webuijsf:tableColumn headerText="Product" id="tableColumn2" sort="column2" width="161">
                                     <webuijsf:staticText id="staticText2" text="#{currentRow.value['column2']}"/>
                                 </webuijsf:tableColumn>
                                 <webuijsf:tableColumn headerText="Vehicle" id="tableColumn3" sort="column3">
-                                    <webuijsf:staticText id="staticText3" text="#{currentRow.value['column3']}"/>
+                                    <webuijsf:dropDown binding="#{pages$PurchaseOrder$PurchaseOrderCreate.veh}" id="veh"/>
                                 </webuijsf:tableColumn>
                                 <webuijsf:tableColumn headerText="Unit Price" id="tableColumn4" width="119">
-                                    <webuijsf:staticText id="staticText4" text="Static Text"/>
+                                    <webuijsf:textField id="textField2" text="0.00"/>
                                 </webuijsf:tableColumn>
                                 <webuijsf:tableColumn headerText="Total Cost" id="tableColumn5" width="179">
                                     <webuijsf:staticText id="staticText5" text="Static Text"/>
                                 </webuijsf:tableColumn>
                                 <webuijsf:tableColumn headerText="Actions" id="tableColumn6" width="200">
-                                    <webuijsf:staticText id="staticText6" text="Static Text"/>
+                                    <webuijsf:button actionExpression="#{pages$PurchaseOrder$PurchaseOrderCreate.button1_action}" id="button1" text="Delete"/>
                                 </webuijsf:tableColumn>
                             </webuijsf:tableRowGroup>
                         </webuijsf:table>
                         <webuijsf:label id="label7" style="left: 312px; top: 504px; position: absolute" text="Remarks"/>
-                        <webuijsf:textArea columns="120" id="textArea1" rows="7" style="left: 312px; top: 528px; position: absolute"/>
-                        <webuijsf:button actionExpression="#{pages$PurchaseOrder$PurchaseOrderCreate.save_action}" id="save"
-                            style="left: 311px; top: 648px; position: absolute" text="Save"/>
+                        <webuijsf:textArea binding="#{pages$PurchaseOrder$PurchaseOrderCreate.textArea1}" columns="120" id="textArea1" rows="7" style="left: 312px; top: 528px; position: absolute"/>
+                        <webuijsf:button actionExpression="#{pages$PurchaseOrder$PurchaseOrderCreate.save_action}"
+                            binding="#{pages$PurchaseOrder$PurchaseOrderCreate.save}" id="save" style="left: 311px; top: 648px; position: absolute" text="Save"/>
+                        <webuijsf:calendar binding="#{pages$PurchaseOrder$PurchaseOrderCreate.purCalendar}" id="purCalendar" required="true" style="left: 312px; top: 216px; position: absolute"/>
+                        <webuijsf:dropDown binding="#{pages$PurchaseOrder$PurchaseOrderCreate.supp}" id="supp"
+                            items="#{pages$PurchaseOrder$PurchaseOrderCreate.suppDefaultOptions.options}" style="left: 624px; top: 216px; position: absolute"/>
+                        <webuijsf:dropDown binding="#{pages$PurchaseOrder$PurchaseOrderCreate.prod}" id="prod"
+                            items="#{pages$PurchaseOrder$PurchaseOrderCreate.prodDefaultOptions.options}" style="left: 864px; top: 216px; position: absolute"/>
                     </webuijsf:form>
                 </webuijsf:body>
             </webuijsf:html>
